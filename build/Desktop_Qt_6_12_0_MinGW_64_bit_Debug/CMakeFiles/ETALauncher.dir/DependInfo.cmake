@@ -1,0 +1,38 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
+# The set of languages for which implicit dependencies are needed:
+set(CMAKE_DEPENDS_LANGUAGES
+  )
+
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "" "ETALauncher_autogen/timestamp" "custom" "ETALauncher_autogen/deps"
+  "C:/Users/gabri/Documents/eta-launcher-cpp/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/ETALauncher_autogen/mocs_compilation.cpp" "CMakeFiles/ETALauncher.dir/ETALauncher_autogen/mocs_compilation.cpp.obj" "gcc" "CMakeFiles/ETALauncher.dir/ETALauncher_autogen/mocs_compilation.cpp.obj.d"
+  "C:/Users/gabri/Documents/eta-launcher-cpp/src/core/AuthManager.cpp" "CMakeFiles/ETALauncher.dir/src/core/AuthManager.cpp.obj" "gcc" "CMakeFiles/ETALauncher.dir/src/core/AuthManager.cpp.obj.d"
+  "C:/Users/gabri/Documents/eta-launcher-cpp/src/core/Config.cpp" "CMakeFiles/ETALauncher.dir/src/core/Config.cpp.obj" "gcc" "CMakeFiles/ETALauncher.dir/src/core/Config.cpp.obj.d"
+  "C:/Users/gabri/Documents/eta-launcher-cpp/src/core/GameManager.cpp" "CMakeFiles/ETALauncher.dir/src/core/GameManager.cpp.obj" "gcc" "CMakeFiles/ETALauncher.dir/src/core/GameManager.cpp.obj.d"
+  "C:/Users/gabri/Documents/eta-launcher-cpp/src/core/GitCloner.cpp" "CMakeFiles/ETALauncher.dir/src/core/GitCloner.cpp.obj" "gcc" "CMakeFiles/ETALauncher.dir/src/core/GitCloner.cpp.obj.d"
+  "C:/Users/gabri/Documents/eta-launcher-cpp/src/core/ShortcutManager.cpp" "CMakeFiles/ETALauncher.dir/src/core/ShortcutManager.cpp.obj" "gcc" "CMakeFiles/ETALauncher.dir/src/core/ShortcutManager.cpp.obj.d"
+  "C:/Users/gabri/Documents/eta-launcher-cpp/src/core/ThemeManager.cpp" "CMakeFiles/ETALauncher.dir/src/core/ThemeManager.cpp.obj" "gcc" "CMakeFiles/ETALauncher.dir/src/core/ThemeManager.cpp.obj.d"
+  "C:/Users/gabri/Documents/eta-launcher-cpp/src/core/UpdateChecker.cpp" "CMakeFiles/ETALauncher.dir/src/core/UpdateChecker.cpp.obj" "gcc" "CMakeFiles/ETALauncher.dir/src/core/UpdateChecker.cpp.obj.d"
+  "C:/Users/gabri/Documents/eta-launcher-cpp/src/main.cpp" "CMakeFiles/ETALauncher.dir/src/main.cpp.obj" "gcc" "CMakeFiles/ETALauncher.dir/src/main.cpp.obj.d"
+  "C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/GameCardWidget.cpp" "CMakeFiles/ETALauncher.dir/src/ui/GameCardWidget.cpp.obj" "gcc" "CMakeFiles/ETALauncher.dir/src/ui/GameCardWidget.cpp.obj.d"
+  "C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/InstallProgressDialog.cpp" "CMakeFiles/ETALauncher.dir/src/ui/InstallProgressDialog.cpp.obj" "gcc" "CMakeFiles/ETALauncher.dir/src/ui/InstallProgressDialog.cpp.obj.d"
+  "C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/LoginWidget.cpp" "CMakeFiles/ETALauncher.dir/src/ui/LoginWidget.cpp.obj" "gcc" "CMakeFiles/ETALauncher.dir/src/ui/LoginWidget.cpp.obj.d"
+  "C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/MainWindow.cpp" "CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj" "gcc" "CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj.d"
+  "C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/ProfileWidget.cpp" "CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj" "gcc" "CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj.d"
+  "C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/SettingsDialog.cpp" "CMakeFiles/ETALauncher.dir/src/ui/SettingsDialog.cpp.obj" "gcc" "CMakeFiles/ETALauncher.dir/src/ui/SettingsDialog.cpp.obj.d"
+  )
+
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
+  )
+
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_FORWARD_LINKED_INFO_FILES
+  )
+
+# Fortran module output directory.
+set(CMAKE_Fortran_TARGET_MODULE_DIR "")
