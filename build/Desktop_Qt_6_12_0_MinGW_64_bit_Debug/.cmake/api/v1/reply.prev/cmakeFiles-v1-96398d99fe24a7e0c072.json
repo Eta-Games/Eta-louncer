@@ -1540,6 +1540,9 @@
 		{
 			"isExternal" : true,
 			"path" : "C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6/Qt6Dependencies.cmake"
+		},
+		{
+			"path" : "resources.qrc"
 		}
 	],
 	"kind" : "cmakeFiles",

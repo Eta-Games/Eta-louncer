@@ -407,6 +407,7 @@ CMakeFiles/ETALauncher.dir/ETALauncher_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qsizepolicy.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qcursor.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qbitmap.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/QPixmap \
  C:\Users\gabri\Documents\eta-launcher-cpp\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\YPKJ5OE7LN/moc_InstallProgressDialog.cpp \
  C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/InstallProgressDialog.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QDialog \
@@ -420,7 +421,14 @@ CMakeFiles/ETALauncher.dir/ETALauncher_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qmainwindow.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qtabwidget.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QPoint \
+ C:\Users\gabri\Documents\eta-launcher-cpp\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\YPKJ5OE7LN/moc_ManageDialog.cpp \
+ C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/ManageDialog.h \
  C:\Users\gabri\Documents\eta-launcher-cpp\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\YPKJ5OE7LN/moc_ProfileWidget.cpp \
  C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/ProfileWidget.h \
  C:\Users\gabri\Documents\eta-launcher-cpp\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\YPKJ5OE7LN/moc_SettingsDialog.cpp \
- C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/SettingsDialog.h
+ C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/SettingsDialog.h \
+ C:\Users\gabri\Documents\eta-launcher-cpp\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\YPKJ5OE7LN/moc_ToggleSwitch.cpp \
+ C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/ToggleSwitch.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QAbstractButton \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/QColor

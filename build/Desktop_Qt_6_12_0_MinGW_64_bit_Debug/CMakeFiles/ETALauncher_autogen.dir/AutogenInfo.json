@@ -371,7 +371,8 @@
 		"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6/QtPublicWalkLibsHelpers.cmake",
 		"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6/QtPublicWindowsHelpers.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake",
-		"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6/Qt6Dependencies.cmake"
+		"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6/Qt6Dependencies.cmake",
+		"C:/Users/gabri/Documents/eta-launcher-cpp/resources.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "C:/Users/gabri/Documents/eta-launcher-cpp",
 	"CROSS_CONFIG" : false,
@@ -446,6 +447,12 @@
 			null
 		],
 		[
+			"C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/ManageDialog.h",
+			"Mu",
+			"YPKJ5OE7LN/moc_ManageDialog.cpp",
+			null
+		],
+		[
 			"C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/ProfileWidget.h",
 			"Mu",
 			"YPKJ5OE7LN/moc_ProfileWidget.cpp",
@@ -455,6 +462,12 @@
 			"C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/SettingsDialog.h",
 			"Mu",
 			"YPKJ5OE7LN/moc_SettingsDialog.cpp",
+			null
+		],
+		[
+			"C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/ToggleSwitch.h",
+			"Mu",
+			"YPKJ5OE7LN/moc_ToggleSwitch.cpp",
 			null
 		]
 	],
@@ -590,12 +603,22 @@
 			null
 		],
 		[
+			"C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/ManageDialog.cpp",
+			"Mu",
+			null
+		],
+		[
 			"C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/ProfileWidget.cpp",
 			"Mu",
 			null
 		],
 		[
 			"C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/SettingsDialog.cpp",
+			"Mu",
+			null
+		],
+		[
+			"C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/ToggleSwitch.cpp",
 			"Mu",
 			null
 		]

@@ -438,24 +438,28 @@ CMakeFiles/ETALauncher.dir/src/main.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qfile.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qfileinfo.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qtimezone.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/QFont \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qfont.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qendian.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/QFontDatabase \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qfontdatabase.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/QIcon \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qicon.h \
  C:\Users\gabri\Documents\eta-launcher-cpp\src\ui/MainWindow.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QMainWindow \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qmainwindow.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qwidget.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qaction.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qkeysequence.h \
- C:/Qt/6.12.0/mingw_64/include/QtGui/qicon.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qpalette.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qbrush.h \
- C:/Qt/6.12.0/mingw_64/include/QtGui/qfont.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qendian.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qfontmetrics.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qfontinfo.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qfontvariableaxis.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qsizepolicy.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qtabwidget.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/QPoint \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QMap \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QPoint \
  C:/Users/gabri/Documents/eta-launcher-cpp/src/core/AuthManager.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QObject \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QString \

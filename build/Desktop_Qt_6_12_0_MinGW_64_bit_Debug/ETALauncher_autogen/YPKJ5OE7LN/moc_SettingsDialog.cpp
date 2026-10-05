@@ -46,7 +46,7 @@ template <> constexpr inline auto SettingsDialog::qt_create_metaobjectdata<qt_me
 
     QtMocHelpers::UintData qt_methods {
         // Signal 'themeChanged'
-        QtMocHelpers::SignalData<void(QString)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+        QtMocHelpers::SignalData<void(const QString &)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
             { QMetaType::QString, 3 },
         }}),
     };
@@ -77,7 +77,7 @@ void SettingsDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         }
     }
     if (_c == QMetaObject::IndexOfMethod) {
-        if (QtMocHelpers::indexOfMethod<void (SettingsDialog::*)(QString )>(_a, &SettingsDialog::themeChanged, 0))
+        if (QtMocHelpers::indexOfMethod<void (SettingsDialog::*)(const QString & )>(_a, &SettingsDialog::themeChanged, 0))
             return;
     }
 }
@@ -114,7 +114,7 @@ int SettingsDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void SettingsDialog::themeChanged(QString _t1)
+void SettingsDialog::themeChanged(const QString & _t1)
 {
     QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1);
 }

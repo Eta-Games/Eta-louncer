@@ -137,6 +137,8 @@ ETALauncher_autogen/timestamp: \
 	C:/Qt/6.12.0/mingw_64/include/QtCore/qversiontagging.h \
 	C:/Qt/6.12.0/mingw_64/include/QtCore/qxptype_traits.h \
 	C:/Qt/6.12.0/mingw_64/include/QtCore/qyieldcpu.h \
+	C:/Qt/6.12.0/mingw_64/include/QtGui/QColor \
+	C:/Qt/6.12.0/mingw_64/include/QtGui/QPixmap \
 	C:/Qt/6.12.0/mingw_64/include/QtGui/qaction.h \
 	C:/Qt/6.12.0/mingw_64/include/QtGui/qbitmap.h \
 	C:/Qt/6.12.0/mingw_64/include/QtGui/qbrush.h \
@@ -163,10 +165,12 @@ ETALauncher_autogen/timestamp: \
 	C:/Qt/6.12.0/mingw_64/include/QtGui/qtransform.h \
 	C:/Qt/6.12.0/mingw_64/include/QtGui/qwindowdefs.h \
 	C:/Qt/6.12.0/mingw_64/include/QtGui/qwindowdefs_win.h \
+	C:/Qt/6.12.0/mingw_64/include/QtWidgets/QAbstractButton \
 	C:/Qt/6.12.0/mingw_64/include/QtWidgets/QDialog \
 	C:/Qt/6.12.0/mingw_64/include/QtWidgets/QFrame \
 	C:/Qt/6.12.0/mingw_64/include/QtWidgets/QMainWindow \
 	C:/Qt/6.12.0/mingw_64/include/QtWidgets/QWidget \
+	C:/Qt/6.12.0/mingw_64/include/QtWidgets/qabstractbutton.h \
 	C:/Qt/6.12.0/mingw_64/include/QtWidgets/qdialog.h \
 	C:/Qt/6.12.0/mingw_64/include/QtWidgets/qframe.h \
 	C:/Qt/6.12.0/mingw_64/include/QtWidgets/qmainwindow.h \
@@ -644,6 +648,7 @@ ETALauncher_autogen/timestamp: \
 	C:/Users/gabri/Documents/eta-launcher-cpp/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
 	C:/Users/gabri/Documents/eta-launcher-cpp/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
 	C:/Users/gabri/Documents/eta-launcher-cpp/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/ETALauncher_autogen/moc_predefs.h \
+	C:/Users/gabri/Documents/eta-launcher-cpp/resources.qrc \
 	C:/Users/gabri/Documents/eta-launcher-cpp/src/core/AuthManager.cpp \
 	C:/Users/gabri/Documents/eta-launcher-cpp/src/core/AuthManager.h \
 	C:/Users/gabri/Documents/eta-launcher-cpp/src/core/Config.cpp \
@@ -668,8 +673,12 @@ ETALauncher_autogen/timestamp: \
 	C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/LoginWidget.h \
 	C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/MainWindow.cpp \
 	C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/MainWindow.h \
+	C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/ManageDialog.cpp \
+	C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/ManageDialog.h \
 	C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/ProfileWidget.cpp \
 	C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/ProfileWidget.h \
 	C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/SettingsDialog.cpp \
 	C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/SettingsDialog.h \
+	C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/ToggleSwitch.cpp \
+	C:/Users/gabri/Documents/eta-launcher-cpp/src/ui/ToggleSwitch.h \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe

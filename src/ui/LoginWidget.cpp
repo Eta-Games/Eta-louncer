@@ -3,6 +3,7 @@
 #include <QHBoxLayout>
 #include <QLineEdit>
 #include <QLabel>
+#include <QFrame>
 #include <QPushButton>
 #include <QPixmap>
 #include <QDesktopServices>
@@ -11,13 +12,22 @@
 LoginWidget::LoginWidget(AuthManager* auth, QWidget* parent)
     : QWidget(parent), m_auth(auth) {
 
-    auto* root = new QVBoxLayout(this);
-    root->setAlignment(Qt::AlignCenter);
-    root->setSpacing(14);
+    auto* outer = new QVBoxLayout(this);
+    outer->setAlignment(Qt::AlignCenter);
+
+    // Pannello centrale in stile card del sito
+    auto* panel = new QFrame;
+    panel->setObjectName("Panel");
+    panel->setFixedWidth(380);
+    outer->addWidget(panel, 0, Qt::AlignCenter);
+
+    auto* root = new QVBoxLayout(panel);
+    root->setContentsMargins(32, 28, 32, 28);
+    root->setSpacing(12);
 
     auto* logo = new QLabel;
-    QPixmap pix("logo.png");
-    if (!pix.isNull()) logo->setPixmap(pix.scaledToWidth(96, Qt::SmoothTransformation));
+    QPixmap pix(":/logo.png");
+    if (!pix.isNull()) logo->setPixmap(pix.scaledToWidth(88, Qt::SmoothTransformation));
     logo->setAlignment(Qt::AlignCenter);
     root->addWidget(logo);
 
@@ -30,31 +40,31 @@ LoginWidget::LoginWidget(AuthManager* auth, QWidget* parent)
     subtitle->setObjectName("Muted");
     subtitle->setAlignment(Qt::AlignCenter);
     subtitle->setWordWrap(true);
-    subtitle->setFixedWidth(300);
-    root->addWidget(subtitle, 0, Qt::AlignCenter);
+    root->addWidget(subtitle);
+    root->addSpacing(6);
 
     m_email = new QLineEdit; m_email->setPlaceholderText("Email");
-    m_email->setFixedWidth(280);
     m_pass = new QLineEdit; m_pass->setPlaceholderText("Password");
     m_pass->setEchoMode(QLineEdit::Password);
-    m_pass->setFixedWidth(280);
-    root->addWidget(m_email, 0, Qt::AlignCenter);
-    root->addWidget(m_pass, 0, Qt::AlignCenter);
+    connect(m_pass, &QLineEdit::returnPressed, this, &LoginWidget::doLogin);
+    root->addWidget(m_email);
+    root->addWidget(m_pass);
 
     m_error = new QLabel;
     m_error->setStyleSheet("color: #ff5566;");
     m_error->setAlignment(Qt::AlignCenter);
+    m_error->setWordWrap(true);
     m_error->hide();
     root->addWidget(m_error);
 
     m_loginBtn = new QPushButton("Accedi");
-    m_loginBtn->setFixedWidth(280);
+    m_loginBtn->setCursor(Qt::PointingHandCursor);
     connect(m_loginBtn, &QPushButton::clicked, this, &LoginWidget::doLogin);
-    root->addWidget(m_loginBtn, 0, Qt::AlignCenter);
+    root->addWidget(m_loginBtn);
 
     m_googleBtn = new QPushButton("Accedi con Google");
     m_googleBtn->setObjectName("Secondary");
-    m_googleBtn->setFixedWidth(280);
+    m_googleBtn->setCursor(Qt::PointingHandCursor);
     connect(m_googleBtn, &QPushButton::clicked, this, [this]() {
         m_googleBtn->setEnabled(false);
         m_googleBtn->setText("Apertura browser…");
@@ -62,13 +72,7 @@ LoginWidget::LoginWidget(AuthManager* auth, QWidget* parent)
         // Il risultato arriva in modo asincrono via deep link (etagames://auth?...),
         // intercettato da MainWindow/main.cpp e inoltrato ad AuthManager.
     });
-    root->addWidget(m_googleBtn, 0, Qt::AlignCenter);
-
-    auto* skipBtn = new QPushButton("Continua senza account");
-    skipBtn->setObjectName("Secondary");
-    skipBtn->setFixedWidth(280);
-    connect(skipBtn, &QPushButton::clicked, this, [this]() { emit skipped(); });
-    root->addWidget(skipBtn, 0, Qt::AlignCenter);
+    root->addWidget(m_googleBtn);
 
     connect(m_auth, &AuthManager::loginSucceeded, this, [this](AuthUser u) {
         m_loginBtn->setEnabled(true);

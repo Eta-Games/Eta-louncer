@@ -58,7 +58,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 29,
+				"line" : 32,
 				"parent" : 0
 			},
 			{
@@ -290,7 +290,7 @@
 			{
 				"command" : 9,
 				"file" : 0,
-				"line" : 28,
+				"line" : 31,
 				"parent" : 0
 			}
 		]
@@ -426,7 +426,10 @@
 				11,
 				12,
 				13,
-				14
+				14,
+				15,
+				16,
+				19
 			]
 		}
 	],
@@ -557,21 +560,32 @@
 				11,
 				12,
 				13,
-				14
+				14,
+				15,
+				16,
+				19
+			]
+		},
+		{
+			"name" : "Resources",
+			"sourceIndexes" : 
+			[
+				17
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				15
+				18
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				16
+				20,
+				21
 			]
 		}
 	],
@@ -669,16 +683,46 @@
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 0,
-			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/ETALauncher_autogen/timestamp",
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/ui/ManageDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/ui/ToggleSwitch.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "resources.qrc",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/ETALauncher_autogen/timestamp.rule",
+			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/ETALauncher_autogen/timestamp",
 			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/ETALauncher_autogen/timestamp.rule",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp.rule",
+			"sourceGroupIndex" : 3
 		}
 	],
 	"type" : "EXECUTABLE"

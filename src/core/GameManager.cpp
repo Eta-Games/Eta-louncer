@@ -12,7 +12,9 @@
 #include <QUrl>
 
 static const QStringList WAD_EXTS = {".wad", ".pk3", ".pk7", ".ipk3"};
-static const QStringList WAD_SKIP = {"doom2.wad", "doom.wad", "heretic.wad", "hexen.wad", "strife1.wad", "gzdoom.pk3"};
+static const QStringList WAD_SKIP = {"doom2.wad", "doom.wad", "heretic.wad", "hexen.wad", "strife1.wad", "gzdoom.pk3",
+                                 // file di supporto di GZDoom: li carica da solo l'exe, non vanno passati con -file
+                                 "game_support.pk3", "game_widescreen_gfx.pk3", "brightmaps.pk3", "lights.pk3"};
 
 GameManager::GameManager(QObject* parent) : QObject(parent) {}
 
@@ -87,7 +89,7 @@ void GameManager::installGame(const GameEntry& game, const QString& customInstal
         m_cloner = nullptr;
     });
 
-    m_cloner->start(game.repoUrl, gameDir, game.version);
+    m_cloner->start(game.repoUrl, gameDir, game.branch);
 }
 
 QString GameManager::launchGame(const QString& id) {
@@ -97,13 +99,20 @@ QString GameManager::launchGame(const QString& id) {
 
     GameMeta meta = loadMeta(id);
 
-    QString exeName = "gzdoom.exe";
+    // GZDoom è già dentro la repo del gioco: lo cerchiamo lì (il path nelle impostazioni resta solo come ripiego)
+#ifdef Q_OS_WIN
+    const QString exeName = "gzdoom.exe";
+#else
+    const QString exeName = "gzdoom";
+#endif
     QString gzdoomExe = QDir(gameDir).filePath(exeName);
     if (!QFile::exists(gzdoomExe)) gzdoomExe = findFileRecursive(gameDir, exeName, false);
     if (gzdoomExe.isEmpty() || !QFile::exists(gzdoomExe)) gzdoomExe = Config::instance().gzdoomPath();
-    if (gzdoomExe.isEmpty() || !QFile::exists(gzdoomExe)) return "doom2_missing";
+    if (gzdoomExe.isEmpty() || !QFile::exists(gzdoomExe)) return "gzdoom_missing";
 
+    // doom2.wad: prima quello scelto nella gestione del gioco, poi il vecchio path globale, poi la cartella del gioco
     QString doom2wad = meta.doom2WadPath.isEmpty() ? Config::instance().doom2WadPath() : meta.doom2WadPath;
+    if (doom2wad.isEmpty() || !QFile::exists(doom2wad)) doom2wad = findFileRecursive(gameDir, "doom2.wad", false);
     if (doom2wad.isEmpty() || !QFile::exists(doom2wad)) return "doom2_missing";
 
     QStringList wads = meta.wadFiles;

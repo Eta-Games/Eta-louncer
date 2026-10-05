@@ -302,4 +302,5 @@ CMakeFiles/ETALauncher.dir/src/core/ThemeManager.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qtgui-config.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qtguiexports.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qrgb.h \
- C:/Qt/6.12.0/mingw_64/include/QtGui/qrgba64.h
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qrgba64.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QPair

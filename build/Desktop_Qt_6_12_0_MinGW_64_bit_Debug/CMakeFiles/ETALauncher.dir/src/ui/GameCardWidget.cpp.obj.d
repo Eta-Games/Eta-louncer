@@ -386,9 +386,17 @@ CMakeFiles/ETALauncher.dir/src/ui/GameCardWidget.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qsizepolicy.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qcursor.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qbitmap.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/QPixmap \
  C:/Users/gabri/Documents/eta-launcher-cpp/src/core/GameCatalog.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QString \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QList \
+ C:\Users\gabri\Documents\eta-launcher-cpp\src\ui\CoverUtil.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/QPainter \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qpainter.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qtextoption.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qpen.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/QPainterPath \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qpainterpath.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QVBoxLayout \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qboxlayout.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qlayout.h \
@@ -403,4 +411,43 @@ CMakeFiles/ETALauncher.dir/src/ui/GameCardWidget.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qurl.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QPushButton \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qpushbutton.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qabstractbutton.h
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/QNetworkAccessManager \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/qnetworkaccessmanager.h \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/qtnetworkglobal.h \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/qtnetwork-config.h \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/qtnetworkexports.h \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/qnetworkrequest.h \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/qhttpheaders.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qdatetime.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcalendar.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qlocale.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qmetaobject.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QSharedDataPointer \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QString \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QUrl \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QVariant \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/q26numeric.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QList \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QObject \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/QSslConfiguration \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/qsslconfiguration.h \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/qsslsocket.h \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/qtcpsocket.h \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/qabstractsocket.h \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/qhostaddress.h \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/qsslerror.h \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/qsslcertificate.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcryptographichash.h \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/qssl.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QFlags \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QMetaType \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/QNetworkReply \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/qnetworkreply.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QIODevice \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/QNetworkRequest \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/QNetworkAccessManager \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/QNetworkRequest \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QUrl

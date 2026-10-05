@@ -13,6 +13,8 @@ struct GameEntry {
     QString engine;
     QString pageUrl;
     QString releasesApi; // GitHub API per il check aggiornamenti
+    QString branch;      // branch/tag da clonare (vuoto = default del repo)
+    bool needsDoom2Wad = false; // true = nella gestione del gioco compare la selezione di doom2.wad
 };
 
 // Sostituisce l'oggetto CATALOG definito in src/index.html.
@@ -30,7 +32,9 @@ inline const QList<GameEntry>& gameCatalog() {
             /*size*/        "41 MB",
             /*engine*/      "GZDoom",
             /*pageUrl*/     "https://eta-games.it/dantes_revenge.html",
-            /*releasesApi*/ "https://api.github.com/repos/Eta-Games/Dante-s-Revenge/releases/latest"
+            /*releasesApi*/ "https://api.github.com/repos/Eta-Games/Dante-s-Revenge/releases/latest",
+            /*branch*/      "main",
+            /*needsDoom2Wad*/ true
         }
     };
     return catalog;

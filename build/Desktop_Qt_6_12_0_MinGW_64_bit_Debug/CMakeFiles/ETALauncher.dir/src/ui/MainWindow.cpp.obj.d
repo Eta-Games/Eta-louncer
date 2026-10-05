@@ -387,8 +387,8 @@ CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qcursor.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qbitmap.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qtabwidget.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/QPoint \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QMap \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QPoint \
  C:/Users/gabri/Documents/eta-launcher-cpp/src/core/AuthManager.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QObject \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QString \
@@ -407,10 +407,12 @@ CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj: \
  C:\Users\gabri\Documents\eta-launcher-cpp\src\ui\GameCardWidget.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QFrame \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qframe.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/QPixmap \
  C:\Users\gabri\Documents\eta-launcher-cpp\src\ui\InstallProgressDialog.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QDialog \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qdialog.h \
  C:\Users\gabri\Documents\eta-launcher-cpp\src\ui\SettingsDialog.h \
+ C:\Users\gabri\Documents\eta-launcher-cpp\src\ui\ManageDialog.h \
  C:/Users/gabri/Documents/eta-launcher-cpp/src/core/Config.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QJsonObject \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonobject.h \
@@ -425,6 +427,9 @@ CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/quuid.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qjsondocument.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonparseerror.h \
+ C:/Users/gabri/Documents/eta-launcher-cpp/src/core/LauncherSettings.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QSettings \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qsettings.h \
  C:/Users/gabri/Documents/eta-launcher-cpp/src/core/ThemeManager.h \
  C:/Users/gabri/Documents/eta-launcher-cpp/src/core/ShortcutManager.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QVBoxLayout \
@@ -477,6 +482,8 @@ CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QScrollArea \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qscrollarea.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
- C:/Qt/6.12.0/mingw_64/include/QtGui/QPixmap \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QButtonGroup \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qbuttongroup.h
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qbuttongroup.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QTimer \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qtimer.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QCoreApplication

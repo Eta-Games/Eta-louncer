@@ -407,6 +407,7 @@ CMakeFiles/ETALauncher.dir/src/ui/LoginWidget.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qlabel.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qpicture.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qiodevice.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QFrame \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QPushButton \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qpushbutton.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qabstractbutton.h \

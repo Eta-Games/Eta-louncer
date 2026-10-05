@@ -3,6 +3,9 @@
 #include <QLocalSocket>
 #include <QSettings>
 #include <QDir>
+#include <QFont>
+#include <QFontDatabase>
+#include <QIcon>
 #include "ui/MainWindow.h"
 
 static const char* SINGLETON_KEY = "ETALauncherCpp-Singleton";
@@ -25,6 +28,15 @@ int main(int argc, char* argv[]) {
     QApplication app(argc, argv);
     app.setApplicationName("ETA Games Launcher");
     app.setOrganizationName("ETA-Games");
+    app.setApplicationVersion("1.0.0");
+    app.setWindowIcon(QIcon(":/logo.png"));
+
+    // Font del sito, incorporati nell'exe (non servono installati sul PC)
+    for (const char* f : {"Rajdhani-Bold", "Rajdhani-SemiBold", "Inter-Regular", "Inter-SemiBold"})
+        QFontDatabase::addApplicationFont(QString(":/fonts/%1.ttf").arg(f));
+    QFont base("Inter", 10);
+    base.setStyleStrategy(QFont::PreferAntialias);
+    app.setFont(base);
 
     registerProtocolHandlerWindows();
 

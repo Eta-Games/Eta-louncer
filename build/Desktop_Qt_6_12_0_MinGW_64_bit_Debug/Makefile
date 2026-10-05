@@ -154,6 +154,30 @@ ETALauncher_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher_autogen.dir\build.make CMakeFiles/ETALauncher_autogen.dir/build
 .PHONY : ETALauncher_autogen/fast
 
+ETALauncher_autogen/EWIEGA46WW/qrc_resources.obj: ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp.obj
+.PHONY : ETALauncher_autogen/EWIEGA46WW/qrc_resources.obj
+
+# target to build an object file
+ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp.obj
+.PHONY : ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp.obj
+
+ETALauncher_autogen/EWIEGA46WW/qrc_resources.i: ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp.i
+.PHONY : ETALauncher_autogen/EWIEGA46WW/qrc_resources.i
+
+# target to preprocess a source file
+ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp.i
+.PHONY : ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp.i
+
+ETALauncher_autogen/EWIEGA46WW/qrc_resources.s: ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp.s
+.PHONY : ETALauncher_autogen/EWIEGA46WW/qrc_resources.s
+
+# target to generate assembly for a file
+ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp.s
+.PHONY : ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp.s
+
 ETALauncher_autogen/mocs_compilation.obj: ETALauncher_autogen/mocs_compilation.cpp.obj
 .PHONY : ETALauncher_autogen/mocs_compilation.obj
 
@@ -466,6 +490,30 @@ src/ui/MainWindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.s
 .PHONY : src/ui/MainWindow.cpp.s
 
+src/ui/ManageDialog.obj: src/ui/ManageDialog.cpp.obj
+.PHONY : src/ui/ManageDialog.obj
+
+# target to build an object file
+src/ui/ManageDialog.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/ManageDialog.cpp.obj
+.PHONY : src/ui/ManageDialog.cpp.obj
+
+src/ui/ManageDialog.i: src/ui/ManageDialog.cpp.i
+.PHONY : src/ui/ManageDialog.i
+
+# target to preprocess a source file
+src/ui/ManageDialog.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/ManageDialog.cpp.i
+.PHONY : src/ui/ManageDialog.cpp.i
+
+src/ui/ManageDialog.s: src/ui/ManageDialog.cpp.s
+.PHONY : src/ui/ManageDialog.s
+
+# target to generate assembly for a file
+src/ui/ManageDialog.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/ManageDialog.cpp.s
+.PHONY : src/ui/ManageDialog.cpp.s
+
 src/ui/ProfileWidget.obj: src/ui/ProfileWidget.cpp.obj
 .PHONY : src/ui/ProfileWidget.obj
 
@@ -514,6 +562,30 @@ src/ui/SettingsDialog.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/SettingsDialog.cpp.s
 .PHONY : src/ui/SettingsDialog.cpp.s
 
+src/ui/ToggleSwitch.obj: src/ui/ToggleSwitch.cpp.obj
+.PHONY : src/ui/ToggleSwitch.obj
+
+# target to build an object file
+src/ui/ToggleSwitch.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/ToggleSwitch.cpp.obj
+.PHONY : src/ui/ToggleSwitch.cpp.obj
+
+src/ui/ToggleSwitch.i: src/ui/ToggleSwitch.cpp.i
+.PHONY : src/ui/ToggleSwitch.i
+
+# target to preprocess a source file
+src/ui/ToggleSwitch.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/ToggleSwitch.cpp.i
+.PHONY : src/ui/ToggleSwitch.cpp.i
+
+src/ui/ToggleSwitch.s: src/ui/ToggleSwitch.cpp.s
+.PHONY : src/ui/ToggleSwitch.s
+
+# target to generate assembly for a file
+src/ui/ToggleSwitch.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/ToggleSwitch.cpp.s
+.PHONY : src/ui/ToggleSwitch.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -525,6 +597,9 @@ help:
 	@echo ... ETALauncher_autogen
 	@echo ... ETALauncher_autogen_timestamp_deps
 	@echo ... ETALauncher
+	@echo ... ETALauncher_autogen/EWIEGA46WW/qrc_resources.obj
+	@echo ... ETALauncher_autogen/EWIEGA46WW/qrc_resources.i
+	@echo ... ETALauncher_autogen/EWIEGA46WW/qrc_resources.s
 	@echo ... ETALauncher_autogen/mocs_compilation.obj
 	@echo ... ETALauncher_autogen/mocs_compilation.i
 	@echo ... ETALauncher_autogen/mocs_compilation.s
@@ -564,12 +639,18 @@ help:
 	@echo ... src/ui/MainWindow.obj
 	@echo ... src/ui/MainWindow.i
 	@echo ... src/ui/MainWindow.s
+	@echo ... src/ui/ManageDialog.obj
+	@echo ... src/ui/ManageDialog.i
+	@echo ... src/ui/ManageDialog.s
 	@echo ... src/ui/ProfileWidget.obj
 	@echo ... src/ui/ProfileWidget.i
 	@echo ... src/ui/ProfileWidget.s
 	@echo ... src/ui/SettingsDialog.obj
 	@echo ... src/ui/SettingsDialog.i
 	@echo ... src/ui/SettingsDialog.s
+	@echo ... src/ui/ToggleSwitch.obj
+	@echo ... src/ui/ToggleSwitch.i
+	@echo ... src/ui/ToggleSwitch.s
 .PHONY : help
 
 

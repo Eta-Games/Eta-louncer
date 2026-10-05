@@ -7,5 +7,7 @@
 #include "YPKJ5OE7LN/moc_InstallProgressDialog.cpp"
 #include "YPKJ5OE7LN/moc_LoginWidget.cpp"
 #include "YPKJ5OE7LN/moc_MainWindow.cpp"
+#include "YPKJ5OE7LN/moc_ManageDialog.cpp"
 #include "YPKJ5OE7LN/moc_ProfileWidget.cpp"
 #include "YPKJ5OE7LN/moc_SettingsDialog.cpp"
+#include "YPKJ5OE7LN/moc_ToggleSwitch.cpp"
