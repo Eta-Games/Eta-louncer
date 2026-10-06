@@ -482,4 +482,8 @@ CMakeFiles/ETALauncher.dir/src/main.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QList \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/UpdateChecker.h \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/RepoUpdater.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/QSet
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QSet \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/SelfUpdater.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QDateTime \
+ C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core/Autostart.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QCoreApplication

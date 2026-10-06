@@ -375,6 +375,8 @@ CMakeFiles/ETALauncher.dir/ETALauncher_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QJsonArray \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonarray.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QJsonValue \
+ C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\PRMOGMWJPH/moc_FriendsManager.cpp \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/FriendsManager.h \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\PRMOGMWJPH/moc_GameManager.cpp \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/GameManager.h \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/GitCloner.h \
@@ -386,11 +388,17 @@ CMakeFiles/ETALauncher.dir/ETALauncher_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/q20iterator.h \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/GameCatalog.h \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\PRMOGMWJPH/moc_GitCloner.cpp \
+ C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\PRMOGMWJPH/moc_PlayStats.cpp \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/PlayStats.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QPair \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QHash \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\PRMOGMWJPH/moc_PresenceManager.cpp \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/PresenceManager.h \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\PRMOGMWJPH/moc_RepoUpdater.cpp \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/RepoUpdater.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QSet \
+ C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\PRMOGMWJPH/moc_SelfUpdater.cpp \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/SelfUpdater.h \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\PRMOGMWJPH/moc_UpdateChecker.cpp \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/UpdateChecker.h \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\YPKJ5OE7LN/moc_BroadcastWidget.cpp \
@@ -438,6 +446,8 @@ CMakeFiles/ETALauncher.dir/ETALauncher_autogen/mocs_compilation.cpp.obj: \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/ChangelogDialog.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QDialog \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qdialog.h \
+ C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\YPKJ5OE7LN/moc_FriendsWidget.cpp \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/FriendsWidget.h \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\YPKJ5OE7LN/moc_GameCardWidget.cpp \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/GameCardWidget.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QFrame \
@@ -461,7 +471,11 @@ CMakeFiles/ETALauncher.dir/ETALauncher_autogen/mocs_compilation.cpp.obj: \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/ProfileWidget.h \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\YPKJ5OE7LN/moc_SettingsDialog.cpp \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/SettingsDialog.h \
+ C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\YPKJ5OE7LN/moc_StatsWidget.cpp \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/StatsWidget.h \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\YPKJ5OE7LN/moc_ToggleSwitch.cpp \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/ToggleSwitch.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QAbstractButton \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qabstractbutton.h
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+ C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\YPKJ5OE7LN/moc_TrayController.cpp \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/TrayController.h

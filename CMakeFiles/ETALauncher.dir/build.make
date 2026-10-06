@@ -161,11 +161,56 @@ CMakeFiles/ETALauncher.dir/src/core/GameManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ETALauncher.dir/src/core/GameManager.cpp.s"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\GameManager.cpp -o CMakeFiles\ETALauncher.dir\src\core\GameManager.cpp.s
 
+CMakeFiles/ETALauncher.dir/src/core/PlayStats.cpp.obj: CMakeFiles/ETALauncher.dir/flags.make
+CMakeFiles/ETALauncher.dir/src/core/PlayStats.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
+CMakeFiles/ETALauncher.dir/src/core/PlayStats.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/PlayStats.cpp
+CMakeFiles/ETALauncher.dir/src/core/PlayStats.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/PlayStats.cpp.obj"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/core/PlayStats.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\core\PlayStats.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\core\PlayStats.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\PlayStats.cpp
+
+CMakeFiles/ETALauncher.dir/src/core/PlayStats.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ETALauncher.dir/src/core/PlayStats.cpp.i"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\PlayStats.cpp > CMakeFiles\ETALauncher.dir\src\core\PlayStats.cpp.i
+
+CMakeFiles/ETALauncher.dir/src/core/PlayStats.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ETALauncher.dir/src/core/PlayStats.cpp.s"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\PlayStats.cpp -o CMakeFiles\ETALauncher.dir\src\core\PlayStats.cpp.s
+
+CMakeFiles/ETALauncher.dir/src/core/SelfUpdater.cpp.obj: CMakeFiles/ETALauncher.dir/flags.make
+CMakeFiles/ETALauncher.dir/src/core/SelfUpdater.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
+CMakeFiles/ETALauncher.dir/src/core/SelfUpdater.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/SelfUpdater.cpp
+CMakeFiles/ETALauncher.dir/src/core/SelfUpdater.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/SelfUpdater.cpp.obj"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/core/SelfUpdater.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\core\SelfUpdater.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\core\SelfUpdater.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\SelfUpdater.cpp
+
+CMakeFiles/ETALauncher.dir/src/core/SelfUpdater.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ETALauncher.dir/src/core/SelfUpdater.cpp.i"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\SelfUpdater.cpp > CMakeFiles\ETALauncher.dir\src\core\SelfUpdater.cpp.i
+
+CMakeFiles/ETALauncher.dir/src/core/SelfUpdater.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ETALauncher.dir/src/core/SelfUpdater.cpp.s"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\SelfUpdater.cpp -o CMakeFiles\ETALauncher.dir\src\core\SelfUpdater.cpp.s
+
+CMakeFiles/ETALauncher.dir/src/core/FriendsManager.cpp.obj: CMakeFiles/ETALauncher.dir/flags.make
+CMakeFiles/ETALauncher.dir/src/core/FriendsManager.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
+CMakeFiles/ETALauncher.dir/src/core/FriendsManager.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/FriendsManager.cpp
+CMakeFiles/ETALauncher.dir/src/core/FriendsManager.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/FriendsManager.cpp.obj"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/core/FriendsManager.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\core\FriendsManager.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\core\FriendsManager.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\FriendsManager.cpp
+
+CMakeFiles/ETALauncher.dir/src/core/FriendsManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ETALauncher.dir/src/core/FriendsManager.cpp.i"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\FriendsManager.cpp > CMakeFiles\ETALauncher.dir\src\core\FriendsManager.cpp.i
+
+CMakeFiles/ETALauncher.dir/src/core/FriendsManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ETALauncher.dir/src/core/FriendsManager.cpp.s"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\FriendsManager.cpp -o CMakeFiles\ETALauncher.dir\src\core\FriendsManager.cpp.s
+
 CMakeFiles/ETALauncher.dir/src/core/UpdateChecker.cpp.obj: CMakeFiles/ETALauncher.dir/flags.make
 CMakeFiles/ETALauncher.dir/src/core/UpdateChecker.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
 CMakeFiles/ETALauncher.dir/src/core/UpdateChecker.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/UpdateChecker.cpp
 CMakeFiles/ETALauncher.dir/src/core/UpdateChecker.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/UpdateChecker.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/UpdateChecker.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/core/UpdateChecker.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\core\UpdateChecker.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\core\UpdateChecker.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\UpdateChecker.cpp
 
 CMakeFiles/ETALauncher.dir/src/core/UpdateChecker.cpp.i: cmake_force
@@ -180,7 +225,7 @@ CMakeFiles/ETALauncher.dir/src/core/ShortcutManager.cpp.obj: CMakeFiles/ETALaunc
 CMakeFiles/ETALauncher.dir/src/core/ShortcutManager.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
 CMakeFiles/ETALauncher.dir/src/core/ShortcutManager.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/ShortcutManager.cpp
 CMakeFiles/ETALauncher.dir/src/core/ShortcutManager.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/ShortcutManager.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/ShortcutManager.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/core/ShortcutManager.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\core\ShortcutManager.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\core\ShortcutManager.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\ShortcutManager.cpp
 
 CMakeFiles/ETALauncher.dir/src/core/ShortcutManager.cpp.i: cmake_force
@@ -195,7 +240,7 @@ CMakeFiles/ETALauncher.dir/src/core/AuthManager.cpp.obj: CMakeFiles/ETALauncher.
 CMakeFiles/ETALauncher.dir/src/core/AuthManager.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
 CMakeFiles/ETALauncher.dir/src/core/AuthManager.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/AuthManager.cpp
 CMakeFiles/ETALauncher.dir/src/core/AuthManager.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/AuthManager.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/AuthManager.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/core/AuthManager.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\core\AuthManager.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\core\AuthManager.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\AuthManager.cpp
 
 CMakeFiles/ETALauncher.dir/src/core/AuthManager.cpp.i: cmake_force
@@ -210,7 +255,7 @@ CMakeFiles/ETALauncher.dir/src/core/FirestoreClient.cpp.obj: CMakeFiles/ETALaunc
 CMakeFiles/ETALauncher.dir/src/core/FirestoreClient.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
 CMakeFiles/ETALauncher.dir/src/core/FirestoreClient.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/FirestoreClient.cpp
 CMakeFiles/ETALauncher.dir/src/core/FirestoreClient.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/FirestoreClient.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/FirestoreClient.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/core/FirestoreClient.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\core\FirestoreClient.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\core\FirestoreClient.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\FirestoreClient.cpp
 
 CMakeFiles/ETALauncher.dir/src/core/FirestoreClient.cpp.i: cmake_force
@@ -225,7 +270,7 @@ CMakeFiles/ETALauncher.dir/src/core/PresenceManager.cpp.obj: CMakeFiles/ETALaunc
 CMakeFiles/ETALauncher.dir/src/core/PresenceManager.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
 CMakeFiles/ETALauncher.dir/src/core/PresenceManager.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/PresenceManager.cpp
 CMakeFiles/ETALauncher.dir/src/core/PresenceManager.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/PresenceManager.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/PresenceManager.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/core/PresenceManager.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\core\PresenceManager.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\core\PresenceManager.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\PresenceManager.cpp
 
 CMakeFiles/ETALauncher.dir/src/core/PresenceManager.cpp.i: cmake_force
@@ -240,7 +285,7 @@ CMakeFiles/ETALauncher.dir/src/core/BroadcastManager.cpp.obj: CMakeFiles/ETALaun
 CMakeFiles/ETALauncher.dir/src/core/BroadcastManager.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
 CMakeFiles/ETALauncher.dir/src/core/BroadcastManager.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/BroadcastManager.cpp
 CMakeFiles/ETALauncher.dir/src/core/BroadcastManager.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/BroadcastManager.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/BroadcastManager.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/core/BroadcastManager.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\core\BroadcastManager.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\core\BroadcastManager.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\BroadcastManager.cpp
 
 CMakeFiles/ETALauncher.dir/src/core/BroadcastManager.cpp.i: cmake_force
@@ -255,7 +300,7 @@ CMakeFiles/ETALauncher.dir/src/core/RepoUpdater.cpp.obj: CMakeFiles/ETALauncher.
 CMakeFiles/ETALauncher.dir/src/core/RepoUpdater.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
 CMakeFiles/ETALauncher.dir/src/core/RepoUpdater.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/RepoUpdater.cpp
 CMakeFiles/ETALauncher.dir/src/core/RepoUpdater.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/RepoUpdater.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/RepoUpdater.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/core/RepoUpdater.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\core\RepoUpdater.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\core\RepoUpdater.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\RepoUpdater.cpp
 
 CMakeFiles/ETALauncher.dir/src/core/RepoUpdater.cpp.i: cmake_force
@@ -270,7 +315,7 @@ CMakeFiles/ETALauncher.dir/src/core/I18n.cpp.obj: CMakeFiles/ETALauncher.dir/fla
 CMakeFiles/ETALauncher.dir/src/core/I18n.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
 CMakeFiles/ETALauncher.dir/src/core/I18n.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/I18n.cpp
 CMakeFiles/ETALauncher.dir/src/core/I18n.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/I18n.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/I18n.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/core/I18n.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\core\I18n.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\core\I18n.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\I18n.cpp
 
 CMakeFiles/ETALauncher.dir/src/core/I18n.cpp.i: cmake_force
@@ -285,7 +330,7 @@ CMakeFiles/ETALauncher.dir/src/core/Translations.cpp.obj: CMakeFiles/ETALauncher
 CMakeFiles/ETALauncher.dir/src/core/Translations.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
 CMakeFiles/ETALauncher.dir/src/core/Translations.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/Translations.cpp
 CMakeFiles/ETALauncher.dir/src/core/Translations.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/Translations.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/Translations.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/core/Translations.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\core\Translations.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\core\Translations.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\Translations.cpp
 
 CMakeFiles/ETALauncher.dir/src/core/Translations.cpp.i: cmake_force
@@ -300,7 +345,7 @@ CMakeFiles/ETALauncher.dir/src/core/SessionStore.cpp.obj: CMakeFiles/ETALauncher
 CMakeFiles/ETALauncher.dir/src/core/SessionStore.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
 CMakeFiles/ETALauncher.dir/src/core/SessionStore.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/SessionStore.cpp
 CMakeFiles/ETALauncher.dir/src/core/SessionStore.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/SessionStore.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/SessionStore.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/core/SessionStore.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\core\SessionStore.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\core\SessionStore.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\SessionStore.cpp
 
 CMakeFiles/ETALauncher.dir/src/core/SessionStore.cpp.i: cmake_force
@@ -315,7 +360,7 @@ CMakeFiles/ETALauncher.dir/src/core/ThemeManager.cpp.obj: CMakeFiles/ETALauncher
 CMakeFiles/ETALauncher.dir/src/core/ThemeManager.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
 CMakeFiles/ETALauncher.dir/src/core/ThemeManager.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/ThemeManager.cpp
 CMakeFiles/ETALauncher.dir/src/core/ThemeManager.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/ThemeManager.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/ETALauncher.dir/src/core/ThemeManager.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/core/ThemeManager.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\core\ThemeManager.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\core\ThemeManager.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\ThemeManager.cpp
 
 CMakeFiles/ETALauncher.dir/src/core/ThemeManager.cpp.i: cmake_force
@@ -330,7 +375,7 @@ CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj: CMakeFiles/ETALauncher.dir
 CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
 CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/MainWindow.cpp
 CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\ui\MainWindow.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\ui\MainWindow.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\MainWindow.cpp
 
 CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.i: cmake_force
@@ -345,7 +390,7 @@ CMakeFiles/ETALauncher.dir/src/ui/LoginWidget.cpp.obj: CMakeFiles/ETALauncher.di
 CMakeFiles/ETALauncher.dir/src/ui/LoginWidget.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
 CMakeFiles/ETALauncher.dir/src/ui/LoginWidget.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/LoginWidget.cpp
 CMakeFiles/ETALauncher.dir/src/ui/LoginWidget.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/LoginWidget.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/LoginWidget.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/ui/LoginWidget.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\ui\LoginWidget.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\ui\LoginWidget.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\LoginWidget.cpp
 
 CMakeFiles/ETALauncher.dir/src/ui/LoginWidget.cpp.i: cmake_force
@@ -360,7 +405,7 @@ CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj: CMakeFiles/ETALauncher.
 CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
 CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/ProfileWidget.cpp
 CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\ui\ProfileWidget.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\ui\ProfileWidget.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\ProfileWidget.cpp
 
 CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.i: cmake_force
@@ -371,11 +416,56 @@ CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.s"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\ProfileWidget.cpp -o CMakeFiles\ETALauncher.dir\src\ui\ProfileWidget.cpp.s
 
+CMakeFiles/ETALauncher.dir/src/ui/StatsWidget.cpp.obj: CMakeFiles/ETALauncher.dir/flags.make
+CMakeFiles/ETALauncher.dir/src/ui/StatsWidget.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
+CMakeFiles/ETALauncher.dir/src/ui/StatsWidget.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/StatsWidget.cpp
+CMakeFiles/ETALauncher.dir/src/ui/StatsWidget.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/StatsWidget.cpp.obj"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/ui/StatsWidget.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\ui\StatsWidget.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\ui\StatsWidget.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\StatsWidget.cpp
+
+CMakeFiles/ETALauncher.dir/src/ui/StatsWidget.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ETALauncher.dir/src/ui/StatsWidget.cpp.i"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\StatsWidget.cpp > CMakeFiles\ETALauncher.dir\src\ui\StatsWidget.cpp.i
+
+CMakeFiles/ETALauncher.dir/src/ui/StatsWidget.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ETALauncher.dir/src/ui/StatsWidget.cpp.s"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\StatsWidget.cpp -o CMakeFiles\ETALauncher.dir\src\ui\StatsWidget.cpp.s
+
+CMakeFiles/ETALauncher.dir/src/ui/FriendsWidget.cpp.obj: CMakeFiles/ETALauncher.dir/flags.make
+CMakeFiles/ETALauncher.dir/src/ui/FriendsWidget.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
+CMakeFiles/ETALauncher.dir/src/ui/FriendsWidget.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/FriendsWidget.cpp
+CMakeFiles/ETALauncher.dir/src/ui/FriendsWidget.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/FriendsWidget.cpp.obj"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/ui/FriendsWidget.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\ui\FriendsWidget.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\ui\FriendsWidget.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\FriendsWidget.cpp
+
+CMakeFiles/ETALauncher.dir/src/ui/FriendsWidget.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ETALauncher.dir/src/ui/FriendsWidget.cpp.i"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\FriendsWidget.cpp > CMakeFiles\ETALauncher.dir\src\ui\FriendsWidget.cpp.i
+
+CMakeFiles/ETALauncher.dir/src/ui/FriendsWidget.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ETALauncher.dir/src/ui/FriendsWidget.cpp.s"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\FriendsWidget.cpp -o CMakeFiles\ETALauncher.dir\src\ui\FriendsWidget.cpp.s
+
+CMakeFiles/ETALauncher.dir/src/ui/TrayController.cpp.obj: CMakeFiles/ETALauncher.dir/flags.make
+CMakeFiles/ETALauncher.dir/src/ui/TrayController.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
+CMakeFiles/ETALauncher.dir/src/ui/TrayController.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/TrayController.cpp
+CMakeFiles/ETALauncher.dir/src/ui/TrayController.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/TrayController.cpp.obj"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/ui/TrayController.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\ui\TrayController.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\ui\TrayController.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\TrayController.cpp
+
+CMakeFiles/ETALauncher.dir/src/ui/TrayController.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ETALauncher.dir/src/ui/TrayController.cpp.i"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\TrayController.cpp > CMakeFiles\ETALauncher.dir\src\ui\TrayController.cpp.i
+
+CMakeFiles/ETALauncher.dir/src/ui/TrayController.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ETALauncher.dir/src/ui/TrayController.cpp.s"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\TrayController.cpp -o CMakeFiles\ETALauncher.dir\src\ui\TrayController.cpp.s
+
 CMakeFiles/ETALauncher.dir/src/ui/GameCardWidget.cpp.obj: CMakeFiles/ETALauncher.dir/flags.make
 CMakeFiles/ETALauncher.dir/src/ui/GameCardWidget.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
 CMakeFiles/ETALauncher.dir/src/ui/GameCardWidget.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/GameCardWidget.cpp
 CMakeFiles/ETALauncher.dir/src/ui/GameCardWidget.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/GameCardWidget.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/GameCardWidget.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/ui/GameCardWidget.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\ui\GameCardWidget.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\ui\GameCardWidget.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\GameCardWidget.cpp
 
 CMakeFiles/ETALauncher.dir/src/ui/GameCardWidget.cpp.i: cmake_force
@@ -390,7 +480,7 @@ CMakeFiles/ETALauncher.dir/src/ui/InstallProgressDialog.cpp.obj: CMakeFiles/ETAL
 CMakeFiles/ETALauncher.dir/src/ui/InstallProgressDialog.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
 CMakeFiles/ETALauncher.dir/src/ui/InstallProgressDialog.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/InstallProgressDialog.cpp
 CMakeFiles/ETALauncher.dir/src/ui/InstallProgressDialog.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/InstallProgressDialog.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/InstallProgressDialog.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/ui/InstallProgressDialog.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\ui\InstallProgressDialog.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\ui\InstallProgressDialog.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\InstallProgressDialog.cpp
 
 CMakeFiles/ETALauncher.dir/src/ui/InstallProgressDialog.cpp.i: cmake_force
@@ -405,7 +495,7 @@ CMakeFiles/ETALauncher.dir/src/ui/SettingsDialog.cpp.obj: CMakeFiles/ETALauncher
 CMakeFiles/ETALauncher.dir/src/ui/SettingsDialog.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
 CMakeFiles/ETALauncher.dir/src/ui/SettingsDialog.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/SettingsDialog.cpp
 CMakeFiles/ETALauncher.dir/src/ui/SettingsDialog.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/SettingsDialog.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/SettingsDialog.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/ui/SettingsDialog.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\ui\SettingsDialog.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\ui\SettingsDialog.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\SettingsDialog.cpp
 
 CMakeFiles/ETALauncher.dir/src/ui/SettingsDialog.cpp.i: cmake_force
@@ -420,7 +510,7 @@ CMakeFiles/ETALauncher.dir/src/ui/ManageDialog.cpp.obj: CMakeFiles/ETALauncher.d
 CMakeFiles/ETALauncher.dir/src/ui/ManageDialog.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
 CMakeFiles/ETALauncher.dir/src/ui/ManageDialog.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/ManageDialog.cpp
 CMakeFiles/ETALauncher.dir/src/ui/ManageDialog.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/ManageDialog.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/ManageDialog.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/ui/ManageDialog.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\ui\ManageDialog.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\ui\ManageDialog.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\ManageDialog.cpp
 
 CMakeFiles/ETALauncher.dir/src/ui/ManageDialog.cpp.i: cmake_force
@@ -435,7 +525,7 @@ CMakeFiles/ETALauncher.dir/src/ui/ChangelogDialog.cpp.obj: CMakeFiles/ETALaunche
 CMakeFiles/ETALauncher.dir/src/ui/ChangelogDialog.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
 CMakeFiles/ETALauncher.dir/src/ui/ChangelogDialog.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/ChangelogDialog.cpp
 CMakeFiles/ETALauncher.dir/src/ui/ChangelogDialog.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/ChangelogDialog.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/ChangelogDialog.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/ui/ChangelogDialog.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\ui\ChangelogDialog.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\ui\ChangelogDialog.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\ChangelogDialog.cpp
 
 CMakeFiles/ETALauncher.dir/src/ui/ChangelogDialog.cpp.i: cmake_force
@@ -450,7 +540,7 @@ CMakeFiles/ETALauncher.dir/src/ui/BroadcastWidget.cpp.obj: CMakeFiles/ETALaunche
 CMakeFiles/ETALauncher.dir/src/ui/BroadcastWidget.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
 CMakeFiles/ETALauncher.dir/src/ui/BroadcastWidget.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/BroadcastWidget.cpp
 CMakeFiles/ETALauncher.dir/src/ui/BroadcastWidget.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/BroadcastWidget.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/BroadcastWidget.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/ui/BroadcastWidget.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\ui\BroadcastWidget.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\ui\BroadcastWidget.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\BroadcastWidget.cpp
 
 CMakeFiles/ETALauncher.dir/src/ui/BroadcastWidget.cpp.i: cmake_force
@@ -465,7 +555,7 @@ CMakeFiles/ETALauncher.dir/src/ui/ToggleSwitch.cpp.obj: CMakeFiles/ETALauncher.d
 CMakeFiles/ETALauncher.dir/src/ui/ToggleSwitch.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
 CMakeFiles/ETALauncher.dir/src/ui/ToggleSwitch.cpp.obj: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/ToggleSwitch.cpp
 CMakeFiles/ETALauncher.dir/src/ui/ToggleSwitch.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/ToggleSwitch.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/ETALauncher.dir/src/ui/ToggleSwitch.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/src/ui/ToggleSwitch.cpp.obj -MF CMakeFiles\ETALauncher.dir\src\ui\ToggleSwitch.cpp.obj.d -o CMakeFiles\ETALauncher.dir\src\ui\ToggleSwitch.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\ToggleSwitch.cpp
 
 CMakeFiles/ETALauncher.dir/src/ui/ToggleSwitch.cpp.i: cmake_force
@@ -480,7 +570,7 @@ CMakeFiles/ETALauncher.dir/ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp.obj:
 CMakeFiles/ETALauncher.dir/ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp.obj: CMakeFiles/ETALauncher.dir/includes_CXX.rsp
 CMakeFiles/ETALauncher.dir/ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp.obj: ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp
 CMakeFiles/ETALauncher.dir/ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp.obj: CMakeFiles/ETALauncher.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/ETALauncher.dir/ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/ETALauncher.dir/ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ETALauncher.dir/ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp.obj -MF CMakeFiles\ETALauncher.dir\ETALauncher_autogen\EWIEGA46WW\qrc_resources.cpp.obj.d -o CMakeFiles\ETALauncher.dir\ETALauncher_autogen\EWIEGA46WW\qrc_resources.cpp.obj -c C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\EWIEGA46WW\qrc_resources.cpp
 
 CMakeFiles/ETALauncher.dir/ETALauncher_autogen/EWIEGA46WW/qrc_resources.cpp.i: cmake_force
@@ -498,6 +588,9 @@ ETALauncher_OBJECTS = \
 "CMakeFiles/ETALauncher.dir/src/core/Config.cpp.obj" \
 "CMakeFiles/ETALauncher.dir/src/core/GitCloner.cpp.obj" \
 "CMakeFiles/ETALauncher.dir/src/core/GameManager.cpp.obj" \
+"CMakeFiles/ETALauncher.dir/src/core/PlayStats.cpp.obj" \
+"CMakeFiles/ETALauncher.dir/src/core/SelfUpdater.cpp.obj" \
+"CMakeFiles/ETALauncher.dir/src/core/FriendsManager.cpp.obj" \
 "CMakeFiles/ETALauncher.dir/src/core/UpdateChecker.cpp.obj" \
 "CMakeFiles/ETALauncher.dir/src/core/ShortcutManager.cpp.obj" \
 "CMakeFiles/ETALauncher.dir/src/core/AuthManager.cpp.obj" \
@@ -512,6 +605,9 @@ ETALauncher_OBJECTS = \
 "CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj" \
 "CMakeFiles/ETALauncher.dir/src/ui/LoginWidget.cpp.obj" \
 "CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj" \
+"CMakeFiles/ETALauncher.dir/src/ui/StatsWidget.cpp.obj" \
+"CMakeFiles/ETALauncher.dir/src/ui/FriendsWidget.cpp.obj" \
+"CMakeFiles/ETALauncher.dir/src/ui/TrayController.cpp.obj" \
 "CMakeFiles/ETALauncher.dir/src/ui/GameCardWidget.cpp.obj" \
 "CMakeFiles/ETALauncher.dir/src/ui/InstallProgressDialog.cpp.obj" \
 "CMakeFiles/ETALauncher.dir/src/ui/SettingsDialog.cpp.obj" \
@@ -529,6 +625,9 @@ ETALauncher.exe: CMakeFiles/ETALauncher.dir/src/main.cpp.obj
 ETALauncher.exe: CMakeFiles/ETALauncher.dir/src/core/Config.cpp.obj
 ETALauncher.exe: CMakeFiles/ETALauncher.dir/src/core/GitCloner.cpp.obj
 ETALauncher.exe: CMakeFiles/ETALauncher.dir/src/core/GameManager.cpp.obj
+ETALauncher.exe: CMakeFiles/ETALauncher.dir/src/core/PlayStats.cpp.obj
+ETALauncher.exe: CMakeFiles/ETALauncher.dir/src/core/SelfUpdater.cpp.obj
+ETALauncher.exe: CMakeFiles/ETALauncher.dir/src/core/FriendsManager.cpp.obj
 ETALauncher.exe: CMakeFiles/ETALauncher.dir/src/core/UpdateChecker.cpp.obj
 ETALauncher.exe: CMakeFiles/ETALauncher.dir/src/core/ShortcutManager.cpp.obj
 ETALauncher.exe: CMakeFiles/ETALauncher.dir/src/core/AuthManager.cpp.obj
@@ -543,6 +642,9 @@ ETALauncher.exe: CMakeFiles/ETALauncher.dir/src/core/ThemeManager.cpp.obj
 ETALauncher.exe: CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj
 ETALauncher.exe: CMakeFiles/ETALauncher.dir/src/ui/LoginWidget.cpp.obj
 ETALauncher.exe: CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj
+ETALauncher.exe: CMakeFiles/ETALauncher.dir/src/ui/StatsWidget.cpp.obj
+ETALauncher.exe: CMakeFiles/ETALauncher.dir/src/ui/FriendsWidget.cpp.obj
+ETALauncher.exe: CMakeFiles/ETALauncher.dir/src/ui/TrayController.cpp.obj
 ETALauncher.exe: CMakeFiles/ETALauncher.dir/src/ui/GameCardWidget.cpp.obj
 ETALauncher.exe: CMakeFiles/ETALauncher.dir/src/ui/InstallProgressDialog.cpp.obj
 ETALauncher.exe: CMakeFiles/ETALauncher.dir/src/ui/SettingsDialog.cpp.obj
@@ -560,7 +662,7 @@ ETALauncher.exe: C:/Qt/6.12.0/mingw_64/lib/libQt6EntryPoint.a
 ETALauncher.exe: CMakeFiles/ETALauncher.dir/linkLibs.rsp
 ETALauncher.exe: CMakeFiles/ETALauncher.dir/objects1.rsp
 ETALauncher.exe: CMakeFiles/ETALauncher.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Linking CXX executable ETALauncher.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Linking CXX executable ETALauncher.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\ETALauncher.dir\link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "windeployqt: copio le DLL di Qt accanto a ETALauncher.exe"
 	C:\Qt\Tools\CMake_64\bin\cmake.exe -E env "PATH=C:/Qt/6.12.0/mingw_64/bin;C:\Qt\Tools\mingw1310_64\bin;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Eclipse Adoptium\jdk-17.0.20.101-hotspot\bin;C:\Program Files\coreutils\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Git LFS;C:\Program Files (x86)\playit_gg\bin\;C:\Program Files (x86)\cloudflared\;C:\Users\gabri\bin;C:\Users\gabri\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\gabri\AppData\Local\Programs\Python\Python312\;C:\Users\gabri\AppData\Local\Microsoft\WindowsApps;C:\Users\gabri\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\gabri\AppData\Roaming\npm;C:\Users\gabri\.dotnet\tools;C:\Users\gabri\.lmstudio\bin;C:\Users\gabri\AppData\Local\GitHubDesktop\bin;C:\Users\gabri\AppData\Local\Programs\Ollama;C:\Users\gabri\AppData\Local\PowerToys\DSCModules\;C:\Users\gabri\AppData\Local\Python\bin;C:\msys64\ucrt64\bin;C:\Users\gabri\AppData\Local\gitkraken\bin;C:\Users\gabri\AppData\Local\Unity\bin;C:\Qt\Tools\Ninja" C:/Qt/6.12.0/mingw_64/bin/windeployqt.exe --no-translations --no-system-d3d-compiler --no-opengl-sw C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/ETALauncher.exe

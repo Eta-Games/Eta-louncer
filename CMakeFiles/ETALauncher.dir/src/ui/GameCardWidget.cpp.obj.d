@@ -1,10 +1,10 @@
 CMakeFiles/ETALauncher.dir/src/ui/GameCardWidget.cpp.obj: \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\GameCardWidget.cpp \
- C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\GameCardWidget.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/QFrame \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qframe.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
- C:/Qt/6.12.0/mingw_64/include/QtGui/qtguiglobal.h \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/PlayStats.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QObject \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qobject.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qobjectdefs.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qnamespace.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qglobal.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/type_traits \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
@@ -152,14 +152,6 @@ CMakeFiles/ETALauncher.dir/src/ui/GameCardWidget.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qtresource.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qttranslation.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qversiontagging.h \
- C:/Qt/6.12.0/mingw_64/include/QtGui/qtgui-config.h \
- C:/Qt/6.12.0/mingw_64/include/QtGui/qtguiexports.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qwidget.h \
- C:/Qt/6.12.0/mingw_64/include/QtGui/qwindowdefs.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qobjectdefs.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qnamespace.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qcompare.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qstdlibdetection.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qcomparehelpers.h \
@@ -231,8 +223,6 @@ CMakeFiles/ETALauncher.dir/src/ui/GameCardWidget.cpp.obj: \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_atomic.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward/auto_ptr.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_memory_defs.h \
- C:/Qt/6.12.0/mingw_64/include/QtGui/qwindowdefs_win.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qobject.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qstring.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qchar.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qbytearray.h \
@@ -333,6 +323,23 @@ CMakeFiles/ETALauncher.dir/src/ui/GameCardWidget.cpp.obj: \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QString \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QList \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QPair \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QHash \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qhash.h \
+ C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\GameCardWidget.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QFrame \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qframe.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qtguiglobal.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qtgui-config.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qtguiexports.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qwidget.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qwindowdefs.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qwindowdefs_win.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qmargins.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qcheckedint_impl.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/q23utility.h \
@@ -373,7 +380,6 @@ CMakeFiles/ETALauncher.dir/src/ui/GameCardWidget.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qmap.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qshareddata_impl.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qset.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qhash.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qvarlengtharray.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qalloc.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qpalette.h \
@@ -388,8 +394,6 @@ CMakeFiles/ETALauncher.dir/src/ui/GameCardWidget.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qbitmap.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/QPixmap \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/GameCatalog.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/QString \
- C:/Qt/6.12.0/mingw_64/include/QtCore/QList \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\CoverUtil.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/QPainter \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qpainter.h \

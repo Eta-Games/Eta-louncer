@@ -298,6 +298,30 @@ src/core/FirestoreClient.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/core/FirestoreClient.cpp.s
 .PHONY : src/core/FirestoreClient.cpp.s
 
+src/core/FriendsManager.obj: src/core/FriendsManager.cpp.obj
+.PHONY : src/core/FriendsManager.obj
+
+# target to build an object file
+src/core/FriendsManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/core/FriendsManager.cpp.obj
+.PHONY : src/core/FriendsManager.cpp.obj
+
+src/core/FriendsManager.i: src/core/FriendsManager.cpp.i
+.PHONY : src/core/FriendsManager.i
+
+# target to preprocess a source file
+src/core/FriendsManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/core/FriendsManager.cpp.i
+.PHONY : src/core/FriendsManager.cpp.i
+
+src/core/FriendsManager.s: src/core/FriendsManager.cpp.s
+.PHONY : src/core/FriendsManager.s
+
+# target to generate assembly for a file
+src/core/FriendsManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/core/FriendsManager.cpp.s
+.PHONY : src/core/FriendsManager.cpp.s
+
 src/core/GameManager.obj: src/core/GameManager.cpp.obj
 .PHONY : src/core/GameManager.obj
 
@@ -370,6 +394,30 @@ src/core/I18n.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/core/I18n.cpp.s
 .PHONY : src/core/I18n.cpp.s
 
+src/core/PlayStats.obj: src/core/PlayStats.cpp.obj
+.PHONY : src/core/PlayStats.obj
+
+# target to build an object file
+src/core/PlayStats.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/core/PlayStats.cpp.obj
+.PHONY : src/core/PlayStats.cpp.obj
+
+src/core/PlayStats.i: src/core/PlayStats.cpp.i
+.PHONY : src/core/PlayStats.i
+
+# target to preprocess a source file
+src/core/PlayStats.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/core/PlayStats.cpp.i
+.PHONY : src/core/PlayStats.cpp.i
+
+src/core/PlayStats.s: src/core/PlayStats.cpp.s
+.PHONY : src/core/PlayStats.s
+
+# target to generate assembly for a file
+src/core/PlayStats.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/core/PlayStats.cpp.s
+.PHONY : src/core/PlayStats.cpp.s
+
 src/core/PresenceManager.obj: src/core/PresenceManager.cpp.obj
 .PHONY : src/core/PresenceManager.obj
 
@@ -417,6 +465,30 @@ src/core/RepoUpdater.s: src/core/RepoUpdater.cpp.s
 src/core/RepoUpdater.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/core/RepoUpdater.cpp.s
 .PHONY : src/core/RepoUpdater.cpp.s
+
+src/core/SelfUpdater.obj: src/core/SelfUpdater.cpp.obj
+.PHONY : src/core/SelfUpdater.obj
+
+# target to build an object file
+src/core/SelfUpdater.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/core/SelfUpdater.cpp.obj
+.PHONY : src/core/SelfUpdater.cpp.obj
+
+src/core/SelfUpdater.i: src/core/SelfUpdater.cpp.i
+.PHONY : src/core/SelfUpdater.i
+
+# target to preprocess a source file
+src/core/SelfUpdater.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/core/SelfUpdater.cpp.i
+.PHONY : src/core/SelfUpdater.cpp.i
+
+src/core/SelfUpdater.s: src/core/SelfUpdater.cpp.s
+.PHONY : src/core/SelfUpdater.s
+
+# target to generate assembly for a file
+src/core/SelfUpdater.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/core/SelfUpdater.cpp.s
+.PHONY : src/core/SelfUpdater.cpp.s
 
 src/core/SessionStore.obj: src/core/SessionStore.cpp.obj
 .PHONY : src/core/SessionStore.obj
@@ -610,6 +682,30 @@ src/ui/ChangelogDialog.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/ChangelogDialog.cpp.s
 .PHONY : src/ui/ChangelogDialog.cpp.s
 
+src/ui/FriendsWidget.obj: src/ui/FriendsWidget.cpp.obj
+.PHONY : src/ui/FriendsWidget.obj
+
+# target to build an object file
+src/ui/FriendsWidget.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/FriendsWidget.cpp.obj
+.PHONY : src/ui/FriendsWidget.cpp.obj
+
+src/ui/FriendsWidget.i: src/ui/FriendsWidget.cpp.i
+.PHONY : src/ui/FriendsWidget.i
+
+# target to preprocess a source file
+src/ui/FriendsWidget.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/FriendsWidget.cpp.i
+.PHONY : src/ui/FriendsWidget.cpp.i
+
+src/ui/FriendsWidget.s: src/ui/FriendsWidget.cpp.s
+.PHONY : src/ui/FriendsWidget.s
+
+# target to generate assembly for a file
+src/ui/FriendsWidget.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/FriendsWidget.cpp.s
+.PHONY : src/ui/FriendsWidget.cpp.s
+
 src/ui/GameCardWidget.obj: src/ui/GameCardWidget.cpp.obj
 .PHONY : src/ui/GameCardWidget.obj
 
@@ -778,6 +874,30 @@ src/ui/SettingsDialog.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/SettingsDialog.cpp.s
 .PHONY : src/ui/SettingsDialog.cpp.s
 
+src/ui/StatsWidget.obj: src/ui/StatsWidget.cpp.obj
+.PHONY : src/ui/StatsWidget.obj
+
+# target to build an object file
+src/ui/StatsWidget.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/StatsWidget.cpp.obj
+.PHONY : src/ui/StatsWidget.cpp.obj
+
+src/ui/StatsWidget.i: src/ui/StatsWidget.cpp.i
+.PHONY : src/ui/StatsWidget.i
+
+# target to preprocess a source file
+src/ui/StatsWidget.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/StatsWidget.cpp.i
+.PHONY : src/ui/StatsWidget.cpp.i
+
+src/ui/StatsWidget.s: src/ui/StatsWidget.cpp.s
+.PHONY : src/ui/StatsWidget.s
+
+# target to generate assembly for a file
+src/ui/StatsWidget.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/StatsWidget.cpp.s
+.PHONY : src/ui/StatsWidget.cpp.s
+
 src/ui/ToggleSwitch.obj: src/ui/ToggleSwitch.cpp.obj
 .PHONY : src/ui/ToggleSwitch.obj
 
@@ -801,6 +921,30 @@ src/ui/ToggleSwitch.s: src/ui/ToggleSwitch.cpp.s
 src/ui/ToggleSwitch.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/ToggleSwitch.cpp.s
 .PHONY : src/ui/ToggleSwitch.cpp.s
+
+src/ui/TrayController.obj: src/ui/TrayController.cpp.obj
+.PHONY : src/ui/TrayController.obj
+
+# target to build an object file
+src/ui/TrayController.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/TrayController.cpp.obj
+.PHONY : src/ui/TrayController.cpp.obj
+
+src/ui/TrayController.i: src/ui/TrayController.cpp.i
+.PHONY : src/ui/TrayController.i
+
+# target to preprocess a source file
+src/ui/TrayController.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/TrayController.cpp.i
+.PHONY : src/ui/TrayController.cpp.i
+
+src/ui/TrayController.s: src/ui/TrayController.cpp.s
+.PHONY : src/ui/TrayController.s
+
+# target to generate assembly for a file
+src/ui/TrayController.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/TrayController.cpp.s
+.PHONY : src/ui/TrayController.cpp.s
 
 # Help Target
 help:
@@ -831,6 +975,9 @@ help:
 	@echo ... src/core/FirestoreClient.obj
 	@echo ... src/core/FirestoreClient.i
 	@echo ... src/core/FirestoreClient.s
+	@echo ... src/core/FriendsManager.obj
+	@echo ... src/core/FriendsManager.i
+	@echo ... src/core/FriendsManager.s
 	@echo ... src/core/GameManager.obj
 	@echo ... src/core/GameManager.i
 	@echo ... src/core/GameManager.s
@@ -840,12 +987,18 @@ help:
 	@echo ... src/core/I18n.obj
 	@echo ... src/core/I18n.i
 	@echo ... src/core/I18n.s
+	@echo ... src/core/PlayStats.obj
+	@echo ... src/core/PlayStats.i
+	@echo ... src/core/PlayStats.s
 	@echo ... src/core/PresenceManager.obj
 	@echo ... src/core/PresenceManager.i
 	@echo ... src/core/PresenceManager.s
 	@echo ... src/core/RepoUpdater.obj
 	@echo ... src/core/RepoUpdater.i
 	@echo ... src/core/RepoUpdater.s
+	@echo ... src/core/SelfUpdater.obj
+	@echo ... src/core/SelfUpdater.i
+	@echo ... src/core/SelfUpdater.s
 	@echo ... src/core/SessionStore.obj
 	@echo ... src/core/SessionStore.i
 	@echo ... src/core/SessionStore.s
@@ -870,6 +1023,9 @@ help:
 	@echo ... src/ui/ChangelogDialog.obj
 	@echo ... src/ui/ChangelogDialog.i
 	@echo ... src/ui/ChangelogDialog.s
+	@echo ... src/ui/FriendsWidget.obj
+	@echo ... src/ui/FriendsWidget.i
+	@echo ... src/ui/FriendsWidget.s
 	@echo ... src/ui/GameCardWidget.obj
 	@echo ... src/ui/GameCardWidget.i
 	@echo ... src/ui/GameCardWidget.s
@@ -891,9 +1047,15 @@ help:
 	@echo ... src/ui/SettingsDialog.obj
 	@echo ... src/ui/SettingsDialog.i
 	@echo ... src/ui/SettingsDialog.s
+	@echo ... src/ui/StatsWidget.obj
+	@echo ... src/ui/StatsWidget.i
+	@echo ... src/ui/StatsWidget.s
 	@echo ... src/ui/ToggleSwitch.obj
 	@echo ... src/ui/ToggleSwitch.i
 	@echo ... src/ui/ToggleSwitch.s
+	@echo ... src/ui/TrayController.obj
+	@echo ... src/ui/TrayController.i
+	@echo ... src/ui/TrayController.s
 .PHONY : help
 
 

@@ -1,8 +1,8 @@
 CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj: \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\ProfileWidget.cpp \
- C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\ProfileWidget.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/QWidget \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qwidget.h \
+ C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\StatsWidget.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QFrame \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qframe.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qtguiglobal.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qglobal.h \
@@ -156,6 +156,7 @@ CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qtguiexports.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qwidget.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qwindowdefs.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qobjectdefs.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qnamespace.h \
@@ -385,12 +386,15 @@ CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qsizepolicy.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qcursor.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qbitmap.h \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/I18n.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QString \
+ C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\ProfileWidget.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QWidget \
  C:/Qt/6.12.0/mingw_64/include/QtGui/QPixmap \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QElapsedTimer \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qelapsedtimer.h \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/AuthManager.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QObject \
- C:/Qt/6.12.0/mingw_64/include/QtCore/QString \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QJsonObject \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonobject.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonvalue.h \
@@ -435,7 +439,6 @@ CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QGridLayout \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QStackedWidget \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qstackedwidget.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qframe.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QButtonGroup \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qbuttongroup.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QScrollArea \
@@ -499,7 +502,6 @@ CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qabstractitemmodel.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QPushButton \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qpushbutton.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/QFrame \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QTimer \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qtimer.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/QPainter \

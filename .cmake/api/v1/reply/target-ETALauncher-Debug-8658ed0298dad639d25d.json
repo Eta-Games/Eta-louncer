@@ -59,13 +59,13 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 65,
+				"line" : 71,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 67,
+				"line" : 73,
 				"parent" : 0
 			},
 			{
@@ -281,7 +281,7 @@
 			{
 				"command" : 7,
 				"file" : 0,
-				"line" : 62,
+				"line" : 68,
 				"parent" : 0
 			},
 			{
@@ -303,7 +303,7 @@
 			{
 				"command" : 10,
 				"file" : 0,
-				"line" : 64,
+				"line" : 70,
 				"parent" : 0
 			}
 		]
@@ -321,7 +321,7 @@
 			[
 				{
 					"backtrace" : 43,
-					"define" : "ETA_BUILD_COMMIT=\"d4955933ac2d55228d5e68aa60a3b508369e009f\""
+					"define" : "ETA_BUILD_COMMIT=\"70627d972548e21e211e8c5a008d52e1d9c333ea\""
 				},
 				{
 					"backtrace" : 2,
@@ -455,7 +455,13 @@
 				23,
 				24,
 				25,
-				37
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				43
 			]
 		}
 	],
@@ -603,44 +609,50 @@
 				23,
 				24,
 				25,
-				37
-			]
-		},
-		{
-			"name" : "Header Files",
-			"sourceIndexes" : 
-			[
 				26,
 				27,
 				28,
 				29,
 				30,
 				31,
+				43
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
 				32,
 				33,
-				34
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40
 			]
 		},
 		{
 			"name" : "Resources",
 			"sourceIndexes" : 
 			[
-				35
+				41
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				36
+				42
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				38,
-				39
+				44,
+				45
 			]
 		}
 	],
@@ -675,6 +687,24 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/core/GameManager.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/core/PlayStats.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/core/SelfUpdater.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/core/FriendsManager.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -759,6 +789,24 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/ui/ProfileWidget.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/ui/StatsWidget.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/ui/FriendsWidget.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/ui/TrayController.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

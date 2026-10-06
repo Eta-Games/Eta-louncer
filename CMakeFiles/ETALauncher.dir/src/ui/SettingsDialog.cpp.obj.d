@@ -390,63 +390,24 @@ CMakeFiles/ETALauncher.dir/src/ui/SettingsDialog.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QAbstractButton \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qabstractbutton.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/QColor \
- C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/ThemeManager.h \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/Autostart.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QString \
- C:/Qt/6.12.0/mingw_64/include/QtCore/QList \
- C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/LauncherSettings.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QSettings \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qsettings.h \
- C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/Config.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/QMap \
- C:/Qt/6.12.0/mingw_64/include/QtCore/QJsonObject \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonobject.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonvalue.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qcborvalue.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qcborcommon.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qdatetime.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qcalendar.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qlocale.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qregularexpression.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qurl.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/quuid.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qjsondocument.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonparseerror.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/QVBoxLayout \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qboxlayout.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qlayout.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qlayoutitem.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qgridlayout.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/QHBoxLayout \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/QGridLayout \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/QStackedWidget \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qstackedwidget.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qframe.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/QButtonGroup \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qbuttongroup.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/QScrollArea \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qscrollarea.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/QLabel \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qlabel.h \
- C:/Qt/6.12.0/mingw_64/include/QtGui/qpicture.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qiodevice.h \
- C:/Qt/6.12.0/mingw_64/include/QtGui/qtextdocument.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/QLineEdit \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qlineedit.h \
- C:/Qt/6.12.0/mingw_64/include/QtGui/qtextcursor.h \
- C:/Qt/6.12.0/mingw_64/include/QtGui/qtextformat.h \
- C:/Qt/6.12.0/mingw_64/include/QtGui/qpen.h \
- C:/Qt/6.12.0/mingw_64/include/QtGui/qtextoption.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/QPushButton \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qpushbutton.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/QFrame \
- C:/Qt/6.12.0/mingw_64/include/QtGui/QPainter \
- C:/Qt/6.12.0/mingw_64/include/QtGui/qpainter.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/QFileDialog \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qfiledialog.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QCoreApplication \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcoreapplication.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcoreevent.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qbasictimer.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qeventloop.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qdeadlinetimer.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qnativeinterface.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcoreapplication_platform.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QDir \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qdir.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qdirlisting.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qfiledevice.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qiodevice.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/filesystem \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_fwd.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_path.h \
@@ -477,20 +438,60 @@ CMakeFiles/ETALauncher.dir/src/ui/SettingsDialog.cpp.obj: \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qdatetime.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcalendar.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qlocale.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qfile.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qfileinfo.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qtimezone.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/QDir \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/ThemeManager.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QList \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/LauncherSettings.h \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/Config.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QMap \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QJsonObject \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonobject.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonvalue.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcborvalue.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcborcommon.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qregularexpression.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qurl.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/quuid.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qjsondocument.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonparseerror.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QVBoxLayout \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qboxlayout.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qlayout.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qgridlayout.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QHBoxLayout \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QGridLayout \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QStackedWidget \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qstackedwidget.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qframe.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QButtonGroup \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qbuttongroup.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QScrollArea \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qscrollarea.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QLabel \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qlabel.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qpicture.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qtextdocument.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QLineEdit \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qlineedit.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qtextcursor.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qtextformat.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qpen.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qtextoption.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QPushButton \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qpushbutton.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QFrame \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/QPainter \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qpainter.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QFileDialog \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qfiledialog.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/QDesktopServices \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qdesktopservices.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QUrl \
- C:/Qt/6.12.0/mingw_64/include/QtCore/QCoreApplication \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qcoreapplication.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qcoreevent.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qbasictimer.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qabstracteventdispatcher.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qeventloop.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qdeadlinetimer.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qnativeinterface.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qcoreapplication_platform.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/QPixmap

@@ -1,5 +1,6 @@
 C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/ETALauncher_autogen/YPKJ5OE7LN/moc_MainWindow.cpp: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/MainWindow.h \
   C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/ETALauncher_autogen/moc_predefs.h \
+  C:/Qt/6.12.0/mingw_64/include/QtCore/QDateTime \
   C:/Qt/6.12.0/mingw_64/include/QtCore/QJsonObject \
   C:/Qt/6.12.0/mingw_64/include/QtCore/QList \
   C:/Qt/6.12.0/mingw_64/include/QtCore/QMap \
@@ -414,4 +415,5 @@ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/build/Desktop_Qt_6_12_0_Mi
   C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/GameManager.h \
   C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/GitCloner.h \
   C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/RepoUpdater.h \
+  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/SelfUpdater.h \
   C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/UpdateChecker.h

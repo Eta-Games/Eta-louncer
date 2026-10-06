@@ -416,6 +416,8 @@ CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj: \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/UpdateChecker.h \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/RepoUpdater.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QSet \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/SelfUpdater.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QDateTime \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\LoginWidget.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QWidget \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\ProfileWidget.h \
@@ -433,17 +435,66 @@ CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj: \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\ChangelogDialog.h \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\BroadcastWidget.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/QColor \
+ C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\FriendsWidget.h \
+ C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\TrayController.h \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/FirestoreClient.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QJsonArray \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonarray.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QJsonValue \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/PresenceManager.h \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/BroadcastManager.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/QDateTime \
- C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/Config.h \
- C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/LauncherSettings.h \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/FriendsManager.h \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/Autostart.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QSettings \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qsettings.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QCoreApplication \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcoreapplication.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcoreevent.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qbasictimer.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qeventloop.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qdeadlinetimer.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qnativeinterface.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcoreapplication_platform.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QDir \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qdir.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qdirlisting.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qfiledevice.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/filesystem \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_fwd.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_path.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/locale \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.tcc \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/codecvt.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.tcc \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_conv.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iomanip \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/quoted_string.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qfile.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qfileinfo.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qtimezone.h \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/Config.h \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/LauncherSettings.h \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/ThemeManager.h \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/ShortcutManager.h \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/I18n.h \
@@ -465,11 +516,6 @@ CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qabstractbutton.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/QMouseEvent \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qevent.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qcoreevent.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qbasictimer.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qabstracteventdispatcher.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qeventloop.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qdeadlinetimer.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qeventpoint.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qvector2d.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qvectornd.h \
@@ -482,11 +528,8 @@ CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QSize \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QSizeF \
  C:/Qt/6.12.0/mingw_64/include/QtGui/QTransform \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qnativeinterface.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qscreen_platform.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qguiapplication.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qcoreapplication.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qcoreapplication_platform.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qinputmethod.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qguiapplication_platform.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QMessageBox \
@@ -501,7 +544,6 @@ CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qbuttongroup.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QTimer \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qtimer.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/QCoreApplication \
  C:/Qt/6.12.0/mingw_64/include/QtGui/QCloseEvent \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QProgressDialog \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qprogressdialog.h \
@@ -510,4 +552,6 @@ CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qdesktopservices.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QUrl \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QPointer \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qpointer.h
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qpointer.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QSystemTrayIcon \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qsystemtrayicon.h
