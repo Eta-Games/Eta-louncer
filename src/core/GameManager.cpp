@@ -1,6 +1,8 @@
 #include "GameManager.h"
 #include "Config.h"
 #include "I18n.h"
+#include "ProcessUtil.h"
+#include "PlayStats.h"
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
@@ -14,6 +16,8 @@
 #include <QStandardPaths>
 #include <QProcessEnvironment>
 #include <QTimer>
+#include <QDateTime>
+#include <QCoreApplication>
 #include <functional>
 #include <memory>
 
@@ -21,6 +25,27 @@ static const QStringList WAD_EXTS = {".wad", ".pk3", ".pk7", ".ipk3"};
 static const QStringList WAD_SKIP = {"doom2.wad", "doom.wad", "heretic.wad", "hexen.wad", "strife1.wad", "gzdoom.pk3",
                                  // file di supporto di GZDoom: li carica da solo l'exe, non vanno passati con -file
                                  "game_support.pk3", "game_widescreen_gfx.pk3", "brightmaps.pk3", "lights.pk3"};
+
+// Statistiche di gioco: controlla ogni 5 s se GZDoom è vivo (indipendente da login/presenza).
+// Se il launcher viene chiuso durante la partita, la sessione si chiude con il tempo fino a quel momento.
+static void trackPlaySession(QObject* parent, const QString& id, qint64 pid) {
+    if (pid <= 0) return;
+    const qint64 start = QDateTime::currentSecsSinceEpoch();
+    auto done = std::make_shared<bool>(false);
+    auto finish = [id, start, done]() {
+        if (*done) return;
+        *done = true;
+        const qint64 end = QDateTime::currentSecsSinceEpoch();
+        PlayStats::instance().addSession(id, end, end - start);
+    };
+    auto* t = new QTimer(parent);
+    t->setInterval(5000);
+    QObject::connect(t, &QTimer::timeout, t, [t, finish, pid]() {
+        if (!isProcessRunning(pid)) { finish(); t->deleteLater(); }
+    });
+    QObject::connect(qApp, &QCoreApplication::aboutToQuit, t, finish);
+    t->start();
+}
 
 GameManager::GameManager(QObject* parent) : QObject(parent) {}
 
@@ -149,6 +174,7 @@ QString GameManager::launchGame(const QString& id) {
     qint64 pid = 0;
     if (!proc.startDetached(&pid)) return "Impossibile avviare GZDoom";
     emit gameStarted(id, pid); // serve allo stato online ("in gioco" finché il processo vive)
+    trackPlaySession(this, id, pid);
     return QString();
 }
 

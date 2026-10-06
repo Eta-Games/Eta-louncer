@@ -7,6 +7,7 @@
 #include <QFontDatabase>
 #include <QIcon>
 #include "ui/MainWindow.h"
+#include "core/Autostart.h"
 
 static const char* SINGLETON_KEY = "ETALauncherCpp-Singleton";
 
@@ -39,6 +40,7 @@ int main(int argc, char* argv[]) {
     app.setFont(base);
 
     registerProtocolHandlerWindows();
+    if (Autostart::isEnabled()) Autostart::set(true);   // aggiorna il percorso se l'exe è stato spostato
 
     // ── Istanza singola: se c'è già un'istanza in esecuzione, inoltriamo
     //    gli argomenti (deep link etagames://... oppure --launch <id>) e usciamo.
@@ -70,9 +72,7 @@ int main(int argc, char* argv[]) {
             int idx = payload.split('\n').indexOf("--launch");
             if (idx >= 0 && idx + 1 < payload.split('\n').size())
                 window.launchDirectly(payload.split('\n').at(idx + 1));
-            window.show();
-            window.raise();
-            window.activateWindow();
+            window.showFromTray();
         });
     });
 
@@ -83,6 +83,7 @@ int main(int argc, char* argv[]) {
         else if (args[i] == "--launch" && i + 1 < args.size()) window.launchDirectly(args[i + 1]);
     }
 
-    window.show();
+    if (app.arguments().contains("--background")) window.startInBackground();   // avvio con Windows: nascosto nella tray
+    else window.show();
     return app.exec();
 }

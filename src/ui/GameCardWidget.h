@@ -30,12 +30,14 @@ protected:
     void resizeEvent(QResizeEvent* e) override;
 
 private:
+    void refreshPlaytime();
     GameEntry m_game;
     QLabel* m_cover;
     QLabel* m_statusLabel;
     QLabel* m_updateBadge;
     QLabel* m_installedTag;
     QLabel* m_onlineLabel;
+    QLabel* m_playLabel = nullptr;
     QPushButton* m_actionBtn; // Installa / Avvia
     QPushButton* m_manageBtn;
     QPushButton* m_checkBtn;

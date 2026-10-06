@@ -21,6 +21,10 @@ inline void setOpenOnInstalled(bool v)  { store().setValue("startup/openOnInstal
 inline bool closeOnLaunch()             { return store().value("launch/closeLauncher", false).toBool(); }
 inline void setCloseOnLaunch(bool v)    { store().setValue("launch/closeLauncher", v); }
 
+// Resta nella tray quando chiudi la finestra (il launcher continua a controllare aggiornamenti e broadcast)
+inline bool trayEnabled()               { return store().value("background/tray", false).toBool(); }
+inline void setTrayEnabled(bool v)      { store().setValue("background/tray", v); }
+
 // Mostra il proprio stato online agli altri utenti
 inline bool showOnlineStatus()          { return store().value("privacy/showOnline", true).toBool(); }
 inline void setShowOnlineStatus(bool v) { store().setValue("privacy/showOnline", v); }

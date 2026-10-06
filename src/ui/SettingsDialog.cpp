@@ -1,5 +1,6 @@
 #include "SettingsDialog.h"
 #include "ToggleSwitch.h"
+#include "../core/Autostart.h"
 #include "../core/ThemeManager.h"
 #include "../core/LauncherSettings.h"
 #include "../core/Config.h"
@@ -219,6 +220,15 @@ void SettingsDialog::buildGeneralPage() {
     addToggleRow(l, "Mostra il mio stato online",
                  "Gli altri utenti vedono che sei nel launcher o in partita. Se lo spegni risulti offline.",
                  LauncherSettings::showOnlineStatus(), [](bool on) { LauncherSettings::setShowOnlineStatus(on); });
+    addSection(l, "BACKGROUND");
+    addToggleRow(l, "Resta nella tray quando chiudi la finestra",
+                 "Il launcher continua a controllare aggiornamenti e broadcast e ti avvisa dei messaggi nuovi.",
+                 LauncherSettings::trayEnabled(), [](bool on) { LauncherSettings::setTrayEnabled(on); });
+#ifdef Q_OS_WIN
+    addToggleRow(l, "Avvia con Windows",
+                 "Parte all'accensione del PC, ridotto nella tray (con questa opzione l'icona nella tray c'è sempre).",
+                 Autostart::isEnabled(), [](bool on) { Autostart::set(on); });
+#endif
     addSection(l, "AVVIO DEI GIOCHI");
     addToggleRow(l, "Chiudi il launcher quando avvii un gioco",
                  "Il launcher si chiude dopo aver lanciato il gioco.",

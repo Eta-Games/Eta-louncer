@@ -26,6 +26,7 @@ public:
     void refresh();                                 // ricarica (al massimo ogni minuto) i dati dell'utente
     void syncThemeToCloud(const QString& themeId);  // salva il tema in users/<uid>.theme come fa il sito
     void setOnlineStatusText(const QString& text);
+    void addExtraSection(const QString& navText, const QString& title, QWidget* content); // sezione extra nella sidebar
 
 signals:
     void goToLoginRequested();

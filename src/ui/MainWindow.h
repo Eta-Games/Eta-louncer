@@ -7,6 +7,7 @@
 #include "../core/UpdateChecker.h"
 #include "../core/GameCatalog.h"
 #include "../core/RepoUpdater.h"
+#include "../core/SelfUpdater.h"
 
 class QStackedWidget;
 class QPushButton;
@@ -16,6 +17,8 @@ class QScrollArea;
 class QLabel;
 class FirestoreClient;
 class PresenceManager;
+class FriendsManager;
+class TrayController;
 class BroadcastManager;
 class BroadcastWidget;
 class LoginWidget;
@@ -31,6 +34,8 @@ public:
 
     void handleDeepLink(const QString& url);
     void launchDirectly(const QString& gameId);
+    void showFromTray();          // riporta la finestra davanti (anche se nascosta o ridotta a icona)
+    void startInBackground();     // avvio con Windows: nella tray, senza aprire la finestra
 
 public slots:
     void applyTheme(const QString& themeId);
@@ -41,6 +46,7 @@ protected:
     void mouseReleaseEvent(QMouseEvent* e) override;
     void resizeEvent(QResizeEvent* e) override;
     void closeEvent(QCloseEvent* e) override;
+    void changeEvent(QEvent* e) override;
 
 private:
     AuthManager* m_auth = nullptr;
@@ -48,6 +54,13 @@ private:
     UpdateChecker* m_updateChecker = nullptr;
     FirestoreClient* m_fs = nullptr;
     PresenceManager* m_presence = nullptr;
+    FriendsManager* m_friends = nullptr;
+    TrayController* m_tray = nullptr;
+    SelfUpdater* m_selfUpdater = nullptr;
+    SelfUpdateInfo m_selfInfo;
+    bool m_hasSelfUpdate = false;
+    bool m_selfBusy = false;
+    bool m_quitting = false;
     BroadcastManager* m_broadcast = nullptr;
     RepoUpdater* m_repoUpdater = nullptr;
     QList<RepoUpdate> m_updateQueue;
@@ -91,6 +104,10 @@ private:
 
     void showChangelog(const QString& sourceId, const QString& name, const QString& caption,
                        const QStringList& commits, int totalCommits);
+    void applyTraySetting();
+    void askSelfUpdate();
+    void downloadSelfUpdate(const SelfUpdateInfo& info);
+    void flushPendingUpdates();
     void checkLauncherChangelog();   // dopo un nuovo avvio con una versione diversa: mostra le novità
 
     void onRepoUpdateAvailable(RepoUpdate update);

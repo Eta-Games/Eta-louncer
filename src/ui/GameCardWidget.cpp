@@ -1,3 +1,4 @@
+#include "../core/PlayStats.h"
 #include "GameCardWidget.h"
 #include "CoverUtil.h"
 #include <QVBoxLayout>
@@ -59,6 +60,12 @@ GameCardWidget::GameCardWidget(const GameEntry& game, QWidget* parent)
     auto* meta = new QLabel(QString("%1 · %2 · v%3").arg(game.engine, game.size, game.version));
     meta->setObjectName("Muted");
     bl->addWidget(meta);
+
+    m_playLabel = new QLabel;
+    m_playLabel->setObjectName("Muted");
+    m_playLabel->hide();
+    bl->addWidget(m_playLabel);
+    connect(&PlayStats::instance(), &PlayStats::changed, this, &GameCardWidget::refreshPlaytime);
 
     m_onlineLabel = new QLabel;
     m_onlineLabel->setObjectName("Online");
@@ -133,6 +140,7 @@ void GameCardWidget::setInstalled(bool installed) {
     m_manageBtn->setVisible(installed);
     m_checkBtn->setVisible(installed);
     m_installedTag->setVisible(installed);
+    refreshPlaytime();
 }
 
 void GameCardWidget::setOnlinePlayers(int playing, const QString& namesTooltip) {
@@ -156,4 +164,14 @@ void GameCardWidget::setChecking(bool checking) {
 void GameCardWidget::setUpdateAvailable(bool available, const QString& versionLabel) {
     m_updateBadge->setVisible(available);
     if (available) m_updateBadge->setText("Aggiornamento " + versionLabel);
+}
+
+void GameCardWidget::refreshPlaytime() {
+    if (!m_playLabel) return;
+    const GameStats s = PlayStats::instance().get(m_game.id);
+    const bool show = m_installed && s.sessions > 0;
+    if (show)
+        m_playLabel->setText(T("Giocato %1 · ultima partita %2")
+            .arg(PlayStats::formatDuration(s.totalSecs), PlayStats::formatLast(s.lastPlayed)));
+    m_playLabel->setVisible(show);
 }

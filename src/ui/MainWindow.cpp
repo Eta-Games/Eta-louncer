@@ -7,9 +7,13 @@
 #include "ManageDialog.h"
 #include "ChangelogDialog.h"
 #include "BroadcastWidget.h"
+#include "FriendsWidget.h"
+#include "TrayController.h"
 #include "../core/FirestoreClient.h"
 #include "../core/PresenceManager.h"
 #include "../core/BroadcastManager.h"
+#include "../core/FriendsManager.h"
+#include "../core/Autostart.h"
 #include "../core/Config.h"
 #include "../core/LauncherSettings.h"
 #include "../core/ThemeManager.h"
@@ -38,6 +42,7 @@
 #include <QUrl>
 #include <QPointer>
 #include <QSettings>
+#include <QSystemTrayIcon>
 #include <initializer_list>
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
@@ -50,6 +55,9 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
     m_updateChecker = new UpdateChecker(this);
     m_fs = new FirestoreClient(m_auth, this);
     m_presence = new PresenceManager(m_auth, m_fs, this);
+    m_friends = new FriendsManager(m_auth, m_fs, m_presence, this);
+    m_tray = new TrayController(this);
+    m_selfUpdater = new SelfUpdater(this);
     m_broadcast = new BroadcastManager(this);
     m_repoUpdater = new RepoUpdater(m_games, this);
 
@@ -73,6 +81,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
     connect(m_profile, &ProfileWidget::goToLoginRequested, this, [this]() { showLogin(); });
     connect(m_profile, &ProfileWidget::loggedOut, this, [this]() {
         m_presence->stop(false);   // segna offline
+        m_friends->clear();
         m_sessionStarted = false;
         showLogin();
     });
@@ -87,6 +96,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
         if (m_games->isInstalled(id)) onLaunchRequested(id);
         else onInstallRequested(*g);
     });
+    m_profile->addExtraSection(T("Amici"), T("Amici"), new FriendsWidget(m_friends, m_presence));
     m_pages->addWidget(m_profile);
 
     // 2: Login — obbligatorio all'avvio, senza "continua senza account"
@@ -126,6 +136,31 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
     connect(m_presence, &PresenceManager::onlineChanged, this, &MainWindow::updateOnline);
     connect(m_presence, &PresenceManager::ownStatusChanged, this, &MainWindow::updateOwnStatus);
     connect(m_broadcast, &BroadcastManager::changed, this, &MainWindow::updateBroadcastNav);
+
+    // Tray: il launcher può restare in background; i broadcast nuovi arrivano come notifica di sistema
+    // Auto-aggiornamento del launcher (release GitHub su master): scarica, chiude, sostituisce, riavvia
+    connect(m_selfUpdater, &SelfUpdater::updateAvailable, this, [this](const SelfUpdateInfo& info) {
+        m_selfInfo = info;
+        m_hasSelfUpdate = true;
+        if (m_tray->isVisible() && (!isVisible() || isMinimized())) {   // in background: notifica, la domanda arriva all'apertura
+            m_tray->notify(T("ETA Launcher"), T("Nuova versione disponibile: %1").arg(info.tag), [this]() { showFromTray(); });
+            return;
+        }
+        QTimer::singleShot(0, this, &MainWindow::askSelfUpdate);
+    });
+    connect(m_tray, &TrayController::openRequested, this, &MainWindow::showFromTray);
+    // spegnimento / logoff di Windows: la finestra non deve rifiutare la chiusura nascondendosi nella tray
+    connect(qApp, &QGuiApplication::commitDataRequest, this, [this]() { m_quitting = true; });
+    connect(m_tray, &TrayController::quitRequested, this, [this]() { m_quitting = true; close(); qApp->quit(); });
+    connect(m_broadcast, &BroadcastManager::newMessages, this, [this](const QList<BroadcastMessage>& fresh) {
+        if (fresh.isEmpty() || !m_tray->isVisible() || isActiveWindow()) return;   // se lo stai guardando lo vedi già
+        const BroadcastMessage& m = fresh.first();
+        const QString title = m.sourceName.isEmpty() ? T("Nuovo messaggio") : m.sourceName;
+        const QString what = m.title.isEmpty() ? m.message : m.title;
+        m_tray->notify(title, fresh.size() == 1 ? what : T("%1 nuovi messaggi").arg(fresh.size()),
+                       [this]() { showFromTray(); goToPage(3); });
+    });
+    applyTraySetting();
     connect(m_repoUpdater, &RepoUpdater::updateAvailable, this, &MainWindow::onRepoUpdateAvailable);
     connect(m_repoUpdater, &RepoUpdater::manualCheckDone, this, [this](const QString& id, bool found, const QString& error) {
         if (auto* c = m_cards.value(id)) c->setChecking(false);
@@ -147,8 +182,10 @@ void MainWindow::startSession() {
     if (m_sessionStarted) return;
     m_sessionStarted = true;
     m_presence->start();
+    m_friends->reload();
     m_broadcast->start();
     m_repoUpdater->start(); // confronta launcher e giochi con le repo su GitHub
+    m_selfUpdater->start(); // release del launcher su master
     checkLauncherChangelog();
 }
 
@@ -225,7 +262,97 @@ void MainWindow::updateBroadcastNav() {
     m_navButtons[1]->setText(n > 0 ? QString("Broadcast (%1)").arg(n) : QString("Broadcast"));
 }
 
+void MainWindow::askSelfUpdate() {
+    if (!m_hasSelfUpdate || m_selfBusy) return;
+    m_selfBusy = true;
+    const SelfUpdateInfo info = m_selfInfo;
+    QMessageBox box(this);
+    box.setWindowTitle(T("Aggiornamento del launcher"));
+    box.setIcon(QMessageBox::Information);
+    box.setText(T("È disponibile una nuova versione di <b>ETA Launcher</b> (%1).<br>Il launcher la scarica, si chiude, si aggiorna e si riavvia da solo.")
+                    .arg(info.tag.toHtmlEscaped()));
+    auto* yes = box.addButton(T("Aggiorna e riavvia"), QMessageBox::AcceptRole);
+    box.addButton(T("Più tardi"), QMessageBox::RejectRole);
+    box.exec();
+    if (box.clickedButton() != yes) { m_hasSelfUpdate = false; m_selfBusy = false; return; }   // per questa sessione non lo richiede più
+    downloadSelfUpdate(info);
+}
+
+void MainWindow::downloadSelfUpdate(const SelfUpdateInfo& info) {
+    auto* dlg = new QProgressDialog(T("Scarico ETA Launcher %1…").arg(info.tag), T("Annulla"), 0, 100, this);
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    dlg->setWindowTitle(T("Aggiornamento"));
+    dlg->setWindowModality(Qt::WindowModal);
+    dlg->setAutoClose(false);
+    dlg->setAutoReset(false);
+    dlg->setMinimumDuration(0);
+    dlg->setValue(0);
+
+    connect(dlg, &QProgressDialog::canceled, m_selfUpdater, &SelfUpdater::cancel);
+    connect(dlg, &QProgressDialog::canceled, this, [this]() { m_selfBusy = false; });
+    connect(m_selfUpdater, &SelfUpdater::progress, dlg, [dlg](qint64 got, qint64 total) {
+        if (total > 0) dlg->setValue(int(got * 100 / total));
+    });
+    connect(m_selfUpdater, &SelfUpdater::downloadFailed, dlg, [this, dlg](const QString& err) {
+        dlg->close();
+        m_selfBusy = false;
+        QMessageBox::warning(this, T("Aggiornamento"), err);
+    });
+    connect(m_selfUpdater, &SelfUpdater::downloaded, dlg, [this, dlg](const QString& file, const SelfUpdateInfo& done) {
+        dlg->close();
+        QString err;
+        if (!m_selfUpdater->apply(file, done, &err)) {
+            m_selfBusy = false;
+            QMessageBox::warning(this, T("Aggiornamento"), err);
+            return;
+        }
+        m_quitting = true;   // lo script sostituisce i file e riavvia il launcher
+        close();
+        qApp->quit();
+    });
+    dlg->show();
+    m_selfUpdater->download(info);
+}
+
+void MainWindow::applyTraySetting() {
+    const bool want = QSystemTrayIcon::isSystemTrayAvailable() && (LauncherSettings::trayEnabled() || Autostart::isEnabled());
+    m_tray->setVisible(want);
+    qApp->setQuitOnLastWindowClosed(!want);   // con la tray la finestra nascosta non deve chiudere l'app
+}
+
+void MainWindow::startInBackground() {
+    applyTraySetting();
+    if (!m_tray->isVisible()) show();   // niente tray disponibile: meglio mostrare la finestra che restare invisibili
+}
+
+void MainWindow::showFromTray() {
+    if (isMinimized()) showNormal(); else show();
+    raise();
+    activateWindow();
+    flushPendingUpdates();
+}
+
+void MainWindow::flushPendingUpdates() {
+    if (!m_updateQueue.isEmpty() && !m_updateAsking) QTimer::singleShot(300, this, &MainWindow::processUpdateQueue);
+    if (m_hasSelfUpdate && !m_selfBusy) QTimer::singleShot(600, this, &MainWindow::askSelfUpdate);
+}
+
+void MainWindow::changeEvent(QEvent* e) {
+    QMainWindow::changeEvent(e);
+    if (e->type() == QEvent::WindowStateChange && isVisible() && !isMinimized()) flushPendingUpdates();
+}
+
 void MainWindow::closeEvent(QCloseEvent* e) {
+    if (!m_quitting && m_tray->isVisible()) {   // la X nasconde la finestra, il launcher resta attivo nella tray
+        e->ignore();
+        hide();
+        QSettings s;
+        if (!s.value("tray/hintShown").toBool()) {
+            s.setValue("tray/hintShown", true);
+            m_tray->notify(T("ETA Launcher è ancora attivo"), T("Resta nella tray: clic destro sull'icona per uscire."));
+        }
+        return;
+    }
     if (m_sessionStarted) m_presence->stop(true); // segna offline prima di uscire (attende al massimo 1.5 s)
     QMainWindow::closeEvent(e);
 }
@@ -250,6 +377,7 @@ void MainWindow::buildTitleBar(QWidget* host, QVBoxLayout* hostLayout) {
         });
         dlg.exec();
         m_presence->settingsChanged(); // l'utente può aver nascosto/mostrato il proprio stato online
+        applyTraySetting();            // ...e attivato/disattivato la tray
     });
     l->addWidget(settingsBtn);
 
@@ -511,7 +639,15 @@ void MainWindow::onManageRequested(const QString& id) {
 
 // ── Aggiornamenti da repo (launcher + giochi) ─────────────────────────────
 void MainWindow::onRepoUpdateAvailable(RepoUpdate update) {
+    if (update.isLauncher) return;   // il launcher si aggiorna con SelfUpdater (release su master), non con i commit di main
     m_updateQueue.append(update);
+    if (m_tray->isVisible() && (!isVisible() || isMinimized())) {
+        // in background niente finestre a sorpresa: notifica dalla tray, la domanda arriva quando apri il launcher
+        m_tray->notify(update.isLauncher ? T("ETA Launcher") : update.name,
+                       update.isLauncher ? T("Nuova versione del launcher disponibile.") : T("Aggiornamento disponibile."),
+                       [this]() { showFromTray(); });
+        return;
+    }
     if (!m_updateAsking) QTimer::singleShot(0, this, &MainWindow::processUpdateQueue);
 }
 

@@ -13,6 +13,9 @@ add_executable(ETALauncher WIN32
     src/core/Config.cpp
     src/core/GitCloner.cpp
     src/core/GameManager.cpp
+    src/core/PlayStats.cpp
+    src/core/SelfUpdater.cpp
+    src/core/FriendsManager.cpp
     src/core/UpdateChecker.cpp
     src/core/ShortcutManager.cpp
     src/core/AuthManager.cpp
@@ -27,6 +30,9 @@ add_executable(ETALauncher WIN32
     src/ui/MainWindow.cpp
     src/ui/LoginWidget.cpp
     src/ui/ProfileWidget.cpp
+    src/ui/StatsWidget.cpp
+    src/ui/FriendsWidget.cpp
+    src/ui/TrayController.cpp
     src/ui/GameCardWidget.cpp
     src/ui/InstallProgressDialog.cpp
     src/ui/SettingsDialog.cpp

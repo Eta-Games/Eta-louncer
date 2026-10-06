@@ -1,3 +1,5 @@
+#include "StatsWidget.h"
+#include "../core/I18n.h"
 #include "ProfileWidget.h"
 #include "ToggleSwitch.h"
 #include "../core/FirestoreClient.h"
@@ -205,6 +207,11 @@ void ProfileWidget::buildAccountPage() {
     buildSecurity();
     buildExtra();
     buildLibrary();
+    {
+        auto* sl = addSection(T("Statistiche"), T("Statistiche di gioco"));
+        sl->addWidget(new StatsWidget);
+        sl->addStretch(1);
+    }
 
     m_navLayout->addStretch(1);
     if (auto* first = m_navGroup->button(0)) first->setChecked(true);
@@ -233,6 +240,32 @@ QVBoxLayout* ProfileWidget::addSection(const QString& navText, const QString& ti
     scroll->setWidget(content);
     m_sections->addWidget(scroll);
     return l;
+}
+
+void ProfileWidget::addExtraSection(const QString& navText, const QString& title, QWidget* content) {
+    if (!m_sections || !m_navLayout || !m_navGroup) return;
+    const int index = m_sections->count();
+    auto* btn = new QPushButton(navText);
+    btn->setObjectName("SideLink");
+    btn->setCheckable(true);
+    btn->setFlat(true);
+    btn->setCursor(Qt::PointingHandCursor);
+    m_navGroup->addButton(btn, index);
+    m_navLayout->insertWidget(m_navLayout->count() - 1, btn);   // prima dello stretch finale
+    connect(btn, &QPushButton::clicked, this, [this, index]() { m_sections->setCurrentIndex(index); });
+
+    auto* scroll = new QScrollArea;
+    scroll->setWidgetResizable(true);
+    scroll->setFrameShape(QFrame::NoFrame);
+    auto* page = new QWidget;
+    auto* l = new QVBoxLayout(page);
+    l->setContentsMargins(28, 24, 28, 12);
+    l->setSpacing(10);
+    l->addWidget(makeLabel(title, "Heading"));
+    l->addWidget(content);
+    l->addStretch(1);
+    scroll->setWidget(page);
+    m_sections->addWidget(scroll);
 }
 
 // ── Panoramica ───────────────────────────────────────────────────────────
