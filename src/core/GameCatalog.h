@@ -31,7 +31,7 @@ inline const QList<GameEntry>& gameCatalog() {
             /*repoUrl*/     "https://github.com/Eta-Games/Dante-s-Revenge.git",
             /*size*/        "41 MB",
             /*engine*/      "GZDoom",
-            /*pageUrl*/     "https://eta-games.it/dantes_revenge.html",
+            /*pageUrl*/     "https://eta-games.github.io/dantes_revenge.html",
             /*releasesApi*/ "https://api.github.com/repos/Eta-Games/Dante-s-Revenge/releases/latest",
             /*branch*/      "main",
             /*needsDoom2Wad*/ true

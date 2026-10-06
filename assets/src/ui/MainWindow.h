@@ -89,10 +89,6 @@ private:
     void updateOwnStatus();     // stato mostrato nel profilo
     void updateBroadcastNav();  // numero di non letti sulla voce Broadcast
 
-    void showChangelog(const QString& sourceId, const QString& name, const QString& caption,
-                       const QStringList& commits, int totalCommits);
-    void checkLauncherChangelog();   // dopo un nuovo avvio con una versione diversa: mostra le novità
-
     void onRepoUpdateAvailable(RepoUpdate update);
     void processUpdateQueue();
     bool updateGameNow(const RepoUpdate& update);

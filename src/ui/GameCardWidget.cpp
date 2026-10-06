@@ -4,6 +4,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QPushButton>
+#include "../core/I18n.h"
 #include <QPainter>
 #include <QPainterPath>
 #include <QNetworkAccessManager>
@@ -59,6 +60,11 @@ GameCardWidget::GameCardWidget(const GameEntry& game, QWidget* parent)
     meta->setObjectName("Muted");
     bl->addWidget(meta);
 
+    m_onlineLabel = new QLabel;
+    m_onlineLabel->setObjectName("Online");
+    m_onlineLabel->hide();
+    bl->addWidget(m_onlineLabel);
+
     m_statusLabel = new QLabel;
     m_statusLabel->setObjectName("Muted");
     m_statusLabel->hide();
@@ -81,6 +87,15 @@ GameCardWidget::GameCardWidget(const GameEntry& game, QWidget* parent)
     m_manageBtn->setVisible(false);
     connect(m_manageBtn, &QPushButton::clicked, this, [this]() { emit manageRequested(m_game.id); });
     btnRow->addWidget(m_manageBtn);
+
+    m_checkBtn = new QPushButton(QString::fromUtf8("⟳"));
+    m_checkBtn->setObjectName("Secondary");
+    m_checkBtn->setCursor(Qt::PointingHandCursor);
+    m_checkBtn->setFixedWidth(40);
+    m_checkBtn->setToolTip(T("Controlla aggiornamenti"));
+    m_checkBtn->setVisible(false);
+    connect(m_checkBtn, &QPushButton::clicked, this, [this]() { emit updateCheckRequested(m_game.id); });
+    btnRow->addWidget(m_checkBtn);
 
     bl->addLayout(btnRow);
 
@@ -116,13 +131,26 @@ void GameCardWidget::setInstalled(bool installed) {
     m_installed = installed;
     m_actionBtn->setText(installed ? "Avvia" : "Installa");
     m_manageBtn->setVisible(installed);
+    m_checkBtn->setVisible(installed);
     m_installedTag->setVisible(installed);
+}
+
+void GameCardWidget::setOnlinePlayers(int playing, const QString& namesTooltip) {
+    m_onlineLabel->setVisible(playing > 0);
+    m_onlineLabel->setText(playing == 1 ? "● 1 giocatore in partita" : QString("● %1 giocatori in partita").arg(playing));
+    m_onlineLabel->setToolTip(namesTooltip);
 }
 
 void GameCardWidget::setBusy(bool busy, const QString& label) {
     m_actionBtn->setEnabled(!busy);
     m_statusLabel->setVisible(busy && !label.isEmpty());
     if (busy) m_statusLabel->setText(label);
+}
+
+void GameCardWidget::setChecking(bool checking) {
+    m_checkBtn->setEnabled(!checking);
+    m_checkBtn->setText(checking ? QString::fromUtf8("…") : QString::fromUtf8("⟳"));
+    m_checkBtn->setToolTip(checking ? T("Controllo aggiornamenti") + QString::fromUtf8("…") : T("Controlla aggiornamenti"));
 }
 
 void GameCardWidget::setUpdateAvailable(bool available, const QString& versionLabel) {

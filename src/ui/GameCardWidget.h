@@ -14,6 +14,8 @@ public:
     void setInstalled(bool installed);
     void setBusy(bool busy, const QString& label = QString());
     void setUpdateAvailable(bool available, const QString& versionLabel = QString());
+    void setChecking(bool checking);   // controllo aggiornamenti in corso
+    void setOnlinePlayers(int playing, const QString& namesTooltip = QString()); // giocatori ora in partita
 
     const GameEntry& game() const { return m_game; }
     const QPixmap& coverPixmap() const { return m_coverPix; }
@@ -22,6 +24,7 @@ signals:
     void installRequested(GameEntry game);
     void launchRequested(QString id);
     void manageRequested(QString id);
+    void updateCheckRequested(QString id);
 
 protected:
     void resizeEvent(QResizeEvent* e) override;
@@ -32,8 +35,10 @@ private:
     QLabel* m_statusLabel;
     QLabel* m_updateBadge;
     QLabel* m_installedTag;
+    QLabel* m_onlineLabel;
     QPushButton* m_actionBtn; // Installa / Avvia
     QPushButton* m_manageBtn;
+    QPushButton* m_checkBtn;
     QPixmap m_coverPix;
     bool m_installed = false;
 

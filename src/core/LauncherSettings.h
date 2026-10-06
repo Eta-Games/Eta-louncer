@@ -21,6 +21,10 @@ inline void setOpenOnInstalled(bool v)  { store().setValue("startup/openOnInstal
 inline bool closeOnLaunch()             { return store().value("launch/closeLauncher", false).toBool(); }
 inline void setCloseOnLaunch(bool v)    { store().setValue("launch/closeLauncher", v); }
 
+// Mostra il proprio stato online agli altri utenti
+inline bool showOnlineStatus()          { return store().value("privacy/showOnline", true).toBool(); }
+inline void setShowOnlineStatus(bool v) { store().setValue("privacy/showOnline", v); }
+
 // Cartella di installazione personalizzata per i NUOVI giochi (vuoto = predefinita di Config)
 inline QString gamesDir()               { return store().value("paths/gamesDir").toString(); }
 inline void setGamesDir(const QString& v) { store().setValue("paths/gamesDir", v); }

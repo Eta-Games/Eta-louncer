@@ -1,6 +1,5 @@
 #include "GameManager.h"
 #include "Config.h"
-#include "I18n.h"
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
@@ -13,9 +12,6 @@
 #include <QUrl>
 #include <QStandardPaths>
 #include <QProcessEnvironment>
-#include <QTimer>
-#include <functional>
-#include <memory>
 
 static const QStringList WAD_EXTS = {".wad", ".pk3", ".pk7", ".ipk3"};
 static const QStringList WAD_SKIP = {"doom2.wad", "doom.wad", "heretic.wad", "hexen.wad", "strife1.wad", "gzdoom.pk3",
@@ -96,10 +92,6 @@ void GameManager::installGame(const GameEntry& game, const QString& customInstal
     });
 
     m_cloner->start(game.repoUrl, gameDir, game.branch);
-}
-
-void GameManager::cancelInstall() {
-    if (m_cloner) m_cloner->cancel();
 }
 
 QString GameManager::launchGame(const QString& id) {
@@ -236,102 +228,6 @@ void GameManager::updateGame(const QString& id) {
     });
 
     p->start(gitExe, {"pull", "--ff-only"});
-}
-
-// Esegue git nella cartella del gioco senza bloccare la UI; done(ok, stdout, stderr/codice errore)
-static void runGit(QObject* parent, const QString& dir, const QStringList& args,
-                   std::function<void(bool, const QByteArray&, const QString&)> done) {
-    const QString gitExe = QStandardPaths::findExecutable("git");
-    if (gitExe.isEmpty()) {
-        QTimer::singleShot(0, parent, [done]() { done(false, QByteArray(), QStringLiteral("git_missing")); });
-        return;
-    }
-    auto* p = new QProcess(parent);
-    p->setWorkingDirectory(dir);
-    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-    env.insert("GIT_TERMINAL_PROMPT", "0");
-    p->setProcessEnvironment(env);
-
-    auto finished = std::make_shared<bool>(false);
-    QObject::connect(p, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), parent,
-                     [p, done, finished](int code, QProcess::ExitStatus st) {
-        if (*finished) return;
-        *finished = true;
-        const QByteArray out = p->readAllStandardOutput();
-        const QString err = QString::fromUtf8(p->readAllStandardError()).trimmed();
-        p->deleteLater();
-        const bool ok = (st == QProcess::NormalExit && code == 0);
-        done(ok, out, ok ? QString() : (err.isEmpty() ? QStringLiteral("git_failed") : err));
-    });
-    QObject::connect(p, &QProcess::errorOccurred, parent, [p, done, finished](QProcess::ProcessError e) {
-        if (e != QProcess::FailedToStart || *finished) return;
-        *finished = true;
-        p->deleteLater();
-        done(false, QByteArray(), QStringLiteral("git_missing"));
-    });
-    p->start(gitExe, args);
-}
-
-// File che la verifica non deve mai toccare: dati dell'utente e file del launcher
-static bool isUserFile(const QString& relPath) {
-    const QString l = relPath.toLower();
-    return l.endsWith(".gzd") || l.endsWith(".ini") || l.endsWith("meta.json");
-}
-
-void GameManager::verifyGame(const QString& id) {
-    const QString dir = Config::instance().gameDir(id);
-    if (!QFileInfo::exists(QDir(dir).filePath(".git"))) {
-        QTimer::singleShot(0, this, [this, id]() {
-            emit verifyFinished(id, false, QStringList(), QStringList(), QStringLiteral("not_git"));
-        });
-        return;
-    }
-    runGit(this, dir, {"--no-optional-locks", "status", "--porcelain=v1", "-z", "--untracked-files=no"},
-           [this, id](bool ok, const QByteArray& out, const QString& err) {
-        if (!ok) { emit verifyFinished(id, false, QStringList(), QStringList(), err); return; }
-
-        QStringList modified, deleted;
-        const QList<QByteArray> parts = out.split('\0');
-        for (int i = 0; i < parts.size(); ++i) {
-            const QByteArray& e = parts.at(i);
-            if (e.size() < 4) continue;                    // "XY path"
-            const char x = e.at(0), y = e.at(1);
-            const QString path = QString::fromUtf8(e.mid(3));
-            if (x == 'R' || x == 'C') ++i;                 // con -z il vecchio nome è un campo a parte
-            if (path.isEmpty() || isUserFile(path)) continue;
-            if (x == 'D' || y == 'D') deleted << path;
-            else modified << path;
-        }
-        emit verifyFinished(id, true, modified, deleted, QString());
-    });
-}
-
-void GameManager::repairGame(const QString& id, const QStringList& files) {
-    const QString dir = Config::instance().gameDir(id);
-    auto remaining = std::make_shared<QStringList>(files);
-    const int total = files.size();
-    auto step = std::make_shared<std::function<void()>>();
-    *step = [this, id, dir, remaining, total, step]() {
-        if (remaining->isEmpty()) {
-            // i file ripristinati possono essere WAD: aggiorniamo l'elenco salvato nel meta.json
-            GameMeta meta = loadMeta(id);
-            if (meta.installed) {
-                meta.gameDir = dir;
-                meta.wadFiles = findGameWads(dir);
-                writeMeta(id, meta);
-            }
-            emit repairFinished(id, true, total, QString());
-            return;
-        }
-        QStringList args = {"checkout", "HEAD", "--"};
-        const int n = qMin(100, int(remaining->size())); // a blocchi: la riga di comando di Windows ha un limite
-        for (int i = 0; i < n; ++i) args << remaining->takeFirst();
-        runGit(this, dir, args, [this, id, step](bool ok, const QByteArray&, const QString& err) {
-            if (!ok) { emit repairFinished(id, false, 0, err); return; }
-            (*step)();
-        });
-    };
-    (*step)();
 }
 
 QString GameManager::findFileRecursive(const QString& dir, const QString& nameOrExt, bool isExt) const {

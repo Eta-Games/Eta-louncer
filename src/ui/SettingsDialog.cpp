@@ -215,6 +215,10 @@ void SettingsDialog::buildGeneralPage() {
     addToggleRow(l, "Apri direttamente su «Installati»",
                  "Nella pagina dei giochi mostra subito solo quelli già installati.",
                  LauncherSettings::openOnInstalled(), [](bool on) { LauncherSettings::setOpenOnInstalled(on); });
+    addSection(l, "PRIVACY");
+    addToggleRow(l, "Mostra il mio stato online",
+                 "Gli altri utenti vedono che sei nel launcher o in partita. Se lo spegni risulti offline.",
+                 LauncherSettings::showOnlineStatus(), [](bool on) { LauncherSettings::setShowOnlineStatus(on); });
     addSection(l, "AVVIO DEI GIOCHI");
     addToggleRow(l, "Chiudi il launcher quando avvii un gioco",
                  "Il launcher si chiude dopo aver lanciato il gioco.",

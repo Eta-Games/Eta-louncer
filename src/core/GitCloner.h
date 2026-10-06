@@ -26,7 +26,7 @@ public:
     void cancel();
 
 signals:
-    // phase: "counting" | "compressing" | "receiving" | "resolving" | "enumerating"
+    // phase: "counting" | "compressing" | "receiving" | "resolving" | "checkout" | "enumerating"
     // phasePct: percentuale della singola fase (0-100), -1 se la fase non riporta %
     void phaseProgress(const QString& phase, int phasePct, const QString& rawLine);
     // percentuale complessiva 0-100, calcolata come media pesata delle fasi
@@ -53,6 +53,7 @@ private:
     // la consideriamo "fase 0" e la fase "counting" parte da lì.
     static constexpr double W_COUNTING    = 0.05;
     static constexpr double W_COMPRESSING = 0.05;
-    static constexpr double W_RECEIVING   = 0.70;
-    static constexpr double W_RESOLVING   = 0.20;
+    static constexpr double W_RECEIVING   = 0.60;
+    static constexpr double W_RESOLVING   = 0.10;
+    static constexpr double W_CHECKOUT    = 0.20; // "Updating files": scrittura dei file sul disco
 };

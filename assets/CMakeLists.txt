@@ -20,9 +20,6 @@ add_executable(ETALauncher WIN32
     src/core/PresenceManager.cpp
     src/core/BroadcastManager.cpp
     src/core/RepoUpdater.cpp
-    src/core/I18n.cpp
-    src/core/Translations.cpp
-    src/core/SessionStore.cpp
     src/core/ThemeManager.cpp
     src/ui/MainWindow.cpp
     src/ui/LoginWidget.cpp
@@ -31,7 +28,6 @@ add_executable(ETALauncher WIN32
     src/ui/InstallProgressDialog.cpp
     src/ui/SettingsDialog.cpp
     src/ui/ManageDialog.cpp
-    src/ui/ChangelogDialog.cpp
     src/ui/BroadcastWidget.cpp
     src/ui/ToggleSwitch.cpp
     # Header con Q_OBJECT elencati esplicitamente: così AUTOMOC li elabora sempre (anche dopo un aggiornamento "a pezzi")
@@ -40,10 +36,8 @@ add_executable(ETALauncher WIN32
     src/core/PresenceManager.h
     src/core/BroadcastManager.h
     src/core/RepoUpdater.h
-    src/core/SessionStore.h
     src/ui/ProfileWidget.h
     src/ui/BroadcastWidget.h
-    src/ui/ChangelogDialog.h
     resources.qrc          # logo + font incorporati nell'exe
 )
 
@@ -63,9 +57,6 @@ target_compile_definitions(ETALauncher PRIVATE ETA_BUILD_COMMIT="${ETA_BUILD_COM
 
 target_include_directories(ETALauncher PRIVATE src)
 target_link_libraries(ETALauncher PRIVATE Qt6::Widgets Qt6::Network)
-if(WIN32)
-    target_link_libraries(ETALauncher PRIVATE advapi32) # Gestore credenziali (accesso automatico)
-endif()
 
 # ── FIX "Qt6Widgets.dll non è stato trovato" ─────────────────────────────
 # Fuori da Qt Creator l'exe non trova le DLL di Qt. windeployqt le copia

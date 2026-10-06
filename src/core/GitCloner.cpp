@@ -68,12 +68,17 @@ void GitCloner::handleLine(const QString& line) {
     static const QRegularExpression reCompressing(R"(Compressing objects:\s*(\d+)%)");
     static const QRegularExpression reReceiving(R"(Receiving objects:\s*(\d+)%)");
     static const QRegularExpression reResolving(R"(Resolving deltas:\s*(\d+)%)");
+    static const QRegularExpression reCheckout(R"(Updating files:\s*(\d+)%)");
 
     QRegularExpressionMatch m;
     if ((m = reReceiving.match(line)).hasMatch()) {
         int pct = m.captured(1).toInt();
         m_phasePct["receiving"] = pct;
         emit phaseProgress("receiving", pct, line);
+    } else if ((m = reCheckout.match(line)).hasMatch()) {
+        int pct = m.captured(1).toInt();
+        m_phasePct["checkout"] = pct;
+        emit phaseProgress("checkout", pct, line);
     } else if ((m = reResolving.match(line)).hasMatch()) {
         int pct = m.captured(1).toInt();
         m_phasePct["resolving"] = pct;
@@ -100,7 +105,8 @@ void GitCloner::recomputeOverall() {
         W_COUNTING    * m_phasePct.value("counting", 0) +
         W_COMPRESSING * m_phasePct.value("compressing", 0) +
         W_RECEIVING   * m_phasePct.value("receiving", 0) +
-        W_RESOLVING   * m_phasePct.value("resolving", 0);
+        W_RESOLVING   * m_phasePct.value("resolving", 0) +
+        W_CHECKOUT    * m_phasePct.value("checkout", 0);
     emit overallProgress(qBound(0, static_cast<int>(overall), 100));
 }
 

@@ -5,7 +5,6 @@
 #include "InstallProgressDialog.h"
 #include "SettingsDialog.h"
 #include "ManageDialog.h"
-#include "ChangelogDialog.h"
 #include "BroadcastWidget.h"
 #include "../core/FirestoreClient.h"
 #include "../core/PresenceManager.h"
@@ -15,7 +14,6 @@
 #include "../core/ThemeManager.h"
 #include "../core/GameCatalog.h"
 #include "../core/ShortcutManager.h"
-#include "../core/I18n.h"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -36,8 +34,6 @@
 #include <QEventLoop>
 #include <QDesktopServices>
 #include <QUrl>
-#include <QPointer>
-#include <QSettings>
 #include <initializer_list>
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
@@ -127,19 +123,8 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
     connect(m_presence, &PresenceManager::ownStatusChanged, this, &MainWindow::updateOwnStatus);
     connect(m_broadcast, &BroadcastManager::changed, this, &MainWindow::updateBroadcastNav);
     connect(m_repoUpdater, &RepoUpdater::updateAvailable, this, &MainWindow::onRepoUpdateAvailable);
-    connect(m_repoUpdater, &RepoUpdater::manualCheckDone, this, [this](const QString& id, bool found, const QString& error) {
-        if (auto* c = m_cards.value(id)) c->setChecking(false);
-        const GameEntry* g = findGame(id);
-        const QString name = g ? g->title : id;
-        if (!error.isEmpty())
-            QMessageBox::warning(this, T("Controlla aggiornamenti"), T("Non sono riuscito a controllare gli aggiornamenti di %1.\n\n%2").arg(name, error));
-        else if (!found)
-            QMessageBox::information(this, T("Controlla aggiornamenti"), T("%1 è già aggiornato.").arg(name));
-        // se found: la richiesta di aggiornamento è già comparsa da sola
-    });
 
-    showLogin(); // si parte dal login...
-    if (m_auth->restoreSession()) m_login->setRestoring(true); // ...ma se c'è una sessione salvata si entra da soli
+    showLogin(); // si parte sempre dal login
 }
 
 // Dopo il login: segnala lo stato online e inizia a leggere i broadcast
@@ -149,42 +134,6 @@ void MainWindow::startSession() {
     m_presence->start();
     m_broadcast->start();
     m_repoUpdater->start(); // confronta launcher e giochi con le repo su GitHub
-    checkLauncherChangelog();
-}
-
-// Finestra "Novità": note della release (dal broadcast.json) + titoli dei commit
-void MainWindow::showChangelog(const QString& sourceId, const QString& name, const QString& caption,
-                               const QStringList& commits, int totalCommits) {
-    m_broadcast->refreshSource(sourceId); // le note potrebbero essere nel commit appena arrivato
-    ChangelogDialog dlg(sourceId, name, m_broadcast, this);
-    dlg.setCaption(caption);
-    dlg.setCommits(commits, totalCommits);
-    dlg.exec();
-}
-
-// Il launcher non si sostituisce da solo: quando l'utente avvia una versione nuova (commit di build diverso
-// dall'ultimo visto) si apre la finestra delle novità, senza bloccare il resto del launcher.
-void MainWindow::checkLauncherChangelog() {
-    const QString cur = RepoUpdater::buildCommit();
-    if (cur.isEmpty()) return;
-    QSettings s;
-    const QString seen = s.value("changelog/launcherSeen").toString();
-    if (seen == cur) return;
-    s.setValue("changelog/launcherSeen", cur);
-    if (seen.isEmpty()) return; // primo avvio in assoluto: non c'è una versione precedente da confrontare
-
-    m_broadcast->refreshSource("launcher");
-    auto* dlg = new ChangelogDialog("launcher", "ETA Launcher", m_broadcast, this);
-    dlg->setAttribute(Qt::WA_DeleteOnClose);
-    dlg->setCaption(T("ETA Launcher è stato aggiornato."));
-    QPointer<ChangelogDialog> guard(dlg);
-    connect(m_repoUpdater, &RepoUpdater::commitTitlesReady, dlg,
-            [guard](const QString& id, const QStringList& titles, int total) {
-        if (id != "launcher" || !guard) return;
-        guard->setCommits(titles, total);
-    });
-    m_repoUpdater->fetchCommitTitles("launcher", seen, cur);
-    dlg->show();
 }
 
 void MainWindow::updateOwnStatus() {
@@ -325,7 +274,7 @@ void MainWindow::showLogin() {
 
 void MainWindow::goToPage(int index) {
     if (!m_loggedIn && index != 2) index = 2; // blocca l'accesso alle altre pagine senza login
-    if (m_currentPage == 3 && index != 3) m_broadcastPage->markVisibleRead(); // uscendo, risultano letti solo quelli del ramo mostrato
+    if (m_currentPage == 3 && index != 3) m_broadcast->markAllRead(); // uscendo dai broadcast risultano letti
     m_currentPage = index;
     m_pages->setCurrentIndex(index);
     // Il login (2) non ha una voce nella navbar; pagina → voce: 0 giochi, 3 broadcast, 1 profilo
@@ -404,10 +353,6 @@ void MainWindow::buildGamesPage() {
         connect(card, &GameCardWidget::installRequested, this, &MainWindow::onInstallRequested);
         connect(card, &GameCardWidget::launchRequested, this, &MainWindow::onLaunchRequested);
         connect(card, &GameCardWidget::manageRequested, this, &MainWindow::onManageRequested);
-        connect(card, &GameCardWidget::updateCheckRequested, this, [this](const QString& id) {
-            if (auto* c = m_cards.value(id)) c->setChecking(true);
-            m_repoUpdater->checkNow(id);
-        });
         m_cards[game.id] = card;
     }
     reflowGrid();
@@ -459,8 +404,6 @@ void MainWindow::onInstallRequested(GameEntry game) {
     if (card) card->setBusy(true, "In coda…");
 
     auto* dlg = new InstallProgressDialog(game.title, this);
-    if (card) dlg->setCover(card->coverPixmap());
-    connect(dlg, &InstallProgressDialog::cancelRequested, m_games, &GameManager::cancelInstall);
     connect(m_games, &GameManager::installPhase, dlg, &InstallProgressDialog::onPhaseProgress);
     connect(m_games, &GameManager::installOverallProgress, dlg, &InstallProgressDialog::onOverallProgress);
     connect(m_games, &GameManager::installFinished, dlg,
@@ -503,7 +446,7 @@ void MainWindow::onManageRequested(const QString& id) {
     if (!game) return;
     GameCardWidget* card = m_cards.value(id);
 
-    ManageDialog dlg(m_games, *game, card ? card->coverPixmap() : QPixmap(), m_broadcast, this);
+    ManageDialog dlg(m_games, *game, card ? card->coverPixmap() : QPixmap(), this);
     connect(&dlg, &ManageDialog::uninstalled, this, [this](const QString&) { refreshStates(); });
     dlg.exec();
     refreshStates();
@@ -528,7 +471,7 @@ void MainWindow::processUpdateQueue() {
         text += QString("<br>La repo ha %1 commit in più rispetto alla tua copia.").arg(u.aheadBy);
         if (!u.recent.isEmpty()) {
             text += "<br><br>Ultime modifiche:<ul style='margin-top:2px'>";
-            for (int i = 0; i < u.recent.size() && i < 5; ++i) text += "<li>" + u.recent.at(i).toHtmlEscaped() + "</li>";
+            for (const auto& r : u.recent) text += "<li>" + r.toHtmlEscaped() + "</li>";
             text += "</ul>";
         }
         text += u.isLauncher ? "Vuoi aprire la pagina per scaricarla?" : "Vuoi aggiornare adesso?";
@@ -579,7 +522,7 @@ bool MainWindow::updateGameNow(const RepoUpdate& u) {
 
     if (ok) {
         refreshStates();
-        showChangelog(u.id, u.name, T("%1 è stato aggiornato.").arg(u.name), u.recent, u.aheadBy);
+        QMessageBox::information(this, "Aggiornamento completato", QString("%1 è aggiornato.").arg(u.name));
     } else {
         QMessageBox::warning(this, "Aggiornamento non riuscito",
             QString("Non sono riuscito ad aggiornare %1.\n\n%2\n\n"

@@ -82,6 +82,12 @@ QString ThemeManager::stylesheetFor(const QString& themeId) {
         QLabel#Heading { font-family: "Rajdhani", "Segoe UI", sans-serif; font-size: 24pt; font-weight: 700; color: @TEXT@; }
         QLabel#CardTitle { font-family: "Rajdhani", "Segoe UI", sans-serif; font-size: 16pt; font-weight: 700; }
         QLabel#Muted { color: @MUTED@; }
+        QLabel#Online { color: #3ddc84; font-weight: 600; }
+        QLabel#OnlinePill { color: #3ddc84; border: 1px solid #3ddc84; border-radius: 10px; padding: 3px 10px; font-weight: 600; }
+        QFrame#BcCard { background-color: @CARD@; border: 1px solid @BORDER@; border-left: 4px solid @ACCENT@; border-radius: 10px; }
+        QFrame#BcCard[level="warning"] { border-left: 4px solid #ffb020; }
+        QFrame#BcCard[level="update"] { border-left: 4px solid #3ddc84; }
+        QFrame#BcCard[unread="true"] { border-top: 1px solid @ACCENT@; border-right: 1px solid @ACCENT@; border-bottom: 1px solid @ACCENT@; }
         QLabel#RowTitle { font-weight: 600; }
         QLabel#Section { color: @MUTED@; font-family: "Rajdhani", "Segoe UI", sans-serif; font-size: 11pt; font-weight: 700; padding-top: 10px; }
         QLabel#Tag { border: 1px solid @ACCENT@; color: @ACCENT@; border-radius: 6px; padding: 1px 8px; font-size: 9pt; font-weight: 600; }
