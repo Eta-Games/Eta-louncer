@@ -459,6 +459,7 @@ CMakeFiles/ETALauncher.dir/src/ui/SettingsDialog.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/quuid.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qjsondocument.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonparseerror.h \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/I18n.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QVBoxLayout \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qboxlayout.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qlayout.h \
@@ -478,6 +479,22 @@ CMakeFiles/ETALauncher.dir/src/ui/SettingsDialog.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qlabel.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qpicture.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qtextdocument.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QComboBox \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qcombobox.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qstyleoption.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qvalidator.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qslider.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qabstractslider.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qstyle.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qtabbar.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qtabwidget.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qrubberband.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qabstractitemmodel.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QMessageBox \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qmessagebox.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QLineEdit \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qlineedit.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qtextcursor.h \

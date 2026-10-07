@@ -334,6 +334,7 @@ CMakeFiles/ETALauncher.dir/src/core/GitCloner.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QMap \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qmap.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qshareddata_impl.h \
+ C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\I18n.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QRegularExpression \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qregularexpression.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qvariant.h \

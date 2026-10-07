@@ -388,6 +388,7 @@ CMakeFiles/ETALauncher.dir/src/ui/BroadcastWidget.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QString \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QList \
  C:/Qt/6.12.0/mingw_64/include/QtGui/QColor \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/I18n.h \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/BroadcastManager.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QObject \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QDateTime \

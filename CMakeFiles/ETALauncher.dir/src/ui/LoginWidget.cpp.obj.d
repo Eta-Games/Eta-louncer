@@ -401,6 +401,7 @@ CMakeFiles/ETALauncher.dir/src/ui/LoginWidget.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/quuid.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qjsondocument.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonparseerror.h \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/I18n.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QVBoxLayout \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qboxlayout.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qlayout.h \

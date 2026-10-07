@@ -389,6 +389,8 @@ CMakeFiles/ETALauncher.dir/src/ui/InstallProgressDialog.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QElapsedTimer \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qelapsedtimer.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/QPixmap \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/I18n.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QString \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QVBoxLayout \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qboxlayout.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qlayout.h \

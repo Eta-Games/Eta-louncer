@@ -359,6 +359,7 @@ CMakeFiles/ETALauncher.dir/src/core/AuthManager.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qendian.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qjsondocument.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonparseerror.h \
+ C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\I18n.h \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\SessionStore.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QSettings \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qsettings.h \
