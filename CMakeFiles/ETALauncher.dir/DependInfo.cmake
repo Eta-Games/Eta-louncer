@@ -38,6 +38,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/MainWindow.cpp" "CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj" "gcc" "CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj.d"
   "C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/ManageDialog.cpp" "CMakeFiles/ETALauncher.dir/src/ui/ManageDialog.cpp.obj" "gcc" "CMakeFiles/ETALauncher.dir/src/ui/ManageDialog.cpp.obj.d"
   "C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/ProfileWidget.cpp" "CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj" "gcc" "CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj.d"
+  "C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/ReviewsDialog.cpp" "CMakeFiles/ETALauncher.dir/src/ui/ReviewsDialog.cpp.obj" "gcc" "CMakeFiles/ETALauncher.dir/src/ui/ReviewsDialog.cpp.obj.d"
   "C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/SettingsDialog.cpp" "CMakeFiles/ETALauncher.dir/src/ui/SettingsDialog.cpp.obj" "gcc" "CMakeFiles/ETALauncher.dir/src/ui/SettingsDialog.cpp.obj.d"
   "C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/StatsWidget.cpp" "CMakeFiles/ETALauncher.dir/src/ui/StatsWidget.cpp.obj" "gcc" "CMakeFiles/ETALauncher.dir/src/ui/StatsWidget.cpp.obj.d"
   "C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/ToggleSwitch.cpp" "CMakeFiles/ETALauncher.dir/src/ui/ToggleSwitch.cpp.obj" "gcc" "CMakeFiles/ETALauncher.dir/src/ui/ToggleSwitch.cpp.obj.d"

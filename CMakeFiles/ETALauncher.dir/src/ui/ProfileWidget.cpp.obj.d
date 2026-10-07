@@ -388,13 +388,11 @@ CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qbitmap.h \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/I18n.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QString \
- C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\ProfileWidget.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/QWidget \
- C:/Qt/6.12.0/mingw_64/include/QtGui/QPixmap \
- C:/Qt/6.12.0/mingw_64/include/QtCore/QElapsedTimer \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qelapsedtimer.h \
- C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/AuthManager.h \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/PlayStats.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QObject \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QList \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QPair \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QHash \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QJsonObject \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonobject.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonvalue.h \
@@ -408,6 +406,12 @@ CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/quuid.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qjsondocument.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonparseerror.h \
+ C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\ProfileWidget.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QWidget \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/QPixmap \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QElapsedTimer \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qelapsedtimer.h \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/AuthManager.h \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\ToggleSwitch.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QAbstractButton \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qabstractbutton.h \
@@ -417,7 +421,6 @@ CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonarray.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QJsonValue \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/GameCatalog.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/QList \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/GameManager.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QStringList \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/GitCloner.h \

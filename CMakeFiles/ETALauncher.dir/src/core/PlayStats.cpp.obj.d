@@ -328,6 +328,40 @@ CMakeFiles/ETALauncher.dir/src/core/PlayStats.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QPair \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QHash \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qhash.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QJsonObject \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonobject.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonvalue.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcborvalue.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcborcommon.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qshareddata.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qdatetime.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcalendar.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qlocale.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qvariant.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qdebug.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qtextstream.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcontiguouscache.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/climits \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qsharedpointer.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qsharedpointer_impl.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/set \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_set.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_multiset.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_set \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_set.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qmap.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qshareddata_impl.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qset.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qvarlengtharray.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qalloc.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/q23utility.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/q20utility.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qregularexpression.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qurl.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/quuid.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qendian.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qjsondocument.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonparseerror.h \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\I18n.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QStandardPaths \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qstandardpaths.h \
@@ -369,29 +403,6 @@ CMakeFiles/ETALauncher.dir/src/core/PlayStats.cpp.obj: \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qdatetime.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qcalendar.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qlocale.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qvariant.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qdebug.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qtextstream.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qcontiguouscache.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/climits \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qsharedpointer.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qshareddata.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qsharedpointer_impl.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/set \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_set.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_multiset.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_set \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_set.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qmap.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qshareddata_impl.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qset.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qvarlengtharray.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qalloc.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/q23utility.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/q20utility.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qfile.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qfileinfo.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qtimezone.h \
@@ -399,15 +410,4 @@ CMakeFiles/ETALauncher.dir/src/core/PlayStats.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QSaveFile \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qsavefile.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QJsonDocument \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qjsondocument.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonparseerror.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/QJsonObject \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonobject.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonvalue.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qcborvalue.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qcborcommon.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qregularexpression.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qurl.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/quuid.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qendian.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QDateTime

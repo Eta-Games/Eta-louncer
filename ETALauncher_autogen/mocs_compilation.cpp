@@ -19,6 +19,7 @@
 #include "YPKJ5OE7LN/moc_MainWindow.cpp"
 #include "YPKJ5OE7LN/moc_ManageDialog.cpp"
 #include "YPKJ5OE7LN/moc_ProfileWidget.cpp"
+#include "YPKJ5OE7LN/moc_ReviewsDialog.cpp"
 #include "YPKJ5OE7LN/moc_SettingsDialog.cpp"
 #include "YPKJ5OE7LN/moc_StatsWidget.cpp"
 #include "YPKJ5OE7LN/moc_ToggleSwitch.cpp"

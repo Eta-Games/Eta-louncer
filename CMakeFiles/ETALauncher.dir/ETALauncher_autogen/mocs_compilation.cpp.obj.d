@@ -469,6 +469,8 @@ CMakeFiles/ETALauncher.dir/ETALauncher_autogen/mocs_compilation.cpp.obj: \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/ManageDialog.h \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\YPKJ5OE7LN/moc_ProfileWidget.cpp \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/ProfileWidget.h \
+ C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\YPKJ5OE7LN/moc_ReviewsDialog.cpp \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/ReviewsDialog.h \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\YPKJ5OE7LN/moc_SettingsDialog.cpp \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/SettingsDialog.h \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\build\Desktop_Qt_6_12_0_MinGW_64_bit_Debug\ETALauncher_autogen\YPKJ5OE7LN/moc_StatsWidget.cpp \

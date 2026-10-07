@@ -433,6 +433,10 @@ CMakeFiles/ETALauncher.dir/src/ui/MainWindow.cpp.obj: \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\SettingsDialog.h \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\ManageDialog.h \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\ChangelogDialog.h \
+ C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\ReviewsDialog.h \
+ C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/PlayStats.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QPair \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QHash \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\BroadcastWidget.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/QColor \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\FriendsWidget.h \

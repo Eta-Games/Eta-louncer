@@ -604,6 +604,12 @@
 			null
 		],
 		[
+			"C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/ReviewsDialog.h",
+			"Mu",
+			"YPKJ5OE7LN/moc_ReviewsDialog.cpp",
+			null
+		],
+		[
 			"C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/SettingsDialog.h",
 			"Mu",
 			"YPKJ5OE7LN/moc_SettingsDialog.cpp",
@@ -836,6 +842,11 @@
 		],
 		[
 			"C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/ProfileWidget.cpp",
+			"Mu",
+			null
+		],
+		[
+			"C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/ReviewsDialog.cpp",
 			"Mu",
 			null
 		],

@@ -392,6 +392,19 @@ CMakeFiles/ETALauncher.dir/src/ui/StatsWidget.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QList \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QPair \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QHash \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QJsonObject \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonobject.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonvalue.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcborvalue.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcborcommon.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qdatetime.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcalendar.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qlocale.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qregularexpression.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qurl.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/quuid.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qjsondocument.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonparseerror.h \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/GameCatalog.h \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/I18n.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QVBoxLayout \
@@ -404,5 +417,4 @@ CMakeFiles/ETALauncher.dir/src/ui/StatsWidget.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qlabel.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qpicture.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qiodevice.h \
- C:/Qt/6.12.0/mingw_64/include/QtGui/qtextdocument.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qurl.h
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qtextdocument.h

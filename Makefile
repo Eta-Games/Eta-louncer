@@ -850,6 +850,30 @@ src/ui/ProfileWidget.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.s
 .PHONY : src/ui/ProfileWidget.cpp.s
 
+src/ui/ReviewsDialog.obj: src/ui/ReviewsDialog.cpp.obj
+.PHONY : src/ui/ReviewsDialog.obj
+
+# target to build an object file
+src/ui/ReviewsDialog.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/ReviewsDialog.cpp.obj
+.PHONY : src/ui/ReviewsDialog.cpp.obj
+
+src/ui/ReviewsDialog.i: src/ui/ReviewsDialog.cpp.i
+.PHONY : src/ui/ReviewsDialog.i
+
+# target to preprocess a source file
+src/ui/ReviewsDialog.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/ReviewsDialog.cpp.i
+.PHONY : src/ui/ReviewsDialog.cpp.i
+
+src/ui/ReviewsDialog.s: src/ui/ReviewsDialog.cpp.s
+.PHONY : src/ui/ReviewsDialog.s
+
+# target to generate assembly for a file
+src/ui/ReviewsDialog.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ETALauncher.dir\build.make CMakeFiles/ETALauncher.dir/src/ui/ReviewsDialog.cpp.s
+.PHONY : src/ui/ReviewsDialog.cpp.s
+
 src/ui/SettingsDialog.obj: src/ui/SettingsDialog.cpp.obj
 .PHONY : src/ui/SettingsDialog.obj
 
@@ -1044,6 +1068,9 @@ help:
 	@echo ... src/ui/ProfileWidget.obj
 	@echo ... src/ui/ProfileWidget.i
 	@echo ... src/ui/ProfileWidget.s
+	@echo ... src/ui/ReviewsDialog.obj
+	@echo ... src/ui/ReviewsDialog.i
+	@echo ... src/ui/ReviewsDialog.s
 	@echo ... src/ui/SettingsDialog.obj
 	@echo ... src/ui/SettingsDialog.i
 	@echo ... src/ui/SettingsDialog.s

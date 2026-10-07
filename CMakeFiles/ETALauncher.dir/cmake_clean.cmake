@@ -60,6 +60,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ETALauncher.dir/src/ui/ManageDialog.cpp.obj.d"
   "CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj"
   "CMakeFiles/ETALauncher.dir/src/ui/ProfileWidget.cpp.obj.d"
+  "CMakeFiles/ETALauncher.dir/src/ui/ReviewsDialog.cpp.obj"
+  "CMakeFiles/ETALauncher.dir/src/ui/ReviewsDialog.cpp.obj.d"
   "CMakeFiles/ETALauncher.dir/src/ui/SettingsDialog.cpp.obj"
   "CMakeFiles/ETALauncher.dir/src/ui/SettingsDialog.cpp.obj.d"
   "CMakeFiles/ETALauncher.dir/src/ui/StatsWidget.cpp.obj"

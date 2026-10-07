@@ -789,6 +789,8 @@ ETALauncher_autogen/timestamp: \
 	C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/ManageDialog.h \
 	C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/ProfileWidget.cpp \
 	C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/ProfileWidget.h \
+	C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/ReviewsDialog.cpp \
+	C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/ReviewsDialog.h \
 	C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/SettingsDialog.cpp \
 	C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/SettingsDialog.h \
 	C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/ui/StatsWidget.cpp \
