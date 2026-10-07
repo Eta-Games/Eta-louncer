@@ -1,4 +1,5 @@
 #include "BroadcastWidget.h"
+#include "../core/I18n.h"
 #include "../core/BroadcastManager.h"
 
 #include <QVBoxLayout>
@@ -103,18 +104,18 @@ BroadcastWidget::BroadcastWidget(BroadcastManager* manager, QWidget* parent)
     auto* heading = new QLabel("Broadcast");
     heading->setObjectName("Heading");
     titles->addWidget(heading);
-    auto* sub = new QLabel("Novità e avvisi da ETA Launcher e dai giochi. Scegli il ramo da vedere.");
+    auto* sub = new QLabel(T("Novità e avvisi da ETA Launcher e dai giochi. Scegli il ramo da vedere."));
     sub->setObjectName("Muted");
     titles->addWidget(sub);
     top->addLayout(titles, 1);
 
-    auto* refreshBtn = new QPushButton("Aggiorna");
+    auto* refreshBtn = new QPushButton(T("Aggiorna"));
     refreshBtn->setObjectName("Secondary");
     refreshBtn->setCursor(Qt::PointingHandCursor);
     connect(refreshBtn, &QPushButton::clicked, m_manager, &BroadcastManager::refresh);
     top->addWidget(refreshBtn, 0, Qt::AlignBottom);
 
-    auto* readBtn = new QPushButton("Segna come letto");
+    auto* readBtn = new QPushButton(T("Segna come letto"));
     readBtn->setObjectName("Secondary");
     readBtn->setCursor(Qt::PointingHandCursor);
     connect(readBtn, &QPushButton::clicked, this, &BroadcastWidget::markVisibleRead);
@@ -176,7 +177,7 @@ void BroadcastWidget::buildChips() {
         if (id == m_filter) b->setChecked(true);
     };
 
-    addChip(QString(), QColor("#9a9a9a")); // "Tutto"
+    addChip(QString(), QColor("#9a9a9a")); // T("Tutto")
     const auto sources = m_manager->sources();
     for (int i = 0; i < sources.size(); ++i) addChip(sources[i].id, laneColors()[i % laneColors().size()]);
     m_chips->addStretch(1);
@@ -190,7 +191,7 @@ void BroadcastWidget::updateChipLabels() {
     const auto sources = m_manager->sources();
     for (auto* b : m_chipButtons) {
         const QString id = b->property("sourceId").toString();
-        QString name = "Tutto";
+        QString name = T("Tutto");
         int unread = m_manager->unreadCount();
         if (!id.isEmpty()) {
             unread = m_manager->unreadCount(id);
@@ -218,8 +219,8 @@ void BroadcastWidget::rebuild() {
         if (m_filter.isEmpty() || m.sourceId == m_filter) msgs << m;
 
     if (msgs.isEmpty()) {
-        auto* empty = new QLabel(m_filter.isEmpty() ? "Nessun messaggio al momento."
-                                                    : "Nessun messaggio su questo ramo.");
+        auto* empty = new QLabel(m_filter.isEmpty() ? T("Nessun messaggio al momento.")
+                                                    : T("Nessun messaggio su questo ramo."));
         empty->setObjectName("Muted");
         empty->setAlignment(Qt::AlignCenter);
         m_list->addSpacing(24);
@@ -285,7 +286,7 @@ void BroadcastWidget::rebuild() {
                                       " padding: 1px 9px; font-weight: 600; }").arg(c.name()));
         head->addWidget(branch);
         if (!m.read) {
-            auto* fresh = new QLabel("Nuovo");
+            auto* fresh = new QLabel(T("Nuovo"));
             fresh->setObjectName("Online");
             head->addWidget(fresh);
         }

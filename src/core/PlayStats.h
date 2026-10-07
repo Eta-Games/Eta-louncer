@@ -4,6 +4,7 @@
 #include <QList>
 #include <QPair>
 #include <QHash>
+#include <QJsonObject>
 
 struct GameStats {
     qint64 totalSecs = 0;
@@ -20,6 +21,8 @@ public:
 
     GameStats get(const QString& id) const;
     QList<QPair<QString, GameStats>> ranking() const;   // solo giochi con almeno 1 partita, per ore decrescenti
+    QJsonObject toJson() const;                    // per Firestore: {gameId: {secs,last,n}}
+    void mergeCloud(const QJsonObject& cloud);     // per ogni gioco tiene il valore maggiore
     void addSession(const QString& id, qint64 endEpoch, qint64 secs);
 
     static QString formatDuration(qint64 secs);

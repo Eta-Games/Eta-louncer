@@ -1,5 +1,6 @@
 #include "StatsWidget.h"
 #include "../core/I18n.h"
+#include "../core/PlayStats.h"
 #include "ProfileWidget.h"
 #include "ToggleSwitch.h"
 #include "../core/FirestoreClient.h"
@@ -157,13 +158,13 @@ void ProfileWidget::buildGuestPage() {
     auto* l = new QVBoxLayout(guest);
     l->setAlignment(Qt::AlignCenter);
     l->setSpacing(14);
-    auto* t = makeLabel("Accesso riservato", "Heading");
+    auto* t = makeLabel(T("Accesso riservato"), "Heading");
     t->setAlignment(Qt::AlignCenter);
     l->addWidget(t);
-    auto* d = makeLabel("Effettua il login per vedere il tuo profilo ETA Games.", "Muted");
+    auto* d = makeLabel(T("Effettua il login per vedere il tuo profilo ETA Games."), "Muted");
     d->setAlignment(Qt::AlignCenter);
     l->addWidget(d);
-    auto* b = new QPushButton("Vai al login");
+    auto* b = new QPushButton(T("Vai al login"));
     b->setFixedWidth(220);
     connect(b, &QPushButton::clicked, this, [this]() { emit goToLoginRequested(); });
     l->addWidget(b, 0, Qt::AlignCenter);
@@ -182,7 +183,7 @@ void ProfileWidget::buildAccountPage() {
     m_navLayout = new QVBoxLayout(side);
     m_navLayout->setContentsMargins(0, 20, 0, 16);
     m_navLayout->setSpacing(2);
-    auto* sideTitle = new QLabel("ACCOUNT");
+    auto* sideTitle = new QLabel(T("ACCOUNT"));
     sideTitle->setObjectName("Section");
     sideTitle->setContentsMargins(20, 0, 0, 6);
     m_navLayout->addWidget(sideTitle);
@@ -270,7 +271,7 @@ void ProfileWidget::addExtraSection(const QString& navText, const QString& title
 
 // ── Panoramica ───────────────────────────────────────────────────────────
 void ProfileWidget::buildOverview() {
-    auto* l = addSection("Panoramica", "Panoramica profilo");
+    auto* l = addSection(T("Panoramica"), T("Panoramica profilo"));
 
     auto* head = makeRow();
     auto* hl = new QHBoxLayout(head);
@@ -286,11 +287,11 @@ void ProfileWidget::buildOverview() {
     auto* mailRow = new QHBoxLayout;
     m_emailLabel = makeLabel("", "Muted");
     mailRow->addWidget(m_emailLabel);
-    auto* copy = makeButton("Copia");
+    auto* copy = makeButton(T("Copia"));
     copy->setMinimumHeight(32);
     connect(copy, &QPushButton::clicked, this, [this]() {
         QApplication::clipboard()->setText(m_emailLabel->text());
-        showMessage("Email copiata.");
+        showMessage(T("Email copiata."));
     });
     mailRow->addWidget(copy);
     mailRow->addStretch(1);
@@ -315,7 +316,7 @@ void ProfileWidget::buildOverview() {
     g->setColumnStretch(1, 1);
     l->addWidget(info);
 
-    auto* logout = makeButton("Esci dall'account");
+    auto* logout = makeButton(T("Esci dall'account"));
     connect(logout, &QPushButton::clicked, this, [this]() {
         m_auth->signOut();
         m_loadedUid.clear();
@@ -327,9 +328,9 @@ void ProfileWidget::buildOverview() {
 
 // ── Aspetto grafico ──────────────────────────────────────────────────────
 void ProfileWidget::buildAppearance() {
-    auto* l = addSection("Aspetto grafico", "Aspetto grafico");
+    auto* l = addSection(T("Aspetto grafico"), T("Aspetto grafico"));
 
-    l->addWidget(makeLabel("IMMAGINE PROFILO", "Section"));
+    l->addWidget(makeLabel(T("IMMAGINE PROFILO"), "Section"));
     auto* row = makeRow();
     auto* rl = new QHBoxLayout(row);
     rl->setContentsMargins(16, 14, 16, 14);
@@ -337,13 +338,13 @@ void ProfileWidget::buildAppearance() {
     m_avatarPreview = new QLabel;
     m_avatarPreview->setFixedSize(90, 90);
     rl->addWidget(m_avatarPreview);
-    auto* up = makeButton("Carica nuova foto");
+    auto* up = makeButton(T("Carica nuova foto"));
     connect(up, &QPushButton::clicked, this, [this]() { uploadImage(false); });
     rl->addWidget(up);
     rl->addStretch(1);
     l->addWidget(row);
 
-    l->addWidget(makeLabel("BANNER PROFILO (480p)", "Section"));
+    l->addWidget(makeLabel(T("BANNER PROFILO (480p)"), "Section"));
     auto* brow = makeRow();
     auto* bl = new QVBoxLayout(brow);
     bl->setContentsMargins(16, 14, 16, 14);
@@ -353,7 +354,7 @@ void ProfileWidget::buildAppearance() {
     m_bannerPreview->setAlignment(Qt::AlignCenter);
     m_bannerPreview->setObjectName("Banner");
     bl->addWidget(m_bannerPreview);
-    auto* bup = makeButton("Carica banner");
+    auto* bup = makeButton(T("Carica banner"));
     connect(bup, &QPushButton::clicked, this, [this]() { uploadImage(true); });
     bl->addWidget(bup, 0, Qt::AlignLeft);
     l->addWidget(brow);
@@ -365,10 +366,10 @@ void ProfileWidget::uploadImage(bool banner) {
         QString(), "Immagini (*.png *.jpg *.jpeg *.bmp *.webp)");
     if (path.isEmpty()) return;
     const QString dataUrl = banner ? imageToDataUrl(path, 854, 480) : imageToDataUrl(path, 120, 120);
-    if (dataUrl.isEmpty()) { showMessage("Impossibile leggere l'immagine.", false); return; }
+    if (dataUrl.isEmpty()) { showMessage(T("Impossibile leggere l'immagine."), false); return; }
 
     const QString field = banner ? "banner" : "photoBase64";
-    saveField(field, dataUrl, banner ? "Banner aggiornato." : "Foto profilo aggiornata.");
+    saveField(field, dataUrl, banner ? T("Banner aggiornato.") : T("Foto profilo aggiornata."));
     if (banner) {
         QPixmap pm = pixmapFromDataUrl(dataUrl);
         m_bannerPreview->setPixmap(pm.scaled(m_bannerPreview->width() > 0 ? m_bannerPreview->width() : 600, 150,
@@ -381,18 +382,18 @@ void ProfileWidget::uploadImage(bool banner) {
 
 // ── Impostazioni profilo ─────────────────────────────────────────────────
 void ProfileWidget::buildProfileSettings() {
-    auto* l = addSection("Impostazioni profilo", "Impostazioni profilo");
+    auto* l = addSection(T("Impostazioni profilo"), T("Impostazioni profilo"));
 
-    l->addWidget(makeLabel("USERNAME PUBBLICO", "Section"));
+    l->addWidget(makeLabel(T("USERNAME PUBBLICO"), "Section"));
     auto* urow = makeRow();
     auto* ul = new QHBoxLayout(urow);
     ul->setContentsMargins(16, 12, 16, 12);
     ul->setSpacing(8);
     m_usernameEdit = new QLineEdit;
-    m_usernameEdit->setPlaceholderText("Nuovo username");
+    m_usernameEdit->setPlaceholderText(T("Nuovo username"));
     m_usernameEdit->setMaxLength(30);
     ul->addWidget(m_usernameEdit, 1);
-    auto* save = makeButton("Salva");
+    auto* save = makeButton(T("Salva"));
     connect(save, &QPushButton::clicked, this, [this]() {
         const QString name = m_usernameEdit->text().trimmed();
         if (name.isEmpty()) return;
@@ -400,7 +401,7 @@ void ProfileWidget::buildProfileSettings() {
             if (!ok) { showMessage(err, false); return; }
             m_fs->mergeFields("users/" + m_auth->currentUser().uid, QJsonObject{{"displayName", name}});
             m_nameLabel->setText(name);
-            showMessage("Username aggiornato.");
+            showMessage(T("Username aggiornato."));
         });
     });
     ul->addWidget(save);
@@ -412,27 +413,27 @@ void ProfileWidget::buildProfileSettings() {
     bl->setContentsMargins(16, 12, 16, 12);
     bl->setSpacing(8);
     m_bioEdit = new QPlainTextEdit;
-    m_bioEdit->setPlaceholderText("Scrivi qualcosa su di te...");
+    m_bioEdit->setPlaceholderText(T("Scrivi qualcosa su di te..."));
     m_bioEdit->setFixedHeight(100);
     bl->addWidget(m_bioEdit);
-    auto* saveBio = makeButton("Aggiorna bio");
+    auto* saveBio = makeButton(T("Aggiorna bio"));
     connect(saveBio, &QPushButton::clicked, this, [this]() { saveField("bio", m_bioEdit->toPlainText(), "Bio salvata."); });
     bl->addWidget(saveBio, 0, Qt::AlignLeft);
     l->addWidget(brow);
 
-    l->addWidget(makeLabel("PAESE", "Section"));
+    l->addWidget(makeLabel(T("PAESE"), "Section"));
     auto* crow = makeRow();
     auto* cl = new QHBoxLayout(crow);
     cl->setContentsMargins(16, 12, 16, 12);
     m_countryBox = new QComboBox;
-    m_countryBox->addItem("Seleziona paese", "");
-    m_countryBox->addItem("Italia", "IT");
+    m_countryBox->addItem(T("Seleziona paese"), "");
+    m_countryBox->addItem(T("Italia"), "IT");
     m_countryBox->addItem("USA", "US");
-    m_countryBox->addItem("Germania", "DE");
-    m_countryBox->addItem("Francia", "FR");
-    m_countryBox->addItem("Spagna", "ES");
+    m_countryBox->addItem(T("Germania"), "DE");
+    m_countryBox->addItem(T("Francia"), "FR");
+    m_countryBox->addItem(T("Spagna"), "ES");
     connect(m_countryBox, &QComboBox::activated, this, [this](int i) {
-        saveField("country", m_countryBox->itemData(i).toString(), "Paese salvato.");
+        saveField("country", m_countryBox->itemData(i).toString(), T("Paese salvato."));
     });
     cl->addWidget(m_countryBox, 1);
     l->addWidget(crow);
@@ -441,7 +442,7 @@ void ProfileWidget::buildProfileSettings() {
 
 // ── Sicurezza e privacy ──────────────────────────────────────────────────
 void ProfileWidget::buildSecurity() {
-    auto* l = addSection("Sicurezza e privacy", "Sicurezza e privacy");
+    auto* l = addSection(T("Sicurezza e privacy"), T("Sicurezza e privacy"));
 
     auto* prow = makeRow();
     auto* pl = new QHBoxLayout(prow);
@@ -449,14 +450,14 @@ void ProfileWidget::buildSecurity() {
     pl->setSpacing(12);
     auto* ptexts = new QVBoxLayout;
     ptexts->setSpacing(2);
-    ptexts->addWidget(makeLabel("Profilo pubblico", "RowTitle"));
-    m_publicText = makeLabel("Privato", "Muted");
+    ptexts->addWidget(makeLabel(T("Profilo pubblico"), "RowTitle"));
+    m_publicText = makeLabel(T("Privato"), "Muted");
     ptexts->addWidget(m_publicText);
     pl->addLayout(ptexts, 1);
     m_publicSwitch = new ToggleSwitch;
     connect(m_publicSwitch, &QAbstractButton::clicked, this, [this](bool on) {
-        m_publicText->setText(on ? "Pubblico" : "Privato");
-        saveField("profilePublic", on, on ? "Il profilo ora è pubblico." : "Il profilo ora è privato.");
+        m_publicText->setText(on ? T("Pubblico") : T("Privato"));
+        saveField("profilePublic", on, on ? T("Il profilo ora è pubblico.") : T("Il profilo ora è privato."));
     });
     pl->addWidget(m_publicSwitch);
     l->addWidget(prow);
@@ -466,69 +467,69 @@ void ProfileWidget::buildSecurity() {
     gl->setContentsMargins(16, 12, 12, 12);
     auto* gtexts = new QVBoxLayout;
     gtexts->setSpacing(2);
-    gtexts->addWidget(makeLabel("Collega account Google", "RowTitle"));
-    gtexts->addWidget(makeLabel("Si apre il sito: il collegamento Google richiede il browser.", "Muted"));
+    gtexts->addWidget(makeLabel(T("Collega account Google"), "RowTitle"));
+    gtexts->addWidget(makeLabel(T("Si apre il sito: il collegamento Google richiede il browser."), "Muted"));
     gl->addLayout(gtexts, 1);
-    auto* gbtn = makeButton("Apri il sito");
+    auto* gbtn = makeButton(T("Apri il sito"));
     connect(gbtn, &QPushButton::clicked, this, []() { QDesktopServices::openUrl(QUrl("https://eta-games.github.io/profilo.html")); });
     gl->addWidget(gbtn);
     l->addWidget(grow);
 
-    l->addWidget(makeLabel("CAMBIO EMAIL", "Section"));
+    l->addWidget(makeLabel(T("CAMBIO EMAIL"), "Section"));
     auto* erow = makeRow();
     auto* el = new QHBoxLayout(erow);
     el->setContentsMargins(16, 12, 16, 12);
     el->setSpacing(8);
     m_newEmail = new QLineEdit;
-    m_newEmail->setPlaceholderText("Nuova email");
+    m_newEmail->setPlaceholderText(T("Nuova email"));
     el->addWidget(m_newEmail, 1);
-    auto* ebtn = makeButton("Aggiorna email");
+    auto* ebtn = makeButton(T("Aggiorna email"));
     connect(ebtn, &QPushButton::clicked, this, [this]() {
         const QString v = m_newEmail->text().trimmed();
         if (v.isEmpty()) return;
         m_auth->updateEmail(v, [this](bool ok, const QString& err) {
             if (ok) m_newEmail->clear();
-            showMessage(ok ? "Email aggiornata." : err, ok);
+            showMessage(ok ? T("Email aggiornata.") : err, ok);
         });
     });
     el->addWidget(ebtn);
     l->addWidget(erow);
 
-    l->addWidget(makeLabel("CAMBIO PASSWORD", "Section"));
+    l->addWidget(makeLabel(T("CAMBIO PASSWORD"), "Section"));
     auto* wrow = makeRow();
     auto* wl = new QHBoxLayout(wrow);
     wl->setContentsMargins(16, 12, 16, 12);
     wl->setSpacing(8);
     m_newPassword = new QLineEdit;
     m_newPassword->setEchoMode(QLineEdit::Password);
-    m_newPassword->setPlaceholderText("Nuova password");
+    m_newPassword->setPlaceholderText(T("Nuova password"));
     wl->addWidget(m_newPassword, 1);
-    auto* wbtn = makeButton("Aggiorna password");
+    auto* wbtn = makeButton(T("Aggiorna password"));
     connect(wbtn, &QPushButton::clicked, this, [this]() {
         const QString v = m_newPassword->text();
         if (v.isEmpty()) return;
         m_auth->updatePassword(v, [this](bool ok, const QString& err) {
             if (ok) m_newPassword->clear();
-            showMessage(ok ? "Password aggiornata." : err, ok);
+            showMessage(ok ? T("Password aggiornata.") : err, ok);
         });
     });
     wl->addWidget(wbtn);
     l->addWidget(wrow);
 
-    l->addWidget(makeLabel("ZONA PERICOLOSA", "Section"));
+    l->addWidget(makeLabel(T("ZONA PERICOLOSA"), "Section"));
     auto* drow = new QFrame;
     drow->setObjectName("DangerRow");
     auto* dl = new QHBoxLayout(drow);
     dl->setContentsMargins(16, 12, 12, 12);
     auto* dtexts = new QVBoxLayout;
     dtexts->setSpacing(2);
-    dtexts->addWidget(makeLabel("Elimina account", "RowTitle"));
-    dtexts->addWidget(makeLabel("Cancella definitivamente l'account ETA Games.", "Muted"));
+    dtexts->addWidget(makeLabel(T("Elimina account"), "RowTitle"));
+    dtexts->addWidget(makeLabel(T("Cancella definitivamente l'account ETA Games."), "Muted"));
     dl->addLayout(dtexts, 1);
-    auto* del = makeButton("Elimina", "Danger");
+    auto* del = makeButton(T("Elimina"), "Danger");
     del->setMinimumWidth(104);
     connect(del, &QPushButton::clicked, this, [this]() {
-        if (QMessageBox::question(this, "Elimina account", "Eliminare definitivamente l'account? L'operazione non si può annullare.",
+        if (QMessageBox::question(this, T("Elimina account"), T("Eliminare definitivamente l'account? L'operazione non si può annullare."),
                                   QMessageBox::Yes | QMessageBox::No, QMessageBox::No) != QMessageBox::Yes) return;
         m_auth->deleteAccount([this](bool ok, const QString& err) {
             if (!ok) { showMessage(err, false); return; }
@@ -544,12 +545,12 @@ void ProfileWidget::buildSecurity() {
 
 // ── Funzioni extra ───────────────────────────────────────────────────────
 void ProfileWidget::buildExtra() {
-    auto* l = addSection("Funzioni extra", "Funzioni extra");
+    auto* l = addSection(T("Funzioni extra"), T("Funzioni extra"));
 
     auto* brow = makeRow();
     auto* bl = new QHBoxLayout(brow);
     bl->setContentsMargins(16, 12, 16, 12);
-    bl->addWidget(makeLabel("Badge utente", "RowTitle"), 1);
+    bl->addWidget(makeLabel(T("Badge utente"), "RowTitle"), 1);
     m_badgeLabel = makeLabel("…", "Online");
     bl->addWidget(m_badgeLabel);
     l->addWidget(brow);
@@ -558,8 +559,8 @@ void ProfileWidget::buildExtra() {
     auto* tl = new QVBoxLayout(trow);
     tl->setContentsMargins(16, 12, 16, 12);
     tl->setSpacing(6);
-    tl->addWidget(makeLabel("Tema interfaccia", "RowTitle"));
-    tl->addWidget(makeLabel("Il tema scelto qui viene salvato sul tuo account, come sul sito.", "Muted"));
+    tl->addWidget(makeLabel(T("Tema interfaccia"), "RowTitle"));
+    tl->addWidget(makeLabel(T("Il tema scelto qui viene salvato sul tuo account, come sul sito."), "Muted"));
     m_themeBox = new QComboBox;
     for (const auto& t : ThemeManager::themes()) m_themeBox->addItem(t.label, t.id);
     connect(m_themeBox, &QComboBox::activated, this, [this](int i) {
@@ -569,13 +570,32 @@ void ProfileWidget::buildExtra() {
     });
     tl->addWidget(m_themeBox);
     l->addWidget(trow);
+
+    auto* lrow = makeRow();
+    auto* ll = new QVBoxLayout(lrow);
+    ll->setContentsMargins(16, 12, 16, 12);
+    ll->setSpacing(6);
+    ll->addWidget(makeLabel(T("Lingua"), "RowTitle"));
+    ll->addWidget(makeLabel(T("Salvata sul tuo account: vale sia sul sito che nel launcher (nel launcher al riavvio)."), "Muted"));
+    m_langBox = new QComboBox;
+    for (auto lg : {I18n::It, I18n::En, I18n::De}) m_langBox->addItem(I18n::displayName(lg), I18n::code(lg));
+    m_langBox->setCurrentIndex(m_langBox->findData(I18n::code(I18n::current())));
+    connect(m_langBox, &QComboBox::activated, this, [this](int i) {
+        const QString code = m_langBox->itemData(i).toString();
+        for (auto lg : {I18n::It, I18n::En, I18n::De}) if (I18n::code(lg) == code) I18n::setCurrent(lg);
+        const AuthUser u = m_auth->currentUser();
+        if (u.isValid()) m_fs->mergeFields("users/" + u.uid, QJsonObject{{"lang", code}});
+        showMessage(T("Lingua salvata. Riavvia il launcher per applicarla."), true);
+    });
+    ll->addWidget(m_langBox);
+    l->addWidget(lrow);
     l->addStretch(1);
 }
 
 // ── La mia libreria ──────────────────────────────────────────────────────
 void ProfileWidget::buildLibrary() {
-    auto* l = addSection("La mia libreria", "La mia libreria");
-    l->addWidget(makeLabel("Giochi salvati sul tuo account. Installali o avviali da qui.", "Muted"));
+    auto* l = addSection(T("La mia libreria"), T("La mia libreria"));
+    l->addWidget(makeLabel(T("Giochi salvati sul tuo account. Installali o avviali da qui."), "Muted"));
     auto* host = new QVBoxLayout;
     host->setSpacing(8);
     m_libraryList = host;
@@ -602,14 +622,14 @@ void ProfileWidget::rebuildLibrary(const QStringList& ids) {
         texts->addWidget(makeLabel(QString("%1 · v%2").arg(g->engine, g->version), "Muted"));
         rl->addLayout(texts, 1);
         const bool installed = Config::instance().games().contains(id);
-        auto* btn = makeButton(installed ? "Gioca" : "Installa", nullptr);
+        auto* btn = makeButton(installed ? T("Gioca") : T("Installa"), nullptr);
         btn->setMinimumWidth(104);
         const QString gid = id;
         connect(btn, &QPushButton::clicked, this, [this, gid]() { emit gameActionRequested(gid); });
         rl->addWidget(btn);
         m_libraryList->addWidget(row);
     }
-    if (!any) m_libraryList->addWidget(makeLabel("Non hai ancora aggiunto giochi alla libreria dal sito.", "Muted"));
+    if (!any) m_libraryList->addWidget(makeLabel(T("Non hai ancora aggiunto giochi alla libreria dal sito."), "Muted"));
 }
 
 // ── Dati ─────────────────────────────────────────────────────────────────
@@ -618,9 +638,9 @@ void ProfileWidget::refresh() {
     if (!u.isValid()) { m_stack->setCurrentIndex(0); return; }
     m_stack->setCurrentIndex(1);
     const QString display = u.displayName.isEmpty() ? u.email : u.displayName;
-    m_nameLabel->setText(display.isEmpty() ? "Utente ETA Games" : display);
+    m_nameLabel->setText(display.isEmpty() ? T("Utente ETA Games") : display);
     m_emailLabel->setText(u.email);
-    m_usernameEdit->setPlaceholderText(u.displayName.isEmpty() ? "Nuovo username" : u.displayName);
+    m_usernameEdit->setPlaceholderText(u.displayName.isEmpty() ? T("Nuovo username") : u.displayName);
     updateAvatars();
     if (m_loadedUid != u.uid || !m_lastLoad.isValid() || m_lastLoad.elapsed() > 60 * 1000) reload(false);
 }
@@ -632,11 +652,11 @@ void ProfileWidget::reload(bool force) {
     const bool firstLoadForUser = (m_loadedUid != u.uid);
     m_loadedUid = u.uid;
     m_lastLoad.start();
-    if (firstLoadForUser) { m_photo = QPixmap(); m_bannerPreview->clear(); }
+    if (firstLoadForUser) { m_statsReady = false; m_photo = QPixmap(); m_bannerPreview->clear(); }
 
     m_auth->accountLookup([this](bool ok, const QJsonObject& user, const QString&) { if (ok) applyLookup(user); });
     m_fs->getDocument("users/" + u.uid, [this, firstLoadForUser](bool ok, const QJsonObject& data, const QString& err) {
-        if (!ok) { showMessage("Dati del profilo non disponibili: " + err, false); return; }
+        if (!ok) { showMessage(T("Dati del profilo non disponibili: ") + err, false); return; }
         applyCloudData(data);
         // come sul sito, al primo caricamento si applica il tema salvato sull'account
         const QString theme = data.value("theme").toString();
@@ -661,16 +681,34 @@ void ProfileWidget::applyCloudData(const QJsonObject& data) {
         QPixmap pm = pixmapFromDataUrl(data.value("banner").toString());
         if (!pm.isNull()) m_bannerPreview->setPixmap(pm.scaled(600, 150, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation));
     } else {
-        m_bannerPreview->setText("Nessun banner");
+        m_bannerPreview->setText(T("Nessun banner"));
     }
     m_bioEdit->setPlainText(data.value("bio").toString());
     const int ci = m_countryBox->findData(data.value("country").toString());
     m_countryBox->setCurrentIndex(ci < 0 ? 0 : ci);
     const bool pub = data.value("profilePublic").toBool(false);
     m_publicSwitch->setChecked(pub);
-    m_publicText->setText(pub ? "Pubblico" : "Privato");
+    m_publicText->setText(pub ? T("Pubblico") : T("Privato"));
     const int ti = m_themeBox->findData(ThemeManager::normalizeThemeId(data.value("theme").toString()));
     if (data.contains("theme") && ti >= 0) m_themeBox->setCurrentIndex(ti);
+
+    // lingua: l'account è la fonte di verità; se manca, si pubblica quella locale
+    const QString cloudLang = data.value("lang").toString();
+    const int li = m_langBox ? m_langBox->findData(cloudLang) : -1;
+    if (li >= 0) {
+        m_langBox->setCurrentIndex(li);
+        if (cloudLang != I18n::code(I18n::current())) {
+            for (auto lg : {I18n::It, I18n::En, I18n::De}) if (I18n::code(lg) == cloudLang) I18n::setCurrent(lg);
+            showMessage(T("Lingua aggiornata dall'account. Riavvia il launcher per applicarla."), true);
+        }
+    } else if (m_auth->currentUser().isValid()) {
+        m_fs->mergeFields("users/" + m_auth->currentUser().uid, QJsonObject{{"lang", I18n::code(I18n::current())}});
+    }
+
+    // statistiche: tiene il valore maggiore tra locale e account, poi ripubblica
+    PlayStats::instance().mergeCloud(data.value("stats").toObject());
+    m_statsReady = true;
+    pushStats();
 
     QStringList lib;
     for (const auto& v : data.value("library").toArray()) lib << v.toString();
@@ -683,6 +721,13 @@ void ProfileWidget::updateAvatars() {
     const QString initial = display.isEmpty() ? "?" : display.left(1).toUpper();
     m_overviewAvatar->setPixmap(makeAvatar(m_photo, initial, 72));
     m_avatarPreview->setPixmap(makeAvatar(m_photo, initial, 90));
+}
+
+void ProfileWidget::pushStats() {
+    const AuthUser u = m_auth->currentUser();
+    if (!u.isValid() || m_loadedUid != u.uid || !m_statsReady) return;   // prima si legge il cloud, così non si sovrascrive
+    const QJsonObject st = PlayStats::instance().toJson();
+    if (!st.isEmpty()) m_fs->mergeFields("users/" + u.uid, QJsonObject{{"stats", st}});
 }
 
 void ProfileWidget::syncThemeToCloud(const QString& themeId) {
@@ -708,7 +753,7 @@ void ProfileWidget::saveField(const QString& field, const QJsonValue& value, con
     QJsonObject f;
     f[field] = value;
     m_fs->mergeFields("users/" + u.uid, f, [this, okText](bool ok, const QJsonObject&, const QString& err) {
-        showMessage(ok ? okText : ("Salvataggio non riuscito: " + err), ok);
+        showMessage(ok ? okText : (T("Salvataggio non riuscito: ") + err), ok);
     });
 }
 

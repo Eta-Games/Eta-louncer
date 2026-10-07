@@ -38,6 +38,7 @@ add_executable(ETALauncher WIN32
     src/ui/SettingsDialog.cpp
     src/ui/ManageDialog.cpp
     src/ui/ChangelogDialog.cpp
+    src/ui/ReviewsDialog.cpp
     src/ui/BroadcastWidget.cpp
     src/ui/ToggleSwitch.cpp
     # Header con Q_OBJECT elencati esplicitamente: così AUTOMOC li elabora sempre (anche dopo un aggiornamento "a pezzi")

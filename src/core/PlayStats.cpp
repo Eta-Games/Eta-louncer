@@ -65,6 +65,26 @@ QList<QPair<QString, GameStats>> PlayStats::ranking() const {
     return out;
 }
 
+QJsonObject PlayStats::toJson() const {
+    QJsonObject root;
+    for (auto it = m_data.begin(); it != m_data.end(); ++it)
+        root[it.key()] = QJsonObject{{"secs", double(it->totalSecs)}, {"last", double(it->lastPlayed)}, {"n", it->sessions}};
+    return root;
+}
+
+void PlayStats::mergeCloud(const QJsonObject& cloud) {
+    bool changedAny = false;
+    for (auto it = cloud.begin(); it != cloud.end(); ++it) {
+        const QJsonObject o = it.value().toObject();
+        GameStats& s = m_data[it.key()];
+        const qint64 secs = qint64(o.value("secs").toDouble());
+        if (secs > s.totalSecs) { s.totalSecs = secs; s.sessions = qMax(s.sessions, o.value("n").toInt()); changedAny = true; }
+        const qint64 last = qint64(o.value("last").toDouble());
+        if (last > s.lastPlayed) { s.lastPlayed = last; changedAny = true; }
+    }
+    if (changedAny) { save(); emit changed(); }
+}
+
 void PlayStats::addSession(const QString& id, qint64 endEpoch, qint64 secs) {
     if (secs < 5) return;   // avvii a vuoto / crash immediati non contano
     GameStats& s = m_data[id];

@@ -28,7 +28,7 @@ ManageDialog::ManageDialog(GameManager* games, const GameEntry& game, const QPix
     m_games(games),
     m_game(game),
     m_broadcast(broadcast) {
-    setWindowTitle("Gestisci — " + game.title);
+    setWindowTitle(T("Gestisci — ") + game.title);
     setWindowFlag(Qt::WindowContextHelpButtonHint, false);
     setFixedWidth(DIALOG_W);
     setMinimumHeight(460);
@@ -87,24 +87,24 @@ ManageDialog::ManageDialog(GameManager* games, const GameEntry& game, const QPix
     cl->setSpacing(8);
 
     // ── GENERALE
-    addSection(cl, "GENERALE");
+    addSection(cl, T("GENERALE"));
     addRow(
         cl,
-        "Cartella di gioco",
-        "Apri la cartella di installazione in Esplora file.",
+        T("Cartella di gioco"),
+        T("Apri la cartella di installazione in Esplora file."),
         "Apri",
         [this]() {
             if (!m_games->openGameFolder(m_game.id)) {
-                setStatus("Cartella non trovata.", false);
+                setStatus(T("Cartella non trovata."), false);
             }
         }
         );
 
     addRow(
         cl,
-        "Collegamento sul Desktop",
-        "Avvia il gioco direttamente dal Desktop.",
-        "Crea",
+        T("Collegamento sul Desktop"),
+        T("Avvia il gioco direttamente dal Desktop."),
+        T("Crea"),
         [this]() {
             GameMeta m = m_games->loadMeta(m_game.id);
 
@@ -117,8 +117,8 @@ ManageDialog::ManageDialog(GameManager* games, const GameEntry& game, const QPix
 
             setStatus(
                 ok
-                    ? "Collegamento creato sul Desktop."
-                    : "Impossibile creare il collegamento.",
+                    ? T("Collegamento creato sul Desktop.")
+                    : T("Impossibile creare il collegamento."),
                 ok
                 );
         }
@@ -126,7 +126,7 @@ ManageDialog::ManageDialog(GameManager* games, const GameEntry& game, const QPix
 
     // ── CONFIGURAZIONE
     if (game.needsDoom2Wad) {
-        addSection(cl, "CONFIGURAZIONE");
+        addSection(cl, T("CONFIGURAZIONE"));
         addWadRow(cl);
     }
 
@@ -165,35 +165,35 @@ ManageDialog::ManageDialog(GameManager* games, const GameEntry& game, const QPix
         );
 
     // ── DATI
-    addSection(cl, "DATI");
+    addSection(cl, T("DATI"));
 
     addRow(
         cl,
-        "Ripristina configurazione",
+        T("Ripristina configurazione"),
         "Elimina i file .ini del gioco: torneranno ai valori predefiniti.",
-        "Ripristina",
+        T("Ripristina"),
         [this]() {
             if (!confirm(
-                    "Ripristina configurazione",
+                    T("Ripristina configurazione"),
                     "Eliminare i file .ini del gioco?"
                     )) {
                 return;
             }
 
             m_games->resetGameConfig(m_game.id);
-            setStatus("Configurazione ripristinata.");
+            setStatus(T("Configurazione ripristinata."));
         }
         );
 
     addRow(
         cl,
-        "Salvataggi",
-        "Elimina tutti i salvataggi del gioco.",
-        "Elimina",
+        T("Salvataggi"),
+        T("Elimina tutti i salvataggi del gioco."),
+        T("Elimina"),
         [this]() {
             if (!confirm(
-                    "Cancella salvataggi",
-                    "Eliminare tutti i salvataggi? L'operazione non si può annullare."
+                    T("Cancella salvataggi"),
+                    T("Eliminare tutti i salvataggi? L'operazione non si può annullare.")
                     )) {
                 return;
             }
@@ -207,18 +207,18 @@ ManageDialog::ManageDialog(GameManager* games, const GameEntry& game, const QPix
         );
 
     // ── ZONA PERICOLOSA
-    addSection(cl, "ZONA PERICOLOSA");
+    addSection(cl, T("ZONA PERICOLOSA"));
 
     addRow(
         cl,
-        "Disinstalla",
-        "Rimuove il gioco e tutti i suoi file dal computer.",
-        "Disinstalla",
+        T("Disinstalla"),
+        T("Rimuove il gioco e tutti i suoi file dal computer."),
+        T("Disinstalla"),
         [this]() {
             if (!confirm(
-                    "Disinstalla",
-                    "Disinstallare " + m_game.title +
-                        "? Verranno eliminati tutti i file."
+                    T("Disinstalla"),
+                    T("Disinstallare ") + m_game.title +
+                        T("? Verranno eliminati tutti i file.")
                     )) {
                 return;
             }
@@ -520,8 +520,8 @@ void ManageDialog::addWadRow(
     t->setObjectName("RowTitle");
 
     auto* d = new QLabel(
-        "Serve per avviare il gioco e non è incluso nel download. "
-        "Va scelto una volta sola."
+        T("Serve per avviare il gioco e non è incluso nel download. ") +
+        T("Va scelto una volta sola.")
         );
 
     d->setObjectName("Muted");
@@ -536,7 +536,7 @@ void ManageDialog::addWadRow(
     m_wadPath = new QLineEdit;
     m_wadPath->setReadOnly(true);
     m_wadPath->setPlaceholderText(
-        "Nessun file selezionato"
+        T("Nessun file selezionato")
         );
 
     GameMeta meta = m_games->loadMeta(m_game.id);
@@ -554,7 +554,7 @@ void ManageDialog::addWadRow(
 
     line->addWidget(m_wadPath, 1);
 
-    auto* browse = new QPushButton("Sfoglia…");
+    auto* browse = new QPushButton(T("Sfoglia…"));
     browse->setObjectName("Secondary");
     browse->setCursor(Qt::PointingHandCursor);
 
@@ -587,9 +587,9 @@ void ManageDialog::browseWad() {
 
     QString f = QFileDialog::getOpenFileName(
         this,
-        "Seleziona doom2.wad",
+        T("Seleziona doom2.wad"),
         start,
-        "WAD di Doom (*.wad);;Tutti i file (*)"
+        T("WAD di Doom (*.wad);;Tutti i file (*)")
         );
 
     if (f.isEmpty()) {
@@ -616,13 +616,13 @@ void ManageDialog::browseWad() {
                 ) != 0
         ) {
         setStatus(
-            "File salvato, ma non si chiama doom2.wad: "
-            "controlla di aver scelto quello giusto.",
+            T("File salvato, ma non si chiama doom2.wad: ") +
+            T("controlla di aver scelto quello giusto."),
             false
             );
     } else {
         setStatus(
-            "doom2.wad impostato."
+            T("doom2.wad impostato.")
             );
     }
 }
@@ -636,13 +636,13 @@ void ManageDialog::updateWadState() {
 
     if (p.isEmpty()) {
         m_wadState->setText(
-            "Non impostato"
+            T("Non impostato")
             );
     } else {
         m_wadState->setText(
             QFile::exists(p)
-                ? "File trovato"
-                : "File non trovato in questo percorso"
+                ? T("File trovato")
+                : T("File non trovato in questo percorso")
             );
     }
 }

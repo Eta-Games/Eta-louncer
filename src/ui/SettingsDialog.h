@@ -16,6 +16,7 @@ public:
 
 signals:
     void themeChanged(const QString& themeId);
+    void restartRequested();   // l'utente ha cambiato lingua e vuole riavviare subito
 
 private:
     QStackedWidget* m_stack = nullptr;

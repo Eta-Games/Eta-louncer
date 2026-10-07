@@ -1,4 +1,5 @@
 #include "GitCloner.h"
+#include "I18n.h"
 #include <QRegularExpression>
 #include <QDir>
 #include <QFileInfo>
@@ -20,7 +21,7 @@ void GitCloner::start(const QString& repoUrl, const QString& destDir, const QStr
 
     QString gitExe = QStandardPaths::findExecutable("git");
     if (gitExe.isEmpty()) {
-        emit finished(false, "git non trovato nel PATH. Installa Git for Windows e riprova.");
+        emit finished(false, T("git non trovato nel PATH. Installa Git for Windows e riprova."));
         return;
     }
 
@@ -112,7 +113,7 @@ void GitCloner::recomputeOverall() {
 
 void GitCloner::onProcessFinished(int exitCode, QProcess::ExitStatus status) {
     if (m_cancelled) {
-        emit finished(false, "Installazione annullata dall'utente.");
+        emit finished(false, T("Installazione annullata dall'utente."));
         return;
     }
     if (status == QProcess::NormalExit && exitCode == 0) {
@@ -128,5 +129,5 @@ void GitCloner::onProcessFinished(int exitCode, QProcess::ExitStatus status) {
 
 void GitCloner::onProcessErrorOccurred(QProcess::ProcessError) {
     if (m_cancelled) return;
-    emit finished(false, m_process ? m_process->errorString() : "Errore sconosciuto nel processo git.");
+    emit finished(false, m_process ? m_process->errorString() : T("Errore sconosciuto nel processo git."));
 }

@@ -1,4 +1,5 @@
 #include "AuthManager.h"
+#include "I18n.h"
 #include "SessionStore.h"
 #include <QSettings>
 #include <QMap>
@@ -91,8 +92,8 @@ bool AuthManager::restoreSession() {
         const bool rejected = status >= 400 && status < 500;
         if (rejected) SessionStore::clear();
         emit sessionRestoreFailed(rejected
-            ? "La sessione salvata è scaduta: accedi di nuovo."
-            : "Non riesco a ripristinare la sessione (sei offline?). Accedi manualmente.");
+            ? T("La sessione salvata è scaduta: accedi di nuovo.")
+            : T("Non riesco a ripristinare la sessione (sei offline?). Accedi manualmente."));
     });
     return true;
 }
@@ -100,7 +101,7 @@ bool AuthManager::restoreSession() {
 QString AuthManager::friendlyError(const QString& code, const QString& fallback) {
     // Firebase a volte risponde "WEAK_PASSWORD : Password should be at least 6 characters"
     const QString key = code.section(" : ", 0, 0).trimmed();
-    if (ERR_MESSAGES.contains(key)) return ERR_MESSAGES.value(key);
+    if (ERR_MESSAGES.contains(key)) return I18n::tr(ERR_MESSAGES.value(key));
     return code.isEmpty() ? fallback : code;
 }
 
@@ -161,7 +162,7 @@ void AuthManager::handleDeepLink(const QString& url) {
     QString idToken = q.queryItemValue("idToken", QUrl::FullyDecoded);
     QString uid     = q.queryItemValue("uid", QUrl::FullyDecoded);
     if (idToken.isEmpty() || uid.isEmpty()) {
-        emit loginFailed("Accesso Google annullato o non riuscito.");
+        emit loginFailed(T("Accesso Google annullato o non riuscito."));
         return;
     }
     m_user = AuthUser{};
@@ -216,7 +217,7 @@ void AuthManager::withFreshToken(std::function<void(const QString&)> cb) {
 
 void AuthManager::accountLookup(JsonCb cb) {
     withFreshToken([this, cb](const QString& token) {
-        if (token.isEmpty()) { cb(false, QJsonObject(), "Non hai effettuato l'accesso."); return; }
+        if (token.isEmpty()) { cb(false, QJsonObject(), T("Non hai effettuato l'accesso.")); return; }
         QJsonObject body; body["idToken"] = token;
         postIdentity("accounts:lookup", body, [cb](bool ok, const QJsonObject& resp, const QString& err) {
             if (!ok) { cb(false, QJsonObject(), err); return; }
@@ -228,7 +229,7 @@ void AuthManager::accountLookup(JsonCb cb) {
 // accounts:update con idToken fresco; aggiorna i dati locali con la risposta (nuovo token incluso)
 void AuthManager::accountsUpdate(const QJsonObject& extra, DoneCb cb) {
     withFreshToken([this, extra, cb](const QString& token) {
-        if (token.isEmpty()) { cb(false, "Non hai effettuato l'accesso."); return; }
+        if (token.isEmpty()) { cb(false, T("Non hai effettuato l'accesso.")); return; }
         QJsonObject body = extra;
         body["idToken"] = token;
         body["returnSecureToken"] = true;
@@ -265,7 +266,7 @@ void AuthManager::updatePassword(const QString& password, DoneCb cb) {
 
 void AuthManager::deleteAccount(DoneCb cb) {
     withFreshToken([this, cb](const QString& token) {
-        if (token.isEmpty()) { cb(false, "Non hai effettuato l'accesso."); return; }
+        if (token.isEmpty()) { cb(false, T("Non hai effettuato l'accesso.")); return; }
         QJsonObject body; body["idToken"] = token;
         postIdentity("accounts:delete", body, [cb](bool ok, const QJsonObject&, const QString& err) { cb(ok, err); });
     });

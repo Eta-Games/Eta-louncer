@@ -25,6 +25,7 @@ signals:
     void launchRequested(QString id);
     void manageRequested(QString id);
     void updateCheckRequested(QString id);
+    void reviewsRequested(QString id);
 
 protected:
     void resizeEvent(QResizeEvent* e) override;

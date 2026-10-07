@@ -41,7 +41,7 @@ GameCardWidget::GameCardWidget(const GameEntry& game, QWidget* parent)
     title->setObjectName("CardTitle");
     header->addWidget(title);
     header->addStretch();
-    m_installedTag = new QLabel("Installato");
+    m_installedTag = new QLabel(T("Installato"));
     m_installedTag->setObjectName("Tag");
     m_installedTag->hide();
     header->addWidget(m_installedTag);
@@ -80,7 +80,7 @@ GameCardWidget::GameCardWidget(const GameEntry& game, QWidget* parent)
     bl->addSpacing(6);
     auto* btnRow = new QHBoxLayout;
     btnRow->setSpacing(8);
-    m_actionBtn = new QPushButton("Installa");
+    m_actionBtn = new QPushButton(T("Installa"));
     m_actionBtn->setCursor(Qt::PointingHandCursor);
     connect(m_actionBtn, &QPushButton::clicked, this, [this]() {
         if (m_installed) emit launchRequested(m_game.id);
@@ -88,7 +88,7 @@ GameCardWidget::GameCardWidget(const GameEntry& game, QWidget* parent)
     });
     btnRow->addWidget(m_actionBtn, 1);
 
-    m_manageBtn = new QPushButton("Gestisci");
+    m_manageBtn = new QPushButton(T("Gestisci"));
     m_manageBtn->setObjectName("Secondary");
     m_manageBtn->setCursor(Qt::PointingHandCursor);
     m_manageBtn->setVisible(false);
@@ -103,6 +103,14 @@ GameCardWidget::GameCardWidget(const GameEntry& game, QWidget* parent)
     m_checkBtn->setVisible(false);
     connect(m_checkBtn, &QPushButton::clicked, this, [this]() { emit updateCheckRequested(m_game.id); });
     btnRow->addWidget(m_checkBtn);
+
+    auto* reviewsBtn = new QPushButton(QString(QChar(0x2605)));
+    reviewsBtn->setObjectName("Secondary");
+    reviewsBtn->setCursor(Qt::PointingHandCursor);
+    reviewsBtn->setFixedWidth(40);
+    reviewsBtn->setToolTip(T("Recensioni e voti"));
+    connect(reviewsBtn, &QPushButton::clicked, this, [this]() { emit reviewsRequested(m_game.id); });
+    btnRow->addWidget(reviewsBtn);
 
     bl->addLayout(btnRow);
 
@@ -136,7 +144,7 @@ void GameCardWidget::updateCover() {
 
 void GameCardWidget::setInstalled(bool installed) {
     m_installed = installed;
-    m_actionBtn->setText(installed ? "Avvia" : "Installa");
+    m_actionBtn->setText(installed ? T("Avvia") : T("Installa"));
     m_manageBtn->setVisible(installed);
     m_checkBtn->setVisible(installed);
     m_installedTag->setVisible(installed);
@@ -163,7 +171,7 @@ void GameCardWidget::setChecking(bool checking) {
 
 void GameCardWidget::setUpdateAvailable(bool available, const QString& versionLabel) {
     m_updateBadge->setVisible(available);
-    if (available) m_updateBadge->setText("Aggiornamento " + versionLabel);
+    if (available) m_updateBadge->setText(T("Aggiornamento ") + versionLabel);
 }
 
 void GameCardWidget::refreshPlaytime() {

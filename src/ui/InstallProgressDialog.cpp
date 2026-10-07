@@ -1,4 +1,5 @@
 #include "InstallProgressDialog.h"
+#include "../core/I18n.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -40,7 +41,7 @@ void repolish(QWidget* w) {
 } // namespace
 
 InstallProgressDialog::InstallProgressDialog(const QString& gameTitle, QWidget* parent) : QDialog(parent) {
-    setWindowTitle("Installazione — " + gameTitle);
+    setWindowTitle(T("Installazione — ") + gameTitle);
     setMinimumWidth(540);
     setModal(true);
     setStyleSheet(kStyle);
@@ -63,11 +64,11 @@ InstallProgressDialog::InstallProgressDialog(const QString& gameTitle, QWidget* 
 
     auto* titles = new QVBoxLayout;
     titles->setSpacing(2);
-    m_title = new QLabel("Installazione di " + gameTitle);
+    m_title = new QLabel(T("Installazione di ") + gameTitle);
     m_title->setStyleSheet("font-size: 15pt; font-weight: 700;");
     m_title->setWordWrap(true);
     titles->addWidget(m_title);
-    m_subtitle = new QLabel("Avvio del download…");
+    m_subtitle = new QLabel(T("Avvio del download…"));
     m_subtitle->setObjectName("Muted");
     titles->addWidget(m_subtitle);
     head->addLayout(titles, 1);
@@ -92,9 +93,9 @@ InstallProgressDialog::InstallProgressDialog(const QString& gameTitle, QWidget* 
     auto* steps = new QVBoxLayout(panel);
     steps->setContentsMargins(18, 16, 18, 16);
     steps->setSpacing(16);
-    m_steps[0] = makeStep(steps, 1, "Preparazione",  "In attesa del server…");
-    m_steps[1] = makeStep(steps, 2, "Download",      "In attesa dei dati…");
-    m_steps[2] = makeStep(steps, 3, "Installazione", "In attesa…");
+    m_steps[0] = makeStep(steps, 1, T("Preparazione"),  T("In attesa del server…"));
+    m_steps[1] = makeStep(steps, 2, "Download",      T("In attesa dei dati…"));
+    m_steps[2] = makeStep(steps, 3, T("Installazione"), T("In attesa…"));
     root->addWidget(panel);
 
     m_error = new QLabel;
@@ -112,13 +113,13 @@ InstallProgressDialog::InstallProgressDialog(const QString& gameTitle, QWidget* 
     root->addWidget(m_log);
 
     auto* btnRow = new QHBoxLayout;
-    m_detailsBtn = new QPushButton("Mostra dettagli");
+    m_detailsBtn = new QPushButton(T("Mostra dettagli"));
     m_detailsBtn->setObjectName("Secondary");
     m_detailsBtn->setCursor(Qt::PointingHandCursor);
     connect(m_detailsBtn, &QPushButton::clicked, this, [this]() {
         const bool show = !m_log->isVisible();
         m_log->setVisible(show);
-        m_detailsBtn->setText(show ? "Nascondi dettagli" : "Mostra dettagli");
+        m_detailsBtn->setText(show ? T("Nascondi dettagli") : T("Mostra dettagli"));
         adjustSize();
     });
     btnRow->addWidget(m_detailsBtn);
@@ -131,7 +132,7 @@ InstallProgressDialog::InstallProgressDialog(const QString& gameTitle, QWidget* 
         if (m_finished) { accept(); return; }
         emit cancelRequested();
         m_cancelBtn->setEnabled(false);
-        m_subtitle->setText("Annullamento in corso…");
+        m_subtitle->setText(T("Annullamento in corso…"));
     });
     btnRow->addWidget(m_cancelBtn);
     root->addLayout(btnRow);
@@ -233,26 +234,26 @@ void InstallProgressDialog::onPhaseProgress(const QString& phase, int phasePct, 
     m_log->appendPlainText(rawLine);
 
     if (phase == "enumerating") {
-        setStep(0, 0, "Il server sta elencando i file…");
+        setStep(0, 0, T("Il server sta elencando i file…"));
     } else if (phase == "counting") {
         m_counting = phasePct;
-        setStep(0, (m_counting + m_compressing) / 2, "Conteggio dei file…");
+        setStep(0, (m_counting + m_compressing) / 2, T("Conteggio dei file…"));
     } else if (phase == "compressing") {
         m_compressing = phasePct;
-        setStep(0, (m_counting + m_compressing) / 2, "Compressione dei file…");
+        setStep(0, (m_counting + m_compressing) / 2, T("Compressione dei file…"));
     } else if (phase == "receiving") {
         // es. "Receiving objects:  45% (10/23), 164.72 KiB | 1.26 MiB/s"
         static const QRegularExpression re(R"(,\s*([\d.,]+\s*\w+)\s*\|\s*([\d.,]+\s*\w+/s))");
-        QString detail = "Scarico i file del gioco…";
+        QString detail = T("Scarico i file del gioco…");
         const auto m = re.match(rawLine);
         if (m.hasMatch()) detail = QString("%1 scaricati  •  %2").arg(m.captured(1).trimmed(), m.captured(2).trimmed());
         setStep(1, phasePct, detail);
     } else if (phase == "resolving") {
         m_resolving = phasePct;
-        setStep(2, (m_resolving + m_checkout) / 2, "Ricostruzione dei file…");
+        setStep(2, (m_resolving + m_checkout) / 2, T("Ricostruzione dei file…"));
     } else if (phase == "checkout") {
         m_checkout = phasePct;
-        setStep(2, (m_resolving + m_checkout) / 2, "Scrittura dei file sul disco…");
+        setStep(2, (m_resolving + m_checkout) / 2, T("Scrittura dei file sul disco…"));
     }
 }
 
@@ -286,9 +287,9 @@ void InstallProgressDialog::onFinished(bool success, const QString& error) {
 
     if (success) {
         finishStepsBefore(3);
-        for (auto& st : m_steps) st.detail->setText("Completato");
+        for (auto& st : m_steps) st.detail->setText(T("Completato"));
         onOverallProgress(100);
-        m_title->setText("Installazione completata");
+        m_title->setText(T("Installazione completata"));
         m_subtitle->setText(QString("Fatto in %1 secondi. Puoi giocare!").arg(m_elapsed.elapsed() / 1000));
     } else {
         // il passaggio in corso diventa rosso
@@ -298,7 +299,7 @@ void InstallProgressDialog::onFinished(bool success, const QString& error) {
                 break;
             }
         }
-        m_title->setText("Installazione non riuscita");
+        m_title->setText(T("Installazione non riuscita"));
         m_subtitle->setText(QString("Interrotta dopo %1 secondi.").arg(m_elapsed.elapsed() / 1000));
         m_error->setText(error);
         m_error->show();

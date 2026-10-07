@@ -4,6 +4,7 @@
 #include "../core/ThemeManager.h"
 #include "../core/LauncherSettings.h"
 #include "../core/Config.h"
+#include "../core/I18n.h"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -12,6 +13,8 @@
 #include <QButtonGroup>
 #include <QScrollArea>
 #include <QLabel>
+#include <QComboBox>
+#include <QMessageBox>
 #include <QLineEdit>
 #include <QPushButton>
 #include <QFrame>
@@ -89,7 +92,7 @@ private:
 } // namespace
 
 SettingsDialog::SettingsDialog(QWidget* parent) : QDialog(parent) {
-    setWindowTitle("Impostazioni");
+    setWindowTitle(T("Impostazioni"));
     setWindowFlag(Qt::WindowContextHelpButtonHint, false);
     resize(800, 560);
     setMinimumSize(660, 460);
@@ -105,7 +108,7 @@ SettingsDialog::SettingsDialog(QWidget* parent) : QDialog(parent) {
     m_navLayout = new QVBoxLayout(side);
     m_navLayout->setContentsMargins(0, 20, 0, 16);
     m_navLayout->setSpacing(2);
-    auto* sideTitle = new QLabel("IMPOSTAZIONI");
+    auto* sideTitle = new QLabel(T("IMPOSTAZIONI"));
     sideTitle->setObjectName("Section");
     sideTitle->setContentsMargins(20, 0, 0, 6);
     m_navLayout->addWidget(sideTitle);
@@ -121,7 +124,7 @@ SettingsDialog::SettingsDialog(QWidget* parent) : QDialog(parent) {
 
     auto* footer = new QHBoxLayout;
     footer->setContentsMargins(28, 8, 28, 16);
-    auto* hint = new QLabel("Le modifiche vengono applicate subito.");
+    auto* hint = new QLabel(T("Le modifiche vengono applicate subito."));
     hint->setObjectName("Muted");
     footer->addWidget(hint, 1);
     auto* closeBtn = new QPushButton("Chiudi");
@@ -208,37 +211,74 @@ void SettingsDialog::addToggleRow(QVBoxLayout* into, const QString& title, const
 }
 
 void SettingsDialog::buildGeneralPage() {
-    auto* l = addPage("Generale", "Generale", "Comportamento del launcher all'avvio e quando lanci un gioco.");
-    addSection(l, "AVVIO");
-    addToggleRow(l, "Controlla gli aggiornamenti all'avvio",
-                 "Cerca nuove versioni dei giochi installati ogni volta che accedi.",
+    auto* l = addPage(T("Generale"), T("Generale"), T("Comportamento del launcher all'avvio e quando lanci un gioco."));
+    addSection(l, T("LINGUA"));
+    {
+        auto* row = new QFrame;
+        row->setObjectName("Row");
+        auto* h = new QHBoxLayout(row);
+        h->setContentsMargins(16, 12, 16, 12);
+        h->setSpacing(12);
+        auto* texts = new QVBoxLayout;
+        texts->setSpacing(2);
+        auto* t = new QLabel(T("Lingua dell'interfaccia"));
+        t->setObjectName("RowTitle");
+        auto* d = new QLabel(T("Il cambio ha effetto al riavvio del launcher."));
+        d->setObjectName("Muted");
+        d->setWordWrap(true);
+        texts->addWidget(t);
+        texts->addWidget(d);
+        h->addLayout(texts, 1);
+        auto* combo = new QComboBox;
+        for (auto lang : {I18n::It, I18n::En, I18n::De})
+            combo->addItem(I18n::displayName(lang), int(lang));
+        combo->setCurrentIndex(combo->findData(int(I18n::saved())));
+        connect(combo, &QComboBox::activated, this, [this, combo](int i) {
+            const auto lang = I18n::Lang(combo->itemData(i).toInt());
+            if (lang == I18n::saved()) return;
+            I18n::setCurrent(lang);
+            QMessageBox box(this);
+            box.setIcon(QMessageBox::Question);
+            box.setWindowTitle(T("Riavvio necessario"));
+            box.setText(T("Per applicare la nuova lingua il launcher deve essere riavviato. Riavviare adesso?"));
+            auto* now = box.addButton(T("Riavvia ora"), QMessageBox::AcceptRole);
+            box.addButton(T("Più tardi"), QMessageBox::RejectRole);
+            box.exec();
+            if (box.clickedButton() == now) emit restartRequested();
+        });
+        h->addWidget(combo, 0, Qt::AlignVCenter);
+        l->addWidget(row);
+    }
+    addSection(l, T("AVVIO"));
+    addToggleRow(l, T("Controlla gli aggiornamenti all'avvio"),
+                 T("Cerca nuove versioni dei giochi installati ogni volta che accedi."),
                  LauncherSettings::checkUpdatesOnStart(), [](bool on) { LauncherSettings::setCheckUpdatesOnStart(on); });
-    addToggleRow(l, "Apri direttamente su «Installati»",
-                 "Nella pagina dei giochi mostra subito solo quelli già installati.",
+    addToggleRow(l, T("Apri direttamente su «Installati»"),
+                 T("Nella pagina dei giochi mostra subito solo quelli già installati."),
                  LauncherSettings::openOnInstalled(), [](bool on) { LauncherSettings::setOpenOnInstalled(on); });
-    addSection(l, "PRIVACY");
-    addToggleRow(l, "Mostra il mio stato online",
-                 "Gli altri utenti vedono che sei nel launcher o in partita. Se lo spegni risulti offline.",
+    addSection(l, T("PRIVACY"));
+    addToggleRow(l, T("Mostra il mio stato online"),
+                 T("Gli altri utenti vedono che sei nel launcher o in partita. Se lo spegni risulti offline."),
                  LauncherSettings::showOnlineStatus(), [](bool on) { LauncherSettings::setShowOnlineStatus(on); });
-    addSection(l, "BACKGROUND");
-    addToggleRow(l, "Resta nella tray quando chiudi la finestra",
-                 "Il launcher continua a controllare aggiornamenti e broadcast e ti avvisa dei messaggi nuovi.",
+    addSection(l, T("BACKGROUND"));
+    addToggleRow(l, T("Resta nella tray quando chiudi la finestra"),
+                 T("Il launcher continua a controllare aggiornamenti e broadcast e ti avvisa dei messaggi nuovi."),
                  LauncherSettings::trayEnabled(), [](bool on) { LauncherSettings::setTrayEnabled(on); });
 #ifdef Q_OS_WIN
-    addToggleRow(l, "Avvia con Windows",
-                 "Parte all'accensione del PC, ridotto nella tray (con questa opzione l'icona nella tray c'è sempre).",
+    addToggleRow(l, T("Avvia con Windows"),
+                 T("Parte all'accensione del PC, ridotto nella tray (con questa opzione l'icona nella tray c'è sempre)."),
                  Autostart::isEnabled(), [](bool on) { Autostart::set(on); });
 #endif
-    addSection(l, "AVVIO DEI GIOCHI");
-    addToggleRow(l, "Chiudi il launcher quando avvii un gioco",
-                 "Il launcher si chiude dopo aver lanciato il gioco.",
+    addSection(l, T("AVVIO DEI GIOCHI"));
+    addToggleRow(l, T("Chiudi il launcher quando avvii un gioco"),
+                 T("Il launcher si chiude dopo aver lanciato il gioco."),
                  LauncherSettings::closeOnLaunch(), [](bool on) { LauncherSettings::setCloseOnLaunch(on); });
     l->addStretch(1);
 }
 
 void SettingsDialog::buildAppearancePage() {
-    auto* l = addPage("Aspetto", "Aspetto grafico", "Scegli il tema dell'interfaccia: lo stesso set del sito.");
-    addSection(l, "TEMA");
+    auto* l = addPage(T("Aspetto"), T("Aspetto grafico"), T("Scegli il tema dell'interfaccia: lo stesso set del sito."));
+    addSection(l, T("TEMA"));
 
     const QString current = ThemeManager::normalizeThemeId(
         LauncherSettings::theme().isEmpty() ? Config::instance().theme() : LauncherSettings::theme());
@@ -265,17 +305,17 @@ void SettingsDialog::buildAppearancePage() {
 }
 
 void SettingsDialog::buildGamesPage() {
-    auto* l = addPage("Giochi", "Giochi", "Dove vengono installati i giochi.");
-    addSection(l, "CARTELLA DI INSTALLAZIONE");
+    auto* l = addPage(T("Giochi"), T("Giochi"), T("Dove vengono installati i giochi."));
+    addSection(l, T("CARTELLA DI INSTALLAZIONE"));
 
     auto* row = new QFrame;
     row->setObjectName("Row");
     auto* v = new QVBoxLayout(row);
     v->setContentsMargins(16, 12, 16, 14);
     v->setSpacing(6);
-    auto* t = new QLabel("Cartella dei giochi");
+    auto* t = new QLabel(T("Cartella dei giochi"));
     t->setObjectName("RowTitle");
-    auto* d = new QLabel("Vale per i giochi che installi da ora in poi; quelli già installati restano dove sono.");
+    auto* d = new QLabel(T("Vale per i giochi che installi da ora in poi; quelli già installati restano dove sono."));
     d->setObjectName("Muted");
     d->setWordWrap(true);
     v->addWidget(t);
@@ -287,19 +327,19 @@ void SettingsDialog::buildGamesPage() {
     m_gamesDirEdit->setReadOnly(true);
     line->addWidget(m_gamesDirEdit, 1);
 
-    auto* browse = new QPushButton("Sfoglia…");
+    auto* browse = new QPushButton(T("Sfoglia…"));
     browse->setObjectName("Secondary");
     browse->setCursor(Qt::PointingHandCursor);
     connect(browse, &QPushButton::clicked, this, [this]() {
         QString start = LauncherSettings::gamesDir().isEmpty() ? Config::instance().gamesBaseDir() : LauncherSettings::gamesDir();
-        QString dir = QFileDialog::getExistingDirectory(this, "Cartella di installazione dei giochi", start);
+        QString dir = QFileDialog::getExistingDirectory(this, T("Cartella di installazione dei giochi"), start);
         if (dir.isEmpty()) return;
         LauncherSettings::setGamesDir(dir);
         refreshGamesDir();
     });
     line->addWidget(browse);
 
-    auto* reset = new QPushButton("Predefinita");
+    auto* reset = new QPushButton(T("Predefinita"));
     reset->setObjectName("Secondary");
     reset->setCursor(Qt::PointingHandCursor);
     connect(reset, &QPushButton::clicked, this, [this]() {
@@ -316,9 +356,9 @@ void SettingsDialog::buildGamesPage() {
     oh->setContentsMargins(16, 12, 12, 12);
     auto* ot = new QVBoxLayout;
     ot->setSpacing(2);
-    auto* ott = new QLabel("Apri cartella dei giochi");
+    auto* ott = new QLabel(T("Apri cartella dei giochi"));
     ott->setObjectName("RowTitle");
-    auto* otd = new QLabel("Mostra la cartella di installazione in Esplora file.");
+    auto* otd = new QLabel(T("Mostra la cartella di installazione in Esplora file."));
     otd->setObjectName("Muted");
     ot->addWidget(ott);
     ot->addWidget(otd);
@@ -361,7 +401,7 @@ void SettingsDialog::buildAboutPage() {
     auto* name = new QLabel("ETA Games Launcher");
     name->setObjectName("CardTitle");
     const QString ver = QCoreApplication::applicationVersion().isEmpty() ? QString("dev") : QCoreApplication::applicationVersion();
-    auto* info = new QLabel(QString("Versione %1 · Qt %2").arg(ver, qVersion()));
+    auto* info = new QLabel(QString(T("Versione %1 · Qt %2")).arg(ver, qVersion()));
     info->setObjectName("Muted");
     texts->addWidget(name);
     texts->addWidget(info);
@@ -372,7 +412,7 @@ void SettingsDialog::buildAboutPage() {
     auto* links = new QHBoxLayout;
     links->setSpacing(8);
     const QList<QPair<QString, QString>> items = {
-        {"Sito", "https://eta-games.github.io"},
+        {T("Sito"), "https://eta-games.github.io"},
         {"Discord", "https://discord.gg/Da7sq3Mwpw"},
         {"YouTube", "https://www.youtube.com/@HGames_studio"},
         {"Instagram", "https://www.instagram.com/eta.games_"},

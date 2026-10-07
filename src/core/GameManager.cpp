@@ -155,7 +155,7 @@ QString GameManager::launchGame(const QString& id) {
     for (const auto& w : wads) if (!QFile::exists(w)) { allExist = false; break; }
     if (!allExist) {
         wads = findGameWads(gameDir);
-        if (wads.isEmpty()) return "Nessun file WAD o PK3 trovato per questo gioco";
+        if (wads.isEmpty()) return T("Nessun file WAD o PK3 trovato per questo gioco");
         meta.wadFiles = wads;
         writeMeta(id, meta);
     }
@@ -172,7 +172,7 @@ QString GameManager::launchGame(const QString& id) {
     proc.setArguments(args);
     proc.setWorkingDirectory(QFileInfo(gzdoomExe).absolutePath());
     qint64 pid = 0;
-    if (!proc.startDetached(&pid)) return "Impossibile avviare GZDoom";
+    if (!proc.startDetached(&pid)) return T("Impossibile avviare GZDoom");
     emit gameStarted(id, pid); // serve allo stato online ("in gioco" finché il processo vive)
     trackPlaySession(this, id, pid);
     return QString();
@@ -228,7 +228,7 @@ void GameManager::updateGame(const QString& id) {
     const QString dir = Config::instance().gameDir(id);
     const QString gitExe = QStandardPaths::findExecutable("git");
     if (gitExe.isEmpty()) {
-        emit updateFinished(id, false, "git non trovato nel PATH. Installa Git for Windows e riprova.");
+        emit updateFinished(id, false, T("git non trovato nel PATH. Installa Git for Windows e riprova."));
         return;
     }
 
@@ -243,7 +243,7 @@ void GameManager::updateGame(const QString& id) {
         const QString err = QString::fromUtf8(p->readAllStandardError()).trimmed();
         p->deleteLater();
         if (st != QProcess::NormalExit || code != 0) {
-            emit updateFinished(id, false, err.isEmpty() ? "git pull non è andato a buon fine" : err);
+            emit updateFinished(id, false, err.isEmpty() ? T("git pull non è andato a buon fine") : err);
             return;
         }
         // i file del gioco possono essere cambiati/aggiunti: aggiorniamo l'elenco dei WAD
@@ -258,7 +258,7 @@ void GameManager::updateGame(const QString& id) {
     connect(p, &QProcess::errorOccurred, this, [this, p, id](QProcess::ProcessError e) {
         if (e != QProcess::FailedToStart) return;
         p->deleteLater();
-        emit updateFinished(id, false, "Impossibile avviare git");
+        emit updateFinished(id, false, T("Impossibile avviare git"));
     });
 
     p->start(gitExe, {"pull", "--ff-only"});

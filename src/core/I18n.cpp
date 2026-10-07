@@ -29,8 +29,14 @@ Lang current() { load(); return s_lang; }
 
 void setCurrent(Lang lang) {
     load();
-    s_lang = lang;
+    // Non cambio s_lang adesso: la UI resta coerente fino al riavvio.
     QSettings().setValue("ui/lang", code(lang));
+}
+
+Lang saved() {
+    load();
+    const QString v = QSettings().value("ui/lang").toString();
+    return v == "en" ? En : v == "de" ? De : v == "it" ? It : s_lang;
 }
 
 QString code(Lang l) { return l == En ? "en" : l == De ? "de" : "it"; }

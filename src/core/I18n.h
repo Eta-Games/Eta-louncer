@@ -8,7 +8,8 @@ namespace I18n {
 enum Lang { It = 0, En = 1, De = 2 };
 
 Lang current();
-void setCurrent(Lang lang);
+void setCurrent(Lang lang);       // salva la scelta: vale dal prossimo avvio
+Lang saved();                     // lingua scelta (può differire da current() fino al riavvio)
 QString code(Lang lang);          // "it" | "en" | "de"
 QString displayName(Lang lang);   // "Italiano" | "English" | "Deutsch"
 

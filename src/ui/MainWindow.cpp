@@ -6,6 +6,8 @@
 #include "SettingsDialog.h"
 #include "ManageDialog.h"
 #include "ChangelogDialog.h"
+#include "ReviewsDialog.h"
+#include "../core/PlayStats.h"
 #include "BroadcastWidget.h"
 #include "FriendsWidget.h"
 #include "TrayController.h"
@@ -35,6 +37,8 @@
 #include <QButtonGroup>
 #include <QTimer>
 #include <QCoreApplication>
+#include <QDir>
+#include <QProcess>
 #include <QCloseEvent>
 #include <QProgressDialog>
 #include <QEventLoop>
@@ -44,6 +48,19 @@
 #include <QSettings>
 #include <QSystemTrayIcon>
 #include <initializer_list>
+
+// Riavvia il launcher: l'istanza corrente deve prima chiudersi (singola istanza), quindi il nuovo processo parte in ritardo.
+static void relaunchSelf() {
+    const QString exe = QDir::toNativeSeparators(QCoreApplication::applicationFilePath());
+#ifdef Q_OS_WIN
+    QProcess p;
+    p.setProgram("cmd.exe");
+    p.setNativeArguments("/c ping -n 3 127.0.0.1 >nul & start \"\" \"" + exe + "\"");
+    p.startDetached();
+#else
+    QProcess::startDetached("/bin/sh", {"-c", "sleep 2; exec \"$0\"", exe});
+#endif
+}
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
     setWindowFlag(Qt::FramelessWindowHint);
@@ -85,6 +102,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
         m_sessionStarted = false;
         showLogin();
     });
+    connect(&PlayStats::instance(), &PlayStats::changed, m_profile, &ProfileWidget::pushStats);
     connect(m_profile, &ProfileWidget::themeSelected, this, [this](const QString& id) {
         LauncherSettings::setTheme(id);
         applyTheme(id);
@@ -229,11 +247,11 @@ void MainWindow::updateOwnStatus() {
     QString text;
     if (st == "playing") {
         const GameEntry* g = findGame(m_presence->ownGameId());
-        text = "● In gioco: " + (g ? g->title : m_presence->ownGameId());
+        text = T("● In gioco: ") + (g ? g->title : m_presence->ownGameId());
     } else if (st == "online") {
         text = "● Online";
     } else {
-        text = LauncherSettings::showOnlineStatus() ? QString() : "Stato online nascosto";
+        text = LauncherSettings::showOnlineStatus() ? QString() : T("Stato online nascosto");
     }
     m_profile->setOnlineStatusText(text);
 }
@@ -368,12 +386,19 @@ void MainWindow::buildTitleBar(QWidget* host, QVBoxLayout* hostLayout) {
     auto* settingsBtn = new QPushButton("⚙");
     settingsBtn->setFixedSize(28, 24);
     settingsBtn->setObjectName("TitleBtn");
-    settingsBtn->setToolTip("Impostazioni");
+    settingsBtn->setToolTip(T("Impostazioni"));
     connect(settingsBtn, &QPushButton::clicked, this, [this]() {
         SettingsDialog dlg(this);
         connect(&dlg, &SettingsDialog::themeChanged, this, [this](const QString& id) {
             applyTheme(id);
             m_profile->syncThemeToCloud(id);
+        });
+        connect(&dlg, &SettingsDialog::restartRequested, this, [this, &dlg]() {
+            relaunchSelf();        // parte con qualche secondo di ritardo, così questa istanza fa in tempo a chiudersi
+            m_quitting = true;
+            dlg.accept();
+            close();
+            qApp->quit();
         });
         dlg.exec();
         m_presence->settingsChanged(); // l'utente può aver nascosto/mostrato il proprio stato online
@@ -384,7 +409,7 @@ void MainWindow::buildTitleBar(QWidget* host, QVBoxLayout* hostLayout) {
     auto* minBtn = new QPushButton("—");
     minBtn->setFixedSize(28, 24);
     minBtn->setObjectName("TitleBtn");
-    minBtn->setToolTip("Riduci a icona");
+    minBtn->setToolTip(T("Riduci a icona"));
     connect(minBtn, &QPushButton::clicked, this, &MainWindow::showMinimized);
     l->addWidget(minBtn);
 
@@ -429,7 +454,7 @@ void MainWindow::buildSiteNav(QWidget* host, QVBoxLayout* hostLayout) {
 
     // voce della navbar → pagina dello stack
     static const int navPages[3] = {0, 3, 1}; // Negozio e Libreria, Broadcast, Profilo
-    const QStringList labels = {"Negozio e Libreria", "Broadcast", "Profilo"};
+    const QStringList labels = {T("Negozio e Libreria"), "Broadcast", T("Profilo")};
     for (int i = 0; i < labels.size(); ++i) {
         auto* btn = new QPushButton(labels[i]);
         btn->setObjectName("NavLink");
@@ -475,10 +500,10 @@ void MainWindow::buildGamesPage() {
     auto* top = new QHBoxLayout;
     auto* titles = new QVBoxLayout;
     titles->setSpacing(0);
-    auto* heading = new QLabel("Giochi");
+    auto* heading = new QLabel(T("Giochi"));
     heading->setObjectName("Heading");
     titles->addWidget(heading);
-    auto* sub = new QLabel("Installa i giochi ETA Games e avviali da qui.");
+    auto* sub = new QLabel(T("Installa i giochi ETA Games e avviali da qui."));
     sub->setObjectName("Muted");
     titles->addWidget(sub);
     top->addLayout(titles, 1);
@@ -490,7 +515,7 @@ void MainWindow::buildGamesPage() {
     top->addSpacing(8);
 
     auto* filterGroup = new QButtonGroup(this);
-    const QStringList filters = {"Tutti", "Installati"};
+    const QStringList filters = {T("Tutti"), T("Installati")};
     for (int i = 0; i < filters.size(); ++i) {
         auto* b = new QPushButton(filters[i]);
         b->setObjectName("Seg");
@@ -519,7 +544,7 @@ void MainWindow::buildGamesPage() {
     m_grid->setSpacing(20);
     hostLayout->addLayout(m_grid);
 
-    m_emptyLabel = new QLabel("Nessun gioco installato. Passa a «Tutti» per installarne uno.");
+    m_emptyLabel = new QLabel(T("Nessun gioco installato. Passa a «Tutti» per installarne uno."));
     m_emptyLabel->setObjectName("Muted");
     m_emptyLabel->setAlignment(Qt::AlignCenter);
     m_emptyLabel->hide();
@@ -532,6 +557,12 @@ void MainWindow::buildGamesPage() {
         connect(card, &GameCardWidget::installRequested, this, &MainWindow::onInstallRequested);
         connect(card, &GameCardWidget::launchRequested, this, &MainWindow::onLaunchRequested);
         connect(card, &GameCardWidget::manageRequested, this, &MainWindow::onManageRequested);
+        connect(card, &GameCardWidget::reviewsRequested, this, [this](const QString& id) {
+            const GameEntry* g = findGame(id);
+            if (!g) return;
+            ReviewsDialog dlg(m_auth, m_fs, id, g->title, this);
+            dlg.exec();
+        });
         connect(card, &GameCardWidget::updateCheckRequested, this, [this](const QString& id) {
             if (auto* c = m_cards.value(id)) c->setChecking(true);
             m_repoUpdater->checkNow(id);
@@ -584,7 +615,7 @@ void MainWindow::applyTheme(const QString& themeId) {
 
 void MainWindow::onInstallRequested(GameEntry game) {
     auto* card = m_cards.value(game.id);
-    if (card) card->setBusy(true, "In coda…");
+    if (card) card->setBusy(true, T("In coda…"));
 
     auto* dlg = new InstallProgressDialog(game.title, this);
     if (card) dlg->setCover(card->coverPixmap());
@@ -612,17 +643,17 @@ void MainWindow::onLaunchRequested(const QString& id) {
 
     if (err == "doom2_missing") {
         QMessageBox box(this);
-        box.setWindowTitle("doom2.wad mancante");
-        box.setText("Per avviare questo gioco serve doom2.wad.\nSelezionalo dalla gestione del gioco.");
-        auto* open = box.addButton("Apri gestione", QMessageBox::AcceptRole);
+        box.setWindowTitle(T("doom2.wad mancante"));
+        box.setText(T("Per avviare questo gioco serve doom2.wad.\nSelezionalo dalla gestione del gioco."));
+        auto* open = box.addButton(T("Apri gestione"), QMessageBox::AcceptRole);
         box.addButton("Annulla", QMessageBox::RejectRole);
         box.exec();
         if (box.clickedButton() == open) onManageRequested(id);
     } else if (err == "gzdoom_missing") {
-        QMessageBox::warning(this, "GZDoom non trovato",
-            "Non trovo GZDoom nella cartella del gioco. Prova a reinstallare il gioco.");
+        QMessageBox::warning(this, T("GZDoom non trovato"),
+            T("Non trovo GZDoom nella cartella del gioco. Prova a reinstallare il gioco."));
     } else {
-        QMessageBox::warning(this, "Errore avvio", err);
+        QMessageBox::warning(this, T("Errore avvio"), err);
     }
 }
 
@@ -659,22 +690,22 @@ void MainWindow::processUpdateQueue() {
         const RepoUpdate u = m_updateQueue.takeFirst();
 
         QString text = u.isLauncher
-            ? QString("È disponibile una nuova versione di <b>ETA Launcher</b>.")
-            : QString("È disponibile un aggiornamento per <b>%1</b>.").arg(u.name.toHtmlEscaped());
-        text += QString("<br>La repo ha %1 commit in più rispetto alla tua copia.").arg(u.aheadBy);
+            ? QString(T("È disponibile una nuova versione di <b>ETA Launcher</b>."))
+            : QString(T("È disponibile un aggiornamento per <b>%1</b>.")).arg(u.name.toHtmlEscaped());
+        text += QString(T("<br>La repo ha %1 commit in più rispetto alla tua copia.")).arg(u.aheadBy);
         if (!u.recent.isEmpty()) {
-            text += "<br><br>Ultime modifiche:<ul style='margin-top:2px'>";
+            text += T("<br><br>Ultime modifiche:<ul style='margin-top:2px'>");
             for (int i = 0; i < u.recent.size() && i < 5; ++i) text += "<li>" + u.recent.at(i).toHtmlEscaped() + "</li>";
             text += "</ul>";
         }
-        text += u.isLauncher ? "Vuoi aprire la pagina per scaricarla?" : "Vuoi aggiornare adesso?";
+        text += u.isLauncher ? T("Vuoi aprire la pagina per scaricarla?") : T("Vuoi aggiornare adesso?");
 
         QMessageBox box(this);
-        box.setWindowTitle(u.isLauncher ? "Aggiornamento del launcher" : "Aggiornamento del gioco");
+        box.setWindowTitle(u.isLauncher ? "Aggiornamento del launcher" : T("Aggiornamento del gioco"));
         box.setIcon(QMessageBox::Information);
         box.setTextFormat(Qt::RichText);
         box.setText(text);
-        auto* yes = box.addButton(u.isLauncher ? "Apri download" : "Aggiorna ora", QMessageBox::AcceptRole);
+        auto* yes = box.addButton(u.isLauncher ? T("Apri download") : T("Aggiorna ora"), QMessageBox::AcceptRole);
         box.addButton("Più tardi", QMessageBox::RejectRole);
         box.exec();
         if (box.clickedButton() != yes) continue;
@@ -717,9 +748,9 @@ bool MainWindow::updateGameNow(const RepoUpdate& u) {
         refreshStates();
         showChangelog(u.id, u.name, T("%1 è stato aggiornato.").arg(u.name), u.recent, u.aheadBy);
     } else {
-        QMessageBox::warning(this, "Aggiornamento non riuscito",
-            QString("Non sono riuscito ad aggiornare %1.\n\n%2\n\n"
-                    "Se il gioco è in esecuzione chiudilo e riprova.").arg(u.name, error));
+        QMessageBox::warning(this, T("Aggiornamento non riuscito"),
+            QString(T("Non sono riuscito ad aggiornare %1.\n\n%2\n\n") +
+                    T("Se il gioco è in esecuzione chiudilo e riprova.")).arg(u.name, error));
     }
     return ok;
 }

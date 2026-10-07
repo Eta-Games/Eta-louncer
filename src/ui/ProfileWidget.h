@@ -24,6 +24,7 @@ public:
     ProfileWidget(AuthManager* auth, FirestoreClient* fs, QWidget* parent = nullptr);
 
     void refresh();                                 // ricarica (al massimo ogni minuto) i dati dell'utente
+    void pushStats();                               // salva le statistiche di gioco in users/<uid>.stats
     void syncThemeToCloud(const QString& themeId);  // salva il tema in users/<uid>.theme come fa il sito
     void setOnlineStatusText(const QString& text);
     void addExtraSection(const QString& navText, const QString& title, QWidget* content); // sezione extra nella sidebar
@@ -65,6 +66,7 @@ private:
     // Extra
     QLabel* m_badgeLabel = nullptr;
     QComboBox* m_themeBox = nullptr;
+    QComboBox* m_langBox = nullptr;
     // Libreria
     QVBoxLayout* m_libraryList = nullptr;
     // Messaggi
@@ -74,6 +76,7 @@ private:
     QPixmap m_photo;   // foto profilo (da Firestore photoBase64)
     QElapsedTimer m_lastLoad;
     QString m_loadedUid;
+    bool m_statsReady = false;   // true solo dopo aver letto le statistiche dall'account
     QString m_onlineText;
 
     QVBoxLayout* addSection(const QString& navText, const QString& title);
