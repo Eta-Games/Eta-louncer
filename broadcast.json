@@ -1,10 +1,10 @@
 {
   "messages": [
     {
-      "id": "2026-10-06-eta-louncher-2-0-0",
-      "title": "versione migliorata del louncer 1.0.0 è uscito!",
-      "message": "La versione 2.0.0 di eta louncher cambia l'engine rendendo l'app dextop compilata in qt e c++, versione migloiorata.",
-      "date": "2026-10-06",
+      "id": "2026-10-08-eta-louncher-2-0-1",
+      "title": "versione migliorata del louncer 2.0.1 è uscito!",
+      "message": "fix a dantes revenge Uzdoom",
+      "date": "2026-10-08",
       "level": "update",
       "url": "https://eta-games.github.io/index.html"
     }
