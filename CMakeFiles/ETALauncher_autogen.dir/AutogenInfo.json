@@ -639,7 +639,7 @@
 	"MOC_COMPILATION_FILE" : "C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/ETALauncher_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
-		"ETA_BUILD_COMMIT=\"70627d972548e21e211e8c5a008d52e1d9c333ea\"",
+		"ETA_BUILD_COMMIT=\"9d56590c24426f588fc282ff2b522b8641ce4e93\"",
 		"MINGW_HAS_SECURE_API=1",
 		"QT_CORE_LIB",
 		"QT_GUI_LIB",
