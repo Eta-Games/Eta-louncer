@@ -22,11 +22,15 @@
 #include <memory>
 
 static const QStringList WAD_EXTS = {".wad", ".pk3", ".pk7", ".ipk3"};
-static const QStringList WAD_SKIP = {"doom2.wad", "doom.wad", "heretic.wad", "hexen.wad", "strife1.wad", "gzdoom.pk3",
-                                 // file di supporto di GZDoom: li carica da solo l'exe, non vanno passati con -file
-                                 "game_support.pk3", "game_widescreen_gfx.pk3", "brightmaps.pk3", "lights.pk3"};
+static const QStringList WAD_SKIP = {"doom2.wad", "doom.wad", "heretic.wad", "hexen.wad", "strife1.wad",
+                                     "gzdoom.pk3", "uzdoom.pk3",
+                                     // file di supporto di UZDoom: li carica da solo l'exe, non vanno passati con -file
+                                     "game_support.pk3", "game_widescreen_gfx.pk3", "brightmaps.pk3", "lights.pk3"};
 
-// Statistiche di gioco: controlla ogni 5 s se GZDoom è vivo (indipendente da login/presenza).
+// Mod che deve essere sempre caricata per prima nell'elenco -file
+static const QString FIRST_PK3 = QStringLiteral("brutalv21.pk3");
+
+// Statistiche di gioco: controlla ogni 5 s se UZDoom è vivo (indipendente da login/presenza).
 // Se il launcher viene chiuso durante la partita, la sessione si chiude con il tempo fino a quel momento.
 static void trackPlaySession(QObject* parent, const QString& id, qint64 pid) {
     if (pid <= 0) return;
@@ -134,11 +138,11 @@ QString GameManager::launchGame(const QString& id) {
 
     GameMeta meta = loadMeta(id);
 
-    // GZDoom è già dentro la repo del gioco: lo cerchiamo lì (il path nelle impostazioni resta solo come ripiego)
+    // UZDoom è già dentro la repo del gioco: lo cerchiamo lì (il path nelle impostazioni resta solo come ripiego)
 #ifdef Q_OS_WIN
-    const QString exeName = "gzdoom.exe";
+    const QString exeName = "uzdoom.exe";
 #else
-    const QString exeName = "gzdoom";
+    const QString exeName = "uzdoom";
 #endif
     QString gzdoomExe = QDir(gameDir).filePath(exeName);
     if (!QFile::exists(gzdoomExe)) gzdoomExe = findFileRecursive(gameDir, exeName, false);
@@ -160,6 +164,14 @@ QString GameManager::launchGame(const QString& id) {
         writeMeta(id, meta);
     }
 
+    // brutalv21.pk3 deve essere il primo file caricato: lo portiamo in testa (l'ordine di findGameWads non è garantito)
+    for (int i = 0; i < wads.size(); ++i) {
+        if (QFileInfo(wads.at(i)).fileName().compare(FIRST_PK3, Qt::CaseInsensitive) == 0) {
+            if (i != 0) wads.move(i, 0);
+            break;
+        }
+    }
+
     QStringList args;
     args << "-iwad" << doom2wad;
     if (!wads.isEmpty()) {
@@ -172,7 +184,7 @@ QString GameManager::launchGame(const QString& id) {
     proc.setArguments(args);
     proc.setWorkingDirectory(QFileInfo(gzdoomExe).absolutePath());
     qint64 pid = 0;
-    if (!proc.startDetached(&pid)) return T("Impossibile avviare GZDoom");
+    if (!proc.startDetached(&pid)) return T("Impossibile avviare UZDoom");
     emit gameStarted(id, pid); // serve allo stato online ("in gioco" finché il processo vive)
     trackPlaySession(this, id, pid);
     return QString();
@@ -240,21 +252,21 @@ void GameManager::updateGame(const QString& id) {
 
     connect(p, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this,
             [this, p, id, dir](int code, QProcess::ExitStatus st) {
-        const QString err = QString::fromUtf8(p->readAllStandardError()).trimmed();
-        p->deleteLater();
-        if (st != QProcess::NormalExit || code != 0) {
-            emit updateFinished(id, false, err.isEmpty() ? T("git pull non è andato a buon fine") : err);
-            return;
-        }
-        // i file del gioco possono essere cambiati/aggiunti: aggiorniamo l'elenco dei WAD
-        GameMeta meta = loadMeta(id);
-        if (meta.installed) {
-            meta.gameDir = dir;
-            meta.wadFiles = findGameWads(dir);
-            writeMeta(id, meta);
-        }
-        emit updateFinished(id, true, QString());
-    });
+                const QString err = QString::fromUtf8(p->readAllStandardError()).trimmed();
+                p->deleteLater();
+                if (st != QProcess::NormalExit || code != 0) {
+                    emit updateFinished(id, false, err.isEmpty() ? T("git pull non è andato a buon fine") : err);
+                    return;
+                }
+                // i file del gioco possono essere cambiati/aggiunti: aggiorniamo l'elenco dei WAD
+                GameMeta meta = loadMeta(id);
+                if (meta.installed) {
+                    meta.gameDir = dir;
+                    meta.wadFiles = findGameWads(dir);
+                    writeMeta(id, meta);
+                }
+                emit updateFinished(id, true, QString());
+            });
     connect(p, &QProcess::errorOccurred, this, [this, p, id](QProcess::ProcessError e) {
         if (e != QProcess::FailedToStart) return;
         p->deleteLater();
@@ -281,14 +293,14 @@ static void runGit(QObject* parent, const QString& dir, const QStringList& args,
     auto finished = std::make_shared<bool>(false);
     QObject::connect(p, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), parent,
                      [p, done, finished](int code, QProcess::ExitStatus st) {
-        if (*finished) return;
-        *finished = true;
-        const QByteArray out = p->readAllStandardOutput();
-        const QString err = QString::fromUtf8(p->readAllStandardError()).trimmed();
-        p->deleteLater();
-        const bool ok = (st == QProcess::NormalExit && code == 0);
-        done(ok, out, ok ? QString() : (err.isEmpty() ? QStringLiteral("git_failed") : err));
-    });
+                         if (*finished) return;
+                         *finished = true;
+                         const QByteArray out = p->readAllStandardOutput();
+                         const QString err = QString::fromUtf8(p->readAllStandardError()).trimmed();
+                         p->deleteLater();
+                         const bool ok = (st == QProcess::NormalExit && code == 0);
+                         done(ok, out, ok ? QString() : (err.isEmpty() ? QStringLiteral("git_failed") : err));
+                     });
     QObject::connect(p, &QProcess::errorOccurred, parent, [p, done, finished](QProcess::ProcessError e) {
         if (e != QProcess::FailedToStart || *finished) return;
         *finished = true;
@@ -314,22 +326,22 @@ void GameManager::verifyGame(const QString& id) {
     }
     runGit(this, dir, {"--no-optional-locks", "status", "--porcelain=v1", "-z", "--untracked-files=no"},
            [this, id](bool ok, const QByteArray& out, const QString& err) {
-        if (!ok) { emit verifyFinished(id, false, QStringList(), QStringList(), err); return; }
+               if (!ok) { emit verifyFinished(id, false, QStringList(), QStringList(), err); return; }
 
-        QStringList modified, deleted;
-        const QList<QByteArray> parts = out.split('\0');
-        for (int i = 0; i < parts.size(); ++i) {
-            const QByteArray& e = parts.at(i);
-            if (e.size() < 4) continue;                    // "XY path"
-            const char x = e.at(0), y = e.at(1);
-            const QString path = QString::fromUtf8(e.mid(3));
-            if (x == 'R' || x == 'C') ++i;                 // con -z il vecchio nome è un campo a parte
-            if (path.isEmpty() || isUserFile(path)) continue;
-            if (x == 'D' || y == 'D') deleted << path;
-            else modified << path;
-        }
-        emit verifyFinished(id, true, modified, deleted, QString());
-    });
+               QStringList modified, deleted;
+               const QList<QByteArray> parts = out.split('\0');
+               for (int i = 0; i < parts.size(); ++i) {
+                   const QByteArray& e = parts.at(i);
+                   if (e.size() < 4) continue;                    // "XY path"
+                   const char x = e.at(0), y = e.at(1);
+                   const QString path = QString::fromUtf8(e.mid(3));
+                   if (x == 'R' || x == 'C') ++i;                 // con -z il vecchio nome è un campo a parte
+                   if (path.isEmpty() || isUserFile(path)) continue;
+                   if (x == 'D' || y == 'D') deleted << path;
+                   else modified << path;
+               }
+               emit verifyFinished(id, true, modified, deleted, QString());
+           });
 }
 
 void GameManager::repairGame(const QString& id, const QStringList& files) {
