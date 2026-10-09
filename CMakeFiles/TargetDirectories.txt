@@ -1,0 +1,5 @@
+/home/gabriele/Scrivania/Eta-louncer/build/Desktop_Qt_6_12_0_Debug/CMakeFiles/ETALauncher.dir
+/home/gabriele/Scrivania/Eta-louncer/build/Desktop_Qt_6_12_0_Debug/CMakeFiles/edit_cache.dir
+/home/gabriele/Scrivania/Eta-louncer/build/Desktop_Qt_6_12_0_Debug/CMakeFiles/rebuild_cache.dir
+/home/gabriele/Scrivania/Eta-louncer/build/Desktop_Qt_6_12_0_Debug/CMakeFiles/ETALauncher_autogen_timestamp_deps.dir
+/home/gabriele/Scrivania/Eta-louncer/build/Desktop_Qt_6_12_0_Debug/CMakeFiles/ETALauncher_autogen.dir
