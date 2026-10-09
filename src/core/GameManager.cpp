@@ -310,6 +310,37 @@ static void runGit(QObject* parent, const QString& dir, const QStringList& args,
     p->start(gitExe, args);
 }
 
+// Aggiornamento forzato: scarica lo stato della repo e riporta i file tracciati all'ultima versione.
+// I file non tracciati (salvataggi, config creati dal gioco) restano dove sono.
+void GameManager::forceUpdateGame(const QString& id) {
+    const QString dir = Config::instance().gameDir(id);
+    if (!QFileInfo::exists(QDir(dir).filePath(".git"))) {
+        QTimer::singleShot(0, this, [this, id]() {
+            emit updateFinished(id, false, T("La cartella del gioco non è una repo git."));
+        });
+        return;
+    }
+    auto fail = [this, id](const QString& err) {
+        emit updateFinished(id, false, err == QStringLiteral("git_missing")
+            ? T("git non trovato nel PATH. Installa Git for Windows e riprova.") : err);
+    };
+    runGit(this, dir, {"fetch", "--prune", "origin"},
+           [this, id, dir, fail](bool ok, const QByteArray&, const QString& err) {
+        if (!ok) { fail(err); return; }
+        runGit(this, dir, {"reset", "--hard", "@{u}"},
+               [this, id, dir, fail](bool ok2, const QByteArray&, const QString& err2) {
+            if (!ok2) { fail(err2); return; }
+            GameMeta meta = loadMeta(id);
+            if (meta.installed) {
+                meta.gameDir = dir;
+                meta.wadFiles = findGameWads(dir);
+                writeMeta(id, meta);
+            }
+            emit updateFinished(id, true, QString());
+        });
+    });
+}
+
 // File che la verifica non deve mai toccare: dati dell'utente e file del launcher
 static bool isUserFile(const QString& relPath) {
     const QString l = relPath.toLower();

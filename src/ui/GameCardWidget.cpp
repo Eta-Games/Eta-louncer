@@ -104,6 +104,15 @@ GameCardWidget::GameCardWidget(const GameEntry& game, QWidget* parent)
     connect(m_checkBtn, &QPushButton::clicked, this, [this]() { emit updateCheckRequested(m_game.id); });
     btnRow->addWidget(m_checkBtn);
 
+    m_forceBtn = new QPushButton(QString::fromUtf8("⬇"));
+    m_forceBtn->setObjectName("Secondary");
+    m_forceBtn->setCursor(Qt::PointingHandCursor);
+    m_forceBtn->setFixedWidth(40);
+    m_forceBtn->setToolTip(T("Aggiorna forzatamente"));
+    m_forceBtn->setVisible(false);
+    connect(m_forceBtn, &QPushButton::clicked, this, [this]() { emit forceUpdateRequested(m_game.id); });
+    btnRow->addWidget(m_forceBtn);
+
     auto* reviewsBtn = new QPushButton(QString(QChar(0x2605)));
     reviewsBtn->setObjectName("Secondary");
     reviewsBtn->setCursor(Qt::PointingHandCursor);
@@ -147,6 +156,7 @@ void GameCardWidget::setInstalled(bool installed) {
     m_actionBtn->setText(installed ? T("Avvia") : T("Installa"));
     m_manageBtn->setVisible(installed);
     m_checkBtn->setVisible(installed);
+    m_forceBtn->setVisible(installed);
     m_installedTag->setVisible(installed);
     refreshPlaytime();
 }

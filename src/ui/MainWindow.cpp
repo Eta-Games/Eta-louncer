@@ -62,6 +62,9 @@ static void relaunchSelf() {
 #endif
 }
 
+// Broadcast disattivati per ora (pagina nascosta, nessun download, nessuna notifica). Metti true per riattivarli.
+static const bool kBroadcastEnabled = false;
+
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
     setWindowFlag(Qt::FramelessWindowHint);
     resize(1000, 680);
@@ -171,7 +174,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
     connect(qApp, &QGuiApplication::commitDataRequest, this, [this]() { m_quitting = true; });
     connect(m_tray, &TrayController::quitRequested, this, [this]() { m_quitting = true; close(); qApp->quit(); });
     connect(m_broadcast, &BroadcastManager::newMessages, this, [this](const QList<BroadcastMessage>& fresh) {
-        if (fresh.isEmpty() || !m_tray->isVisible() || isActiveWindow()) return;   // se lo stai guardando lo vedi già
+        if (!kBroadcastEnabled || fresh.isEmpty() || !m_tray->isVisible() || isActiveWindow()) return;   // se lo stai guardando lo vedi già
         const BroadcastMessage& m = fresh.first();
         const QString title = m.sourceName.isEmpty() ? T("Nuovo messaggio") : m.sourceName;
         const QString what = m.title.isEmpty() ? m.message : m.title;
@@ -201,7 +204,7 @@ void MainWindow::startSession() {
     m_sessionStarted = true;
     m_presence->start();
     m_friends->reload();
-    m_broadcast->start();
+    if (kBroadcastEnabled) m_broadcast->start();
     m_repoUpdater->start(); // confronta launcher e giochi con le repo su GitHub
     m_selfUpdater->start(); // release del launcher su master
     checkLauncherChangelog();
@@ -406,6 +409,14 @@ void MainWindow::buildTitleBar(QWidget* host, QVBoxLayout* hostLayout) {
     });
     l->addWidget(settingsBtn);
 
+    // Aggiornamento forzato del launcher
+    auto* forceBtn = new QPushButton(QString::fromUtf8("⬇"));
+    forceBtn->setFixedSize(28, 24);
+    forceBtn->setObjectName("TitleBtn");
+    forceBtn->setToolTip(T("Aggiorna il launcher (forza)"));
+    connect(forceBtn, &QPushButton::clicked, this, &MainWindow::forceUpdateLauncher);
+    l->addWidget(forceBtn);
+
     auto* minBtn = new QPushButton("—");
     minBtn->setFixedSize(28, 24);
     minBtn->setObjectName("TitleBtn");
@@ -466,6 +477,7 @@ void MainWindow::buildSiteNav(QWidget* host, QVBoxLayout* hostLayout) {
         connect(btn, &QPushButton::clicked, this, [this, i]() { goToPage(navPages[i]); });
     }
     m_navButtons[0]->setChecked(true);
+    if (!kBroadcastEnabled) m_navButtons[1]->hide();   // voce "Broadcast" nascosta
 
     hostLayout->addWidget(nav);
 }
@@ -478,6 +490,7 @@ void MainWindow::showLogin() {
 
 void MainWindow::goToPage(int index) {
     if (!m_loggedIn && index != 2) index = 2; // blocca l'accesso alle altre pagine senza login
+    if (index == 3 && !kBroadcastEnabled) index = 0; // pagina Broadcast disattivata
     if (m_currentPage == 3 && index != 3) m_broadcastPage->markVisibleRead(); // uscendo, risultano letti solo quelli del ramo mostrato
     m_currentPage = index;
     m_pages->setCurrentIndex(index);
@@ -567,6 +580,7 @@ void MainWindow::buildGamesPage() {
             if (auto* c = m_cards.value(id)) c->setChecking(true);
             m_repoUpdater->checkNow(id);
         });
+        connect(card, &GameCardWidget::forceUpdateRequested, this, &MainWindow::forceUpdateGame);
         m_cards[game.id] = card;
     }
     reflowGrid();
@@ -753,6 +767,63 @@ bool MainWindow::updateGameNow(const RepoUpdate& u) {
                     T("Se il gioco è in esecuzione chiudilo e riprova.")).arg(u.name, error));
     }
     return ok;
+}
+
+// Aggiornamento forzato di un gioco: git fetch + reset --hard sull'ultima versione della repo
+void MainWindow::forceUpdateGame(const QString& id) {
+    if (!m_games->isInstalled(id)) return;
+    const GameEntry* g = findGame(id);
+    const QString name = g ? g->title : id;
+    const auto answer = QMessageBox::question(this, T("Aggiornamento forzato"),
+        T("Riporto %1 all'ultima versione della repo, scartando eventuali modifiche ai file del gioco.\n"
+          "I file non presenti nella repo (es. i salvataggi) non vengono toccati.\n\nContinuare?").arg(name));
+    if (answer != QMessageBox::Yes) return;
+
+    QProgressDialog wait(QString(T("Aggiorno %1…")).arg(name), QString(), 0, 0, this);
+    wait.setWindowTitle(T("Aggiornamento"));
+    wait.setCancelButton(nullptr);
+    wait.setWindowModality(Qt::WindowModal);
+    wait.setMinimumDuration(0);
+    wait.show();
+
+    bool ok = false;
+    QString error;
+    QEventLoop loop;
+    auto conn = connect(m_games, &GameManager::updateFinished, &loop,
+                        [&](const QString& gid, bool success, const QString& err) {
+        if (gid != id) return;
+        ok = success;
+        error = err;
+        loop.quit();
+    });
+    m_games->forceUpdateGame(id);
+    loop.exec();
+    disconnect(conn);
+    wait.close();
+
+    if (ok) {
+        refreshStates();
+        QMessageBox::information(this, T("Aggiornamento forzato"), T("%1 è stato aggiornato.").arg(name));
+    } else {
+        QMessageBox::warning(this, T("Aggiornamento non riuscito"),
+            QString(T("Non sono riuscito ad aggiornare %1.\n\n%2\n\n") +
+                    T("Se il gioco è in esecuzione chiudilo e riprova.")).arg(name, error));
+    }
+}
+
+// Aggiornamento forzato del launcher: se SelfUpdater ha già trovato una versione nuova la scarica subito
+// (senza chiedere conferma), altrimenti ripete il controllo.
+void MainWindow::forceUpdateLauncher() {
+    if (m_selfBusy) return;
+    if (m_hasSelfUpdate) {
+        m_selfBusy = true;
+        downloadSelfUpdate(m_selfInfo);
+        return;
+    }
+    m_selfUpdater->start();
+    QMessageBox::information(this, T("Aggiornamento del launcher"),
+        T("Controllo se è disponibile una nuova versione di ETA Launcher.\n"
+          "Se c'è, comparirà la richiesta di aggiornamento."));
 }
 
 void MainWindow::checkUpdatesForAll() {
