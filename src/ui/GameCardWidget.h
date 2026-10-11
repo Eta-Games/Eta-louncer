@@ -25,6 +25,7 @@ signals:
     void launchRequested(QString id);
     void manageRequested(QString id);
     void updateCheckRequested(QString id);
+    void forceUpdateRequested(QString id);   // aggiornamento forzato (pulsante ⬇)
     void reviewsRequested(QString id);
 
 protected:
@@ -42,6 +43,7 @@ private:
     QPushButton* m_actionBtn; // Installa / Avvia
     QPushButton* m_manageBtn;
     QPushButton* m_checkBtn;
+    QPushButton* m_forceBtn = nullptr;   // aggiornamento forzato
     QPixmap m_coverPix;
     bool m_installed = false;
 

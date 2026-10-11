@@ -37,6 +37,10 @@ public:
     QString localCommit(const QString& id) const;
     // `git pull --ff-only` nella cartella del gioco; alla fine emette updateFinished
     void updateGame(const QString& id);
+    // Aggiornamento forzato: `git fetch --prune origin` + `git reset --hard @{u}`.
+    // Riporta i file tracciati all'ultima versione; i file non tracciati (salvataggi, config) restano.
+    // Alla fine emette updateFinished.
+    void forceUpdateGame(const QString& id);
 
     // Verifica e ripara (git status + git checkout, senza reinstallare): cerca i file del gioco
     // modificati o cancellati rispetto all'ultimo commit. Salvataggi (.gzd), configurazioni (.ini)

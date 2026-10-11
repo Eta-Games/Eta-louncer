@@ -1,6 +1,7 @@
 #include "../core/PlayStats.h"
 #include "GameCardWidget.h"
 #include "CoverUtil.h"
+#include "IconUtil.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -12,6 +13,18 @@
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QUrl>
+
+// Pulsante quadrato solo-icona: niente padding, così l'icona non viene mai tagliata
+static void setupIconButton(QPushButton* b, const QIcon& icon, const QString& tip) {
+    b->setObjectName("Secondary");
+    b->setCursor(Qt::PointingHandCursor);
+    b->setIcon(icon);
+    b->setIconSize(QSize(18, 18));
+    b->setFixedWidth(42);
+    b->setToolTip(tip);
+    b->setFocusPolicy(Qt::NoFocus);
+    b->setStyleSheet("padding: 0px;");
+}
 
 GameCardWidget::GameCardWidget(const GameEntry& game, QWidget* parent)
     : QFrame(parent), m_game(game) {
@@ -95,29 +108,20 @@ GameCardWidget::GameCardWidget(const GameEntry& game, QWidget* parent)
     connect(m_manageBtn, &QPushButton::clicked, this, [this]() { emit manageRequested(m_game.id); });
     btnRow->addWidget(m_manageBtn);
 
-    m_checkBtn = new QPushButton(QString::fromUtf8("⟳"));
-    m_checkBtn->setObjectName("Secondary");
-    m_checkBtn->setCursor(Qt::PointingHandCursor);
-    m_checkBtn->setFixedWidth(40);
-    m_checkBtn->setToolTip(T("Controlla aggiornamenti"));
+    m_checkBtn = new QPushButton;
+    setupIconButton(m_checkBtn, Icons::refresh(), T("Controlla aggiornamenti"));
     m_checkBtn->setVisible(false);
     connect(m_checkBtn, &QPushButton::clicked, this, [this]() { emit updateCheckRequested(m_game.id); });
     btnRow->addWidget(m_checkBtn);
 
-    m_forceBtn = new QPushButton(QString::fromUtf8("⬇"));
-    m_forceBtn->setObjectName("Secondary");
-    m_forceBtn->setCursor(Qt::PointingHandCursor);
-    m_forceBtn->setFixedWidth(40);
-    m_forceBtn->setToolTip(T("Aggiorna forzatamente"));
+    m_forceBtn = new QPushButton;
+    setupIconButton(m_forceBtn, Icons::download(), T("Aggiorna forzatamente"));
     m_forceBtn->setVisible(false);
     connect(m_forceBtn, &QPushButton::clicked, this, [this]() { emit forceUpdateRequested(m_game.id); });
     btnRow->addWidget(m_forceBtn);
 
-    auto* reviewsBtn = new QPushButton(QString(QChar(0x2605)));
-    reviewsBtn->setObjectName("Secondary");
-    reviewsBtn->setCursor(Qt::PointingHandCursor);
-    reviewsBtn->setFixedWidth(40);
-    reviewsBtn->setToolTip(T("Recensioni e voti"));
+    auto* reviewsBtn = new QPushButton;
+    setupIconButton(reviewsBtn, Icons::star(), T("Recensioni e voti"));
     connect(reviewsBtn, &QPushButton::clicked, this, [this]() { emit reviewsRequested(m_game.id); });
     btnRow->addWidget(reviewsBtn);
 
@@ -173,9 +177,9 @@ void GameCardWidget::setBusy(bool busy, const QString& label) {
     if (busy) m_statusLabel->setText(label);
 }
 
+// Durante il controllo il pulsante si disattiva (Qt mostra l'icona sbiadita)
 void GameCardWidget::setChecking(bool checking) {
     m_checkBtn->setEnabled(!checking);
-    m_checkBtn->setText(checking ? QString::fromUtf8("…") : QString::fromUtf8("⟳"));
     m_checkBtn->setToolTip(checking ? T("Controllo aggiornamenti") + QString::fromUtf8("…") : T("Controlla aggiornamenti"));
 }
 

@@ -1,5 +1,0 @@
-C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/CMakeFiles/ETALauncher.dir
-C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/CMakeFiles/edit_cache.dir
-C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/CMakeFiles/rebuild_cache.dir
-C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/CMakeFiles/ETALauncher_autogen_timestamp_deps.dir
-C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/CMakeFiles/ETALauncher_autogen.dir

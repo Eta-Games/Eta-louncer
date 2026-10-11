@@ -114,6 +114,9 @@ private:
     void processUpdateQueue();
     bool updateGameNow(const RepoUpdate& update);
 
+    void forceUpdateGame(const QString& id);   // aggiornamento forzato di un gioco (git fetch + reset --hard)
+    void forceUpdateLauncher();                // aggiornamento forzato del launcher
+
     void onInstallRequested(GameEntry game);
     void onLaunchRequested(const QString& id);
     void onManageRequested(const QString& id);
