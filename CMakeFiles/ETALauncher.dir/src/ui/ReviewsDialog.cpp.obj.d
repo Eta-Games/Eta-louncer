@@ -419,19 +419,6 @@ CMakeFiles/ETALauncher.dir/src/ui/ReviewsDialog.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qpicture.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qiodevice.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qtextdocument.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/QComboBox \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qcombobox.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qstyleoption.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
- C:/Qt/6.12.0/mingw_64/include/QtGui/qvalidator.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qslider.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qabstractslider.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qstyle.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qtabbar.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qtabwidget.h \
- C:/Qt/6.12.0/mingw_64/include/QtWidgets/qrubberband.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qabstractitemmodel.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QPlainTextEdit \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qplaintextedit.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qtextedit.h \
@@ -473,8 +460,20 @@ CMakeFiles/ETALauncher.dir/src/ui/ReviewsDialog.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QPushButton \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qpushbutton.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QButtonGroup \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qbuttongroup.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QProgressBar \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/qprogressbar.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QScrollArea \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qscrollarea.h \
+ C:/Qt/6.12.0/mingw_64/include/QtWidgets/QFrame \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QDateTime \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QPointer \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qpointer.h
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qpointer.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/QPainter \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qpainter.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/QPainterPath \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/qpainterpath.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/QPixmap \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/QIcon \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/QGuiApplication
