@@ -1,5 +1,6 @@
 C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/ETALauncher_autogen/PRMOGMWJPH/moc_UpdateChecker.cpp: C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/UpdateChecker.h \
   C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/ETALauncher_autogen/moc_predefs.h \
+  C:/Qt/6.12.0/mingw_64/include/QtCore/QByteArray \
   C:/Qt/6.12.0/mingw_64/include/QtCore/QObject \
   C:/Qt/6.12.0/mingw_64/include/QtCore/QString \
   C:/Qt/6.12.0/mingw_64/include/QtCore/q17memory.h \

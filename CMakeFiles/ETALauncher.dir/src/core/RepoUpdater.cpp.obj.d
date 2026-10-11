@@ -342,14 +342,12 @@ CMakeFiles/ETALauncher.dir/src/core/RepoUpdater.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qmap.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qshareddata_impl.h \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\GameCatalog.h \
- C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\I18n.h \
- C:/Qt/6.12.0/mingw_64/include/QtNetwork/QNetworkAccessManager \
- C:/Qt/6.12.0/mingw_64/include/QtNetwork/qnetworkaccessmanager.h \
- C:/Qt/6.12.0/mingw_64/include/QtNetwork/qtnetworkglobal.h \
- C:/Qt/6.12.0/mingw_64/include/QtNetwork/qtnetwork-config.h \
- C:/Qt/6.12.0/mingw_64/include/QtNetwork/qtnetworkexports.h \
- C:/Qt/6.12.0/mingw_64/include/QtNetwork/qnetworkrequest.h \
- C:/Qt/6.12.0/mingw_64/include/QtNetwork/qhttpheaders.h \
+ C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\Config.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QJsonObject \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonobject.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonvalue.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcborvalue.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qcborcommon.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qdatetime.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qcalendar.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qlocale.h \
@@ -369,11 +367,24 @@ CMakeFiles/ETALauncher.dir/src/core/RepoUpdater.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qalloc.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/q23utility.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/q20utility.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qregularexpression.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qurl.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/quuid.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qendian.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qjsondocument.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonparseerror.h \
+ C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\I18n.h \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/QNetworkAccessManager \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/qnetworkaccessmanager.h \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/qtnetworkglobal.h \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/qtnetwork-config.h \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/qtnetworkexports.h \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/qnetworkrequest.h \
+ C:/Qt/6.12.0/mingw_64/include/QtNetwork/qhttpheaders.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qmetaobject.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QSharedDataPointer \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QString \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QUrl \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qurl.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QVariant \
  C:/Qt/6.12.0/mingw_64/include/QtCore/q26numeric.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QList \
@@ -392,31 +403,51 @@ CMakeFiles/ETALauncher.dir/src/core/RepoUpdater.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
  C:/Qt/6.12.0/mingw_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QMetaType \
- C:/Qt/6.12.0/mingw_64/include/QtNetwork/QNetworkRequest \
- C:/Qt/6.12.0/mingw_64/include/QtNetwork/QNetworkReply \
- C:/Qt/6.12.0/mingw_64/include/QtNetwork/qnetworkreply.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/QIODevice \
- C:/Qt/6.12.0/mingw_64/include/QtNetwork/QNetworkRequest \
- C:/Qt/6.12.0/mingw_64/include/QtNetwork/QNetworkAccessManager \
- C:/Qt/6.12.0/mingw_64/include/QtCore/QJsonDocument \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qjsondocument.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonparseerror.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/QJsonObject \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonobject.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonvalue.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qcborvalue.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qcborcommon.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qregularexpression.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/quuid.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qendian.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/QJsonArray \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonarray.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/QSettings \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qsettings.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QProcessEnvironment \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QStandardPaths \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qstandardpaths.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QRegularExpression \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QFileInfo \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qfileinfo.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qfile.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qfiledevice.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/filesystem \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_fwd.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_path.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/locale \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.tcc \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/codecvt.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.tcc \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_conv.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iomanip \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/quoted_string.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qtimezone.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QDir \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qdir.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qdirlisting.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QTimer \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qtimer.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qbasictimer.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qabstracteventdispatcher.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qeventloop.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/qdeadlinetimer.h \
- C:/Qt/6.12.0/mingw_64/include/QtCore/QUrl
+ C:/Qt/6.12.0/mingw_64/include/QtCore/qdeadlinetimer.h

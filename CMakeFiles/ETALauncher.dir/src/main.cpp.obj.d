@@ -481,6 +481,7 @@ CMakeFiles/ETALauncher.dir/src/main.cpp.obj: \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/GameCatalog.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QList \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/UpdateChecker.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QByteArray \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/RepoUpdater.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QSet \
  C:/Users/gabri/Documents/eta-launcher-cpp/Eta-louncer/src/core/SelfUpdater.h \

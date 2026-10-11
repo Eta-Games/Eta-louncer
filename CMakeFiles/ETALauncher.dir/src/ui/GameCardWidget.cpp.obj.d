@@ -414,6 +414,11 @@ CMakeFiles/ETALauncher.dir/src/ui/GameCardWidget.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qpen.h \
  C:/Qt/6.12.0/mingw_64/include/QtGui/QPainterPath \
  C:/Qt/6.12.0/mingw_64/include/QtGui/qpainterpath.h \
+ C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\ui\IconUtil.h \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/QIcon \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/QPolygonF \
+ C:/Qt/6.12.0/mingw_64/include/QtGui/QColor \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QtMath \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/QVBoxLayout \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qboxlayout.h \
  C:/Qt/6.12.0/mingw_64/include/QtWidgets/qlayout.h \

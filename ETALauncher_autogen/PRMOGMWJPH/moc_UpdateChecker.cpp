@@ -43,13 +43,19 @@ template <> constexpr inline auto UpdateChecker::qt_create_metaobjectdata<qt_met
         "",
         "gameId",
         "UpdateInfo",
-        "info"
+        "info",
+        "launcherResult",
+        "CommitInfo"
     };
 
     QtMocHelpers::UintData qt_methods {
         // Signal 'result'
-        QtMocHelpers::SignalData<void(const QString &, UpdateInfo)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+        QtMocHelpers::SignalData<void(const QString &, const UpdateInfo &)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
             { QMetaType::QString, 3 }, { 0x80000000 | 4, 5 },
+        }}),
+        // Signal 'launcherResult'
+        QtMocHelpers::SignalData<void(const CommitInfo &)>(6, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 7, 5 },
         }}),
     };
     QtMocHelpers::UintData qt_properties {
@@ -75,11 +81,14 @@ void UpdateChecker::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
         case 0: _t->result((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<UpdateInfo>>(_a[2]))); break;
+        case 1: _t->launcherResult((*reinterpret_cast<std::add_pointer_t<CommitInfo>>(_a[1]))); break;
         default: ;
         }
     }
     if (_c == QMetaObject::IndexOfMethod) {
-        if (QtMocHelpers::indexOfMethod<void (UpdateChecker::*)(const QString & , UpdateInfo )>(_a, &UpdateChecker::result, 0))
+        if (QtMocHelpers::indexOfMethod<void (UpdateChecker::*)(const QString & , const UpdateInfo & )>(_a, &UpdateChecker::result, 0))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (UpdateChecker::*)(const CommitInfo & )>(_a, &UpdateChecker::launcherResult, 1))
             return;
     }
 }
@@ -103,21 +112,27 @@ int UpdateChecker::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 2;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 2)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 1;
+        _id -= 2;
     }
     return _id;
 }
 
 // SIGNAL 0
-void UpdateChecker::result(const QString & _t1, UpdateInfo _t2)
+void UpdateChecker::result(const QString & _t1, const UpdateInfo & _t2)
 {
     QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1, _t2);
+}
+
+// SIGNAL 1
+void UpdateChecker::launcherResult(const CommitInfo & _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 1, nullptr, _t1);
 }
 QT_WARNING_POP

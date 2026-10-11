@@ -47,6 +47,7 @@ template <> constexpr inline auto GameCardWidget::qt_create_metaobjectdata<qt_me
         "id",
         "manageRequested",
         "updateCheckRequested",
+        "forceUpdateRequested",
         "reviewsRequested"
     };
 
@@ -67,8 +68,12 @@ template <> constexpr inline auto GameCardWidget::qt_create_metaobjectdata<qt_me
         QtMocHelpers::SignalData<void(QString)>(8, 2, QMC::AccessPublic, QMetaType::Void, {{
             { QMetaType::QString, 6 },
         }}),
-        // Signal 'reviewsRequested'
+        // Signal 'forceUpdateRequested'
         QtMocHelpers::SignalData<void(QString)>(9, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 6 },
+        }}),
+        // Signal 'reviewsRequested'
+        QtMocHelpers::SignalData<void(QString)>(10, 2, QMC::AccessPublic, QMetaType::Void, {{
             { QMetaType::QString, 6 },
         }}),
     };
@@ -98,7 +103,8 @@ void GameCardWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 1: _t->launchRequested((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
         case 2: _t->manageRequested((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
         case 3: _t->updateCheckRequested((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 4: _t->reviewsRequested((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 4: _t->forceUpdateRequested((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 5: _t->reviewsRequested((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     }
@@ -111,7 +117,9 @@ void GameCardWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
             return;
         if (QtMocHelpers::indexOfMethod<void (GameCardWidget::*)(QString )>(_a, &GameCardWidget::updateCheckRequested, 3))
             return;
-        if (QtMocHelpers::indexOfMethod<void (GameCardWidget::*)(QString )>(_a, &GameCardWidget::reviewsRequested, 4))
+        if (QtMocHelpers::indexOfMethod<void (GameCardWidget::*)(QString )>(_a, &GameCardWidget::forceUpdateRequested, 4))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (GameCardWidget::*)(QString )>(_a, &GameCardWidget::reviewsRequested, 5))
             return;
     }
 }
@@ -135,14 +143,14 @@ int GameCardWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 6;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 6)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 5;
+        _id -= 6;
     }
     return _id;
 }
@@ -172,8 +180,14 @@ void GameCardWidget::updateCheckRequested(QString _t1)
 }
 
 // SIGNAL 4
-void GameCardWidget::reviewsRequested(QString _t1)
+void GameCardWidget::forceUpdateRequested(QString _t1)
 {
     QMetaObject::activate<void>(this, &staticMetaObject, 4, nullptr, _t1);
+}
+
+// SIGNAL 5
+void GameCardWidget::reviewsRequested(QString _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 5, nullptr, _t1);
 }
 QT_WARNING_POP
