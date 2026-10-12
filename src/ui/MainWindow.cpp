@@ -159,7 +159,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
     connect(m_broadcast, &BroadcastManager::changed, this, &MainWindow::updateBroadcastNav);
 
     // Tray: il launcher può restare in background; i broadcast nuovi arrivano come notifica di sistema
-    // Auto-aggiornamento del launcher (release GitHub su master): scarica, chiude, sostituisce, riavvia
+    // Auto-aggiornamento del launcher dal branch master: scarica i file diversi, chiude, sostituisce, riavvia
     connect(m_selfUpdater, &SelfUpdater::updateAvailable, this, [this](const SelfUpdateInfo& info) {
         m_selfInfo = info;
         m_hasSelfUpdate = true;
@@ -206,7 +206,7 @@ void MainWindow::startSession() {
     m_friends->reload();
     if (kBroadcastEnabled) m_broadcast->start();
     m_repoUpdater->start(); // confronta launcher e giochi con le repo su GitHub
-    m_selfUpdater->start(); // release del launcher su master
+    m_selfUpdater->start(); // file del launcher sul branch master
     checkLauncherChangelog();
 }
 
@@ -292,6 +292,12 @@ void MainWindow::askSelfUpdate() {
     box.setIcon(QMessageBox::Information);
     box.setText(T("È disponibile una nuova versione di <b>ETA Launcher</b> (%1).<br>Il launcher la scarica, si chiude, si aggiorna e si riavvia da solo.")
                     .arg(info.tag.toHtmlEscaped()));
+    // novità = messaggio dell'ultimo commit su master + quanto c'è da scaricare
+    QString news;
+    if (!info.title.isEmpty()) news += "<b>" + info.title.toHtmlEscaped() + "</b>";
+    if (!info.body.isEmpty()) news += "<br>" + info.body.left(600).toHtmlEscaped().replace("\n", "<br>");
+    news += "<br><br>" + QString(T("Da scaricare: %1 file (%2 MB).")).arg(info.files.size()).arg(QString::number(info.size / 1048576.0, 'f', 1));
+    box.setInformativeText(news);
     auto* yes = box.addButton(T("Aggiorna e riavvia"), QMessageBox::AcceptRole);
     box.addButton(T("Più tardi"), QMessageBox::RejectRole);
     box.exec();
@@ -684,7 +690,7 @@ void MainWindow::onManageRequested(const QString& id) {
 
 // ── Aggiornamenti da repo (launcher + giochi) ─────────────────────────────
 void MainWindow::onRepoUpdateAvailable(RepoUpdate update) {
-    if (update.isLauncher) return;   // il launcher si aggiorna con SelfUpdater (release su master), non con i commit di main
+    if (update.isLauncher) return;   // il launcher si aggiorna con SelfUpdater (file su master), non con i commit di main
     m_updateQueue.append(update);
     if (m_tray->isVisible() && (!isVisible() || isMinimized())) {
         // in background niente finestre a sorpresa: notifica dalla tray, la domanda arriva quando apri il launcher

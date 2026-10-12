@@ -5,13 +5,15 @@
 class AuthManager;
 class FirestoreClient;
 class QVBoxLayout;
-class QComboBox;
 class QPlainTextEdit;
 class QLabel;
 class QPushButton;
+class QProgressBar;
 
-// Voti e commenti di un gioco: collezione Firestore "reviews", documento <gameId>_<uid>.
-// Stessi dati del sito (eta-reviews.js): una recensione per utente, visibile ovunque.
+// Recensioni stile Steam (Mi piace / Non mi piace) + commento.
+// Collezione Firestore "reviews", documento <gameId>_<uid>.
+// Compatibile col sito (eta-reviews.js): il pollice su salva rating=5, quello giù rating=1,
+// e le vecchie recensioni a stelle (>=3) contano come positive.
 class ReviewsDialog : public QDialog {
     Q_OBJECT
 public:
@@ -26,9 +28,11 @@ private:
     FirestoreClient* m_fs;
     QString m_gameId;
     QLabel* m_summary = nullptr;
+    QProgressBar* m_bar = nullptr;
     QLabel* m_msg = nullptr;
     QVBoxLayout* m_list = nullptr;
-    QComboBox* m_rating = nullptr;
+    QPushButton* m_like = nullptr;
+    QPushButton* m_dislike = nullptr;
     QPlainTextEdit* m_text = nullptr;
     QPushButton* m_send = nullptr;
 };
