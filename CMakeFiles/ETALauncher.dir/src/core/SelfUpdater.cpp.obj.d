@@ -349,6 +349,7 @@ CMakeFiles/ETALauncher.dir/src/core/SelfUpdater.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qalloc.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/q23utility.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/q20utility.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QList \
  C:\Users\gabri\Documents\eta-launcher-cpp\Eta-louncer\src\core\I18n.h \
  C:/Qt/6.12.0/mingw_64/include/QtNetwork/QNetworkAccessManager \
  C:/Qt/6.12.0/mingw_64/include/QtNetwork/qnetworkaccessmanager.h \
@@ -403,6 +404,7 @@ CMakeFiles/ETALauncher.dir/src/core/SelfUpdater.cpp.obj: \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qendian.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QJsonObject \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qjsonobject.h \
+ C:/Qt/6.12.0/mingw_64/include/QtCore/QCryptographicHash \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QSettings \
  C:/Qt/6.12.0/mingw_64/include/QtCore/qsettings.h \
  C:/Qt/6.12.0/mingw_64/include/QtCore/QStandardPaths \

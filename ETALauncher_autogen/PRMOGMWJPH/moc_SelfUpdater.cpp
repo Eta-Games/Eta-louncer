@@ -50,7 +50,7 @@ template <> constexpr inline auto SelfUpdater::qt_create_metaobjectdata<qt_meta_
         "received",
         "total",
         "downloaded",
-        "file",
+        "stageDir",
         "downloadFailed"
     };
 
